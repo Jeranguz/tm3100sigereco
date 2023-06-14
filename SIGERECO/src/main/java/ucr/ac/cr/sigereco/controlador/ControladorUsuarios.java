@@ -6,23 +6,23 @@ package ucr.ac.cr.sigereco.controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import ucr.ac.cr.sigereco.vista.FrameLogin;
+import ucr.ac.cr.sigereco.vista.FrameRegistro;
 import ucr.ac.cr.sigereco.vista.PanelBotones;
-import ucr.ac.cr.sigereco.vista.PanelLogin;
+import ucr.ac.cr.sigereco.vista.PanelRegistro;
 
 
 /**
  *
  * @author XPC
  */
-public class ControladorLogin implements ActionListener {
+public class ControladorUsuarios implements ActionListener {
     
-    private FrameLogin frameLogin;
+    private FrameRegistro frameLogin;
     private PanelBotones panelBotones;
-    private PanelLogin panelLogin;
+    private PanelRegistro panelLogin;
 
-    public ControladorLogin() {
-        frameLogin = new FrameLogin(this);
+    public ControladorUsuarios() {
+        frameLogin = new FrameRegistro(this);
         panelBotones= frameLogin.getPanelBotones();
         panelLogin = frameLogin.getPanelLogin();
         frameLogin.setVisible(true);
@@ -58,7 +58,7 @@ public class ControladorLogin implements ActionListener {
     }
     
     public static void main(String[] args) {
-        new ControladorLogin();
+        new ControladorUsuarios();
     }
     
 }

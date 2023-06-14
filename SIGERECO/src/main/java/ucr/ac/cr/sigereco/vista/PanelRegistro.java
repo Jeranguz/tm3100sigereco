@@ -7,9 +7,9 @@ package ucr.ac.cr.sigereco.vista;
 import java.awt.event.ActionListener;
 
 
-public class PanelLogin extends javax.swing.JPanel {
+public class PanelRegistro extends javax.swing.JPanel {
 
-    public PanelLogin() {
+    public PanelRegistro() {
         initComponents();
     }
 
@@ -178,7 +178,7 @@ public class PanelLogin extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtNombreUsuario)
                             .addComponent(txtPais)
-                            .addComponent(txtContrasena, javax.swing.GroupLayout.DEFAULT_SIZE, 108, Short.MAX_VALUE)
+                            .addComponent(txtContrasena)
                             .addComponent(jComboTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(17, 17, 17)

@@ -5,18 +5,18 @@
 package ucr.ac.cr.sigereco.vista;
 
 import javax.swing.JOptionPane;
-import ucr.ac.cr.sigereco.controlador.ControladorLogin;
+import ucr.ac.cr.sigereco.controlador.ControladorUsuarios;
 
 /**
  *
  * @author XPC
  */
-public class FrameLogin extends javax.swing.JFrame {
+public class FrameRegistro extends javax.swing.JFrame {
 
     /**
      * Creates new form FrameLogin
      */
-    public FrameLogin(ControladorLogin controlador) {
+    public FrameRegistro(ControladorUsuarios controlador) {
         initComponents();
         panelBotones1.escuchar(controlador);
         panelLogin1.escuchar(controlador);
@@ -27,7 +27,7 @@ public class FrameLogin extends javax.swing.JFrame {
 
     }
 
-    public PanelLogin getPanelLogin() {
+    public PanelRegistro getPanelLogin() {
         return panelLogin1;
 
     }
@@ -46,7 +46,7 @@ public class FrameLogin extends javax.swing.JFrame {
     private void initComponents() {
 
         panelBotones1 = new ucr.ac.cr.sigereco.vista.PanelBotones();
-        panelLogin1 = new ucr.ac.cr.sigereco.vista.PanelLogin();
+        panelLogin1 = new ucr.ac.cr.sigereco.vista.PanelRegistro();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -63,6 +63,6 @@ public class FrameLogin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private ucr.ac.cr.sigereco.vista.PanelBotones panelBotones1;
-    private ucr.ac.cr.sigereco.vista.PanelLogin panelLogin1;
+    private ucr.ac.cr.sigereco.vista.PanelRegistro panelLogin1;
     // End of variables declaration//GEN-END:variables
 }
