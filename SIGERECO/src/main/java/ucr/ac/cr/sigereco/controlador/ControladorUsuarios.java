@@ -6,9 +6,10 @@ package ucr.ac.cr.sigereco.controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import ucr.ac.cr.sigereco.modelo.Usuario;
+import ucr.ac.cr.sigereco.vista.FrameInicioSesion;
 import ucr.ac.cr.sigereco.vista.FrameRegistro;
-import ucr.ac.cr.sigereco.vista.PanelBotones;
-import ucr.ac.cr.sigereco.vista.PanelRegistro;
 
 
 /**
@@ -17,15 +18,17 @@ import ucr.ac.cr.sigereco.vista.PanelRegistro;
  */
 public class ControladorUsuarios implements ActionListener {
     
-    private FrameRegistro frameLogin;
-    private PanelBotones panelBotones;
-    private PanelRegistro panelLogin;
+    private FrameRegistro frameRegistro;
+    private FrameInicioSesion frameInicioSesion;
+    private ArrayList <Usuario> usuarios;
 
     public ControladorUsuarios() {
-        frameLogin = new FrameRegistro(this);
-        panelBotones= frameLogin.getPanelBotones();
-        panelLogin = frameLogin.getPanelLogin();
-        frameLogin.setVisible(true);
+        frameRegistro = new FrameRegistro();
+        frameInicioSesion=new FrameInicioSesion();
+        usuarios=new ArrayList<>();
+        frameRegistro.setVisible(true);
+        frameRegistro.setLocationRelativeTo(null);
+        frameRegistro.escuchar(this);
     }
     
     
@@ -52,7 +55,11 @@ public class ControladorUsuarios implements ActionListener {
                 break;
                 
             case "Salir":
-                frameLogin.setVisible(false);
+                frameRegistro.setVisible(false);
+                break;
+                
+            case "Registrar":
+                System.out.println("Se presiono el boton Registrar");
                 break;
         }
     }

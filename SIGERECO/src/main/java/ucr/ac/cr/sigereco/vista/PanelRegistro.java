@@ -5,6 +5,7 @@
 package ucr.ac.cr.sigereco.vista;
 
 import java.awt.event.ActionListener;
+import ucr.ac.cr.sigereco.controlador.ControladorUsuarios;
 
 
 public class PanelRegistro extends javax.swing.JPanel {
@@ -85,12 +86,12 @@ public class PanelRegistro extends javax.swing.JPanel {
         this.txtContrasena.setText(contrasena);
     }
     
-    public String getJComboTipo() {
-        return jComboTipo.getSelectedItem().toString();
+    public String getCboxTipo() {
+        return cBoxTipoUsuario.getSelectedItem().toString();
     }
 
-    public void setCboxGenero(String jComboTipo) {
-        this.jComboTipo.setSelectedItem(jComboTipo);
+    public void setCboxTipo(String jComboTipo) {
+        this.cBoxTipoUsuario.setSelectedItem(jComboTipo);
     }
     
     public void limpiar() {
@@ -102,13 +103,19 @@ public class PanelRegistro extends javax.swing.JPanel {
         txtContrasena.setText("");
     }
     
-    public void escuchar (ActionListener controlador){
-        txtNombre.addActionListener(controlador);
-        txtApellido.addActionListener(controlador);
-        txtCorreo.addActionListener(controlador);
-        txtNombreUsuario.addActionListener(controlador);
-        txtPais.addActionListener(controlador);
-        txtContrasena.addActionListener(controlador);
+    public void escuchar (ControladorUsuarios controladorUsuarios){
+//        txtNombre.addActionListener(controladorUsuarios);
+//        txtApellido.addActionListener(controladorUsuarios);
+//        txtCorreo.addActionListener(controladorUsuarios);
+//        txtNombreUsuario.addActionListener(controladorUsuarios);
+//        txtPais.addActionListener(controladorUsuarios);
+//        txtContrasena.addActionListener(controladorUsuarios);
+
+          btnEliminar.addActionListener(controladorUsuarios);
+          btnModificar.addActionListener(controladorUsuarios);
+          btnRegistrar.addActionListener(controladorUsuarios);
+          btnSalir.addActionListener(controladorUsuarios);
+          btnUsuarios.addActionListener(controladorUsuarios);
     }
 
     @SuppressWarnings("unchecked")
@@ -116,23 +123,32 @@ public class PanelRegistro extends javax.swing.JPanel {
     private void initComponents() {
 
         txtNombre = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        lblNombre = new javax.swing.JLabel();
+        lblApellido = new javax.swing.JLabel();
         txtApellido = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
+        lblCorreo = new javax.swing.JLabel();
         txtCorreo = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
+        lblNombreUsuario = new javax.swing.JLabel();
         txtNombreUsuario = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
+        lblPais = new javax.swing.JLabel();
         txtPais = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
+        lblContrasena = new javax.swing.JLabel();
         txtContrasena = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
-        jComboTipo = new javax.swing.JComboBox<>();
+        lblTipoUsuario = new javax.swing.JLabel();
+        cBoxTipoUsuario = new javax.swing.JComboBox<>();
+        btnRegistrar = new javax.swing.JButton();
+        btnModificar = new javax.swing.JButton();
+        btnEliminar = new javax.swing.JButton();
+        btnUsuarios = new javax.swing.JButton();
+        btnSalir = new javax.swing.JButton();
+        txtCod = new javax.swing.JTextField();
+        lblCod = new javax.swing.JLabel();
+        txtId = new javax.swing.JTextField();
+        lblId = new javax.swing.JLabel();
 
-        jLabel1.setText("Nombre:");
+        lblNombre.setText("Nombre:");
 
-        jLabel2.setText("Apellido:");
+        lblApellido.setText("Apellido:");
 
         txtApellido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -140,91 +156,137 @@ public class PanelRegistro extends javax.swing.JPanel {
             }
         });
 
-        jLabel3.setText("Correo:");
+        lblCorreo.setText("Correo:");
 
-        jLabel4.setText("Nombre de usuario:");
+        lblNombreUsuario.setText("Nombre de usuario:");
 
-        jLabel5.setText("Pais:");
+        lblPais.setText("Pais:");
 
-        jLabel6.setText("Contraseña:");
+        lblContrasena.setText("Contraseña:");
 
-        jLabel7.setText("Tipo usuario:");
+        lblTipoUsuario.setText("Tipo usuario:");
 
-        jComboTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrador", "Consultor" }));
+        cBoxTipoUsuario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrador", "Consultor" }));
+
+        btnRegistrar.setText("Registrar");
+
+        btnModificar.setText("Modificar");
+
+        btnEliminar.setText("Eliminar");
+
+        btnUsuarios.setText("Usuarios");
+
+        btnSalir.setText("Salir");
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalirActionPerformed(evt);
+            }
+        });
+
+        lblCod.setText("cod:");
+
+        lblId.setText("ID");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnRegistrar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(txtNombreUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
+                            .addComponent(txtPais, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtNombre, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblNombre, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addGap(70, 70, 70)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(47, 47, 47)
-                                .addComponent(jLabel5)
-                                .addGap(70, 70, 70))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(jLabel4)
-                                        .addGap(18, 18, 18))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel7)
-                                            .addComponent(jLabel6))
-                                        .addGap(38, 38, 38)))))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtNombreUsuario)
-                            .addComponent(txtPais)
-                            .addComponent(txtContrasena)
-                            .addComponent(jComboTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(17, 17, 17)
+                                .addComponent(lblApellido)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(txtApellido)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblId)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnModificar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                        .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3))
-                        .addGap(52, 52, 52)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtNombre)
-                            .addComponent(txtApellido)
-                            .addComponent(txtCorreo, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE))))
-                .addContainerGap(213, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblTipoUsuario)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(cBoxTipoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblPais)
+                            .addComponent(lblNombreUsuario))
+                        .addGap(59, 59, 59)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtContrasena)
+                            .addComponent(txtCorreo)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblCorreo)
+                                    .addComponent(lblContrasena))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(lblCod)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtCod, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGap(29, 29, 29))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(39, 39, 39)
+                .addGap(14, 14, 14)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblNombre)
+                    .addComponent(lblApellido))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
                     .addComponent(txtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
+                    .addComponent(lblPais)
+                    .addComponent(lblCorreo))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtPais, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(txtNombreUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(lblNombreUsuario)
+                    .addComponent(lblContrasena))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(txtPais, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
+                    .addComponent(txtNombreUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(jComboTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(56, Short.MAX_VALUE))
+                    .addComponent(lblTipoUsuario)
+                    .addComponent(cBoxTipoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblCod))
+                .addGap(27, 27, 27)
+                .addComponent(btnRegistrar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnEliminar)
+                    .addComponent(btnSalir)
+                    .addComponent(btnUsuarios)
+                    .addComponent(btnModificar)
+                    .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblId))
+                .addGap(26, 26, 26))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -232,19 +294,32 @@ public class PanelRegistro extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtApellidoActionPerformed
 
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSalirActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> jComboTipo;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
+    private javax.swing.JButton btnEliminar;
+    private javax.swing.JButton btnModificar;
+    private javax.swing.JButton btnRegistrar;
+    private javax.swing.JButton btnSalir;
+    private javax.swing.JButton btnUsuarios;
+    private javax.swing.JComboBox<String> cBoxTipoUsuario;
+    private javax.swing.JLabel lblApellido;
+    private javax.swing.JLabel lblCod;
+    private javax.swing.JLabel lblContrasena;
+    private javax.swing.JLabel lblCorreo;
+    private javax.swing.JLabel lblId;
+    private javax.swing.JLabel lblNombre;
+    private javax.swing.JLabel lblNombreUsuario;
+    private javax.swing.JLabel lblPais;
+    private javax.swing.JLabel lblTipoUsuario;
     private javax.swing.JTextField txtApellido;
+    private javax.swing.JTextField txtCod;
     private javax.swing.JTextField txtContrasena;
     private javax.swing.JTextField txtCorreo;
+    private javax.swing.JTextField txtId;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtNombreUsuario;
     private javax.swing.JTextField txtPais;

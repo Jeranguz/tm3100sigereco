@@ -16,6 +16,12 @@ public class FrameAdmin extends javax.swing.JFrame {
     public FrameAdmin() {
         initComponents();
     }
+    
+//    public void escuchar(ControladorPrincipal controladorPrincipal){
+//    
+//        panelAdmin1.escuchar();
+//    
+//    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -27,31 +33,31 @@ public class FrameAdmin extends javax.swing.JFrame {
     private void initComponents() {
 
         panelAdmin1 = new ucr.ac.cr.sigereco.vista.PanelAdmin();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
-        jMenu3 = new javax.swing.JMenu();
-        jMenu4 = new javax.swing.JMenu();
-        jMenu5 = new javax.swing.JMenu();
+        jMenuBar = new javax.swing.JMenuBar();
+        jMenuAyuda = new javax.swing.JMenu();
+        jMenuModUsu = new javax.swing.JMenu();
+        jMenuModAdmin = new javax.swing.JMenu();
+        jMenuNomUsu = new javax.swing.JMenu();
+        jMenuCerrarSesion = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jMenu1.setText("Ayuda");
-        jMenuBar1.add(jMenu1);
+        jMenuAyuda.setText("Ayuda");
+        jMenuBar.add(jMenuAyuda);
 
-        jMenu2.setText("Modo Usuario");
-        jMenuBar1.add(jMenu2);
+        jMenuModUsu.setText("Modo Usuario");
+        jMenuBar.add(jMenuModUsu);
 
-        jMenu3.setText("Modo Administrador");
-        jMenuBar1.add(jMenu3);
+        jMenuModAdmin.setText("Modo Administrador");
+        jMenuBar.add(jMenuModAdmin);
 
-        jMenu4.setText("Nombre_Usuario");
-        jMenuBar1.add(jMenu4);
+        jMenuNomUsu.setText("Nombre_Usuario");
+        jMenuBar.add(jMenuNomUsu);
 
-        jMenu5.setText("Cerrar sesion");
-        jMenuBar1.add(jMenu5);
+        jMenuCerrarSesion.setText("Cerrar sesion");
+        jMenuBar.add(jMenuCerrarSesion);
 
-        setJMenuBar(jMenuBar1);
+        setJMenuBar(jMenuBar);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -75,45 +81,14 @@ public class FrameAdmin extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FrameAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FrameAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FrameAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FrameAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new FrameAdmin().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
-    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenu jMenuAyuda;
+    private javax.swing.JMenuBar jMenuBar;
+    private javax.swing.JMenu jMenuCerrarSesion;
+    private javax.swing.JMenu jMenuModAdmin;
+    private javax.swing.JMenu jMenuModUsu;
+    private javax.swing.JMenu jMenuNomUsu;
     private ucr.ac.cr.sigereco.vista.PanelAdmin panelAdmin1;
     // End of variables declaration//GEN-END:variables
 }

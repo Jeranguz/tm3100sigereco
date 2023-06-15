@@ -16,26 +16,64 @@ public class FrameRegistro extends javax.swing.JFrame {
     /**
      * Creates new form FrameLogin
      */
-    public FrameRegistro(ControladorUsuarios controlador) {
+    public FrameRegistro() {
         initComponents();
-        panelBotones1.escuchar(controlador);
-        panelLogin1.escuchar(controlador);
+        
+    }public String getTxtNombre() {
+        return panelRegistro1.getTxtNombre();
+    }
+
+    public void setTxtNombre(String apellido) {
+        panelRegistro1.setTxtNombre(apellido);
+    }
+
+    public String getTxtApellido() {
+        return panelRegistro1.getTxtApellido();
+    }
+
+    public void setTxtApellido(String apellido) {
+        panelRegistro1.setTxtApellido(apellido);
+    }
+
+    public String getTxtCorreo() {
+        return panelRegistro1.getTxtCorreo();
+    }
+
+    public void setTxtCorreo(String correo) {
+        panelRegistro1.setTxtCorreo(correo);
+    }
+
+    public String getTxtNombreUsuario() {
+        return panelRegistro1.getTxtNombreUsuario();
+    }
+
+    public void setTxtNombreUsuario(String nombreUsuario) {
+        panelRegistro1.setTxtNombreUsuario(nombreUsuario);
+    }
+
+    public String getTxtPais() {
+        return panelRegistro1.getTxtPais();
+    }
+
+    public void setTxtPais(String pais) {
+        panelRegistro1.setTxtPais(pais);
     }
     
-    public PanelBotones getPanelBotones() {
-        return panelBotones1;
-
+    public String getTxtContrasena() {
+        return panelRegistro1.getTxtContrasena();
     }
 
-    public PanelRegistro getPanelLogin() {
-        return panelLogin1;
-
+    public void setTxtContrasena(String contrasena) {
+        panelRegistro1.setTxtContrasena(contrasena);
+    }
+    
+    public String getCboxTipo() {
+        return panelRegistro1.getCboxTipo();
     }
 
-    public void mostrarMensaje(String mensaje) {
-        JOptionPane.showMessageDialog(null, mensaje);
+    public void setCboxTipo(String jComboTipo) {
+        panelRegistro1.setCboxTipo(jComboTipo);
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -45,13 +83,23 @@ public class FrameRegistro extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        panelBotones1 = new ucr.ac.cr.sigereco.vista.PanelBotones();
-        panelLogin1 = new ucr.ac.cr.sigereco.vista.PanelRegistro();
+        panelRegistro1 = new ucr.ac.cr.sigereco.vista.PanelRegistro();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(panelBotones1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 80, -1, -1));
-        getContentPane().add(panelLogin1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 0, -1, -1));
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(panelRegistro1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(panelRegistro1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -62,7 +110,10 @@ public class FrameRegistro extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private ucr.ac.cr.sigereco.vista.PanelBotones panelBotones1;
-    private ucr.ac.cr.sigereco.vista.PanelRegistro panelLogin1;
+    private ucr.ac.cr.sigereco.vista.PanelRegistro panelRegistro1;
     // End of variables declaration//GEN-END:variables
+
+    public void escuchar(ControladorUsuarios controladorUsuarios) {
+        panelRegistro1.escuchar(controladorUsuarios);
+    }
 }

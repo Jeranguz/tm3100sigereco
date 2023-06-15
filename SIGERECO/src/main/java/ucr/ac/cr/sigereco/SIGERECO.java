@@ -4,6 +4,8 @@
 
 package ucr.ac.cr.sigereco;
 
+import ucr.ac.cr.sigereco.controlador.ControladorUsuarios;
+
 /**
  *
  * @author Drexler Guzman
