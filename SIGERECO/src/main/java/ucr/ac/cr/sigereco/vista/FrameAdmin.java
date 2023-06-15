@@ -4,6 +4,8 @@
  */
 package ucr.ac.cr.sigereco.vista;
 
+import ucr.ac.cr.sigereco.controlador.ControladorPrincipal;
+
 /**
  *
  * @author Drexler Guzman
@@ -91,4 +93,8 @@ public class FrameAdmin extends javax.swing.JFrame {
     private javax.swing.JMenu jMenuNomUsu;
     private ucr.ac.cr.sigereco.vista.PanelAdmin panelAdmin1;
     // End of variables declaration//GEN-END:variables
+
+    public void escuchar(ControladorPrincipal aThis) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }

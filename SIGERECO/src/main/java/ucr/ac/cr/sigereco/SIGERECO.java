@@ -4,6 +4,7 @@
 
 package ucr.ac.cr.sigereco;
 
+import ucr.ac.cr.sigereco.controlador.ControladorPrincipal;
 import ucr.ac.cr.sigereco.controlador.ControladorUsuarios;
 
 /**
@@ -12,7 +13,13 @@ import ucr.ac.cr.sigereco.controlador.ControladorUsuarios;
  */
 public class SIGERECO {
 
+    private ControladorPrincipal controladorPrincipal;
+    public SIGERECO() {
+        controladorPrincipal=new ControladorPrincipal();
+    }
+
+    
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        new SIGERECO();
     }
 }

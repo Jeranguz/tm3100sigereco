@@ -4,6 +4,8 @@
  */
 package ucr.ac.cr.sigereco.vista;
 
+import ucr.ac.cr.sigereco.controlador.ControladorPrincipal;
+
 /**
  *
  * @author XPC
@@ -37,6 +39,10 @@ public class PanelConsulta extends javax.swing.JPanel {
             .addGap(0, 300, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    public void escuchar(ControladorPrincipal aThis) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

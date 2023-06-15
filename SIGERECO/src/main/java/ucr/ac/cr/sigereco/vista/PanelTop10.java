@@ -5,6 +5,7 @@
 package ucr.ac.cr.sigereco.vista;
 
 import javax.swing.JLabel;
+import ucr.ac.cr.sigereco.controlador.ControladorPrincipal;
 
 /**
  *
@@ -182,4 +183,8 @@ public class PanelTop10 extends javax.swing.JPanel {
     private javax.swing.JLabel jreceta8;
     private javax.swing.JLabel jreceta9;
     // End of variables declaration//GEN-END:variables
+
+    public void escuchar(ControladorPrincipal aThis) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }
