@@ -6,6 +6,7 @@ package ucr.ac.cr.sigereco.vista;
 
 import java.awt.event.ActionListener;
 import javax.swing.JLabel;
+import ucr.ac.cr.sigereco.controlador.ControladorPrincipal;
 
 
 /**
@@ -19,11 +20,6 @@ public class PanelRecetario extends javax.swing.JPanel {
      */
     public PanelRecetario( ) {
         initComponents();
-    }
-    
-    public void escuchar(ActionListener controlador){
-        btnMeGusta.addActionListener(controlador);
-        btnAtras.addActionListener(controlador);
     }
 
     public void setjLabelCategoria(String categoria) {
@@ -72,6 +68,11 @@ public class PanelRecetario extends javax.swing.JPanel {
 
     public void setjLabelTotal(String total) {
         jLabelComple.setText(total);
+    }
+    
+    public void escuchar(ControladorPrincipal controladorPrincipal){
+        btnAtras.addActionListener(controladorPrincipal);
+        btnMeGusta.addActionListener(controladorPrincipal);
     }
     
     

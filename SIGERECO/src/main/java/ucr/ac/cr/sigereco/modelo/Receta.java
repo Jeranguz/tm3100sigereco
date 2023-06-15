@@ -10,19 +10,37 @@ package ucr.ac.cr.sigereco.modelo;
  */
 public class Receta {
     
+    private int id;
+    private int porciones;
+    private String descripcion;
+    private String imagen;
+    private String tiempoPreparacion;
+    private String tiempoCoccion;
+    private String instrucciones;
     private Categoria categoria;
     private Dificultad dificultad;
     private Ingrediente ingrediente;
     private Ocasion ocasion;
     private int meGusta;
 
-    public Receta(Categoria categoria, Dificultad dificultad, Ingrediente ingrediente, Ocasion ocasion) {
+    public Receta(int id, int porciones, String descripcion, String imagen, String tiempoPreparacion,
+            String tiempoCoccion, String instrucciones, Categoria categoria, Dificultad dificultad,
+            Ingrediente ingrediente, Ocasion ocasion, int meGusta) {
+        this.id = id;
+        this.porciones = porciones;
+        this.descripcion = descripcion;
+        this.imagen = imagen;
+        this.tiempoPreparacion = tiempoPreparacion;
+        this.tiempoCoccion = tiempoCoccion;
+        this.instrucciones = instrucciones;
         this.categoria = categoria;
         this.dificultad = dificultad;
         this.ingrediente = ingrediente;
         this.ocasion = ocasion;
         this.meGusta = 0;
     }
+
+
 
     public Categoria getCategoria() {
         return categoria;
@@ -55,6 +73,72 @@ public class Receta {
     public void setOcasion(Ocasion ocasion) {
         this.ocasion = ocasion;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getPorciones() {
+        return porciones;
+    }
+
+    public void setPorciones(int porciones) {
+        this.porciones = porciones;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
+    }
+
+    public String getTiempoPreparacion() {
+        return tiempoPreparacion;
+    }
+
+    public void setTiempoPreparacion(String tiempoPreparacion) {
+        this.tiempoPreparacion = tiempoPreparacion;
+    }
+
+    public String getTiempoCoccion() {
+        return tiempoCoccion;
+    }
+
+    public void setTiempoCoccion(String tiempoCoccion) {
+        this.tiempoCoccion = tiempoCoccion;
+    }
+
+    public String getInstrucciones() {
+        return instrucciones;
+    }
+
+    public void setInstrucciones(String instrucciones) {
+        this.instrucciones = instrucciones;
+    }
+
+    public int getMeGusta() {
+        return meGusta;
+    }
+
+    public void setMeGusta(int meGusta) {
+        this.meGusta = meGusta;
+    }
+    
+    
     
     
     

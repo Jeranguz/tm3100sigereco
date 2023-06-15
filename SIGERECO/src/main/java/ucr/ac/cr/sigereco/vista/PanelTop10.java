@@ -21,43 +21,47 @@ public class PanelTop10 extends javax.swing.JPanel {
     }
 
     public void setReceta1(String receta1) {
-        jreceta1.setText(receta1);
+        jReceta1.setText(receta1);
     }
 
     public void setReceta10(String receta10) {
-        jreceta10.setText(receta10);
+        jReceta10.setText(receta10);
     }
 
     public void setReceta2(String receta2) {
-        jreceta2.setText(receta2);
+        jReceta2.setText(receta2);
     }
 
     public void setReceta3(String receta3) {
-        jreceta3.setText(receta3);
+        jReceta3.setText(receta3);
     }
 
     public void setReceta4(String receta4) {
-        jreceta4.setText(receta4);
+        jReceta4.setText(receta4);
     }
 
     public void setReceta5(String receta5) {
-        jreceta5.setText(receta5);
+        jReceta5.setText(receta5);
     }
 
     public void setReceta6(String receta6) {
-        jreceta6.setText(receta6);
+        jReceta6.setText(receta6);
     }
 
     public void setReceta7(String receta7) {
-        jreceta7.setText(receta7);
+        jReceta7.setText(receta7);
     }
 
     public void setReceta8(String receta8) {
-        jreceta8.setText(receta8);
+        jReceta8.setText(receta8);
     }
 
     public void setReceta9(String receta9) {
-        jreceta9.setText(receta9);
+        jReceta9.setText(receta9);
+    }
+    
+    public void escuchar(ControladorPrincipal controladorPrincipal){
+        btnAtras.addActionListener(controladorPrincipal);
     }
     
     
@@ -72,49 +76,53 @@ public class PanelTop10 extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jreceta1 = new javax.swing.JLabel();
-        jreceta2 = new javax.swing.JLabel();
-        jreceta3 = new javax.swing.JLabel();
-        jreceta4 = new javax.swing.JLabel();
-        jreceta5 = new javax.swing.JLabel();
-        jreceta6 = new javax.swing.JLabel();
-        jreceta7 = new javax.swing.JLabel();
-        jreceta8 = new javax.swing.JLabel();
-        jreceta9 = new javax.swing.JLabel();
-        jreceta10 = new javax.swing.JLabel();
+        jReceta1 = new javax.swing.JLabel();
+        jReceta2 = new javax.swing.JLabel();
+        jReceta3 = new javax.swing.JLabel();
+        jReceta4 = new javax.swing.JLabel();
+        jReceta5 = new javax.swing.JLabel();
+        jReceta6 = new javax.swing.JLabel();
+        jReceta7 = new javax.swing.JLabel();
+        jReceta8 = new javax.swing.JLabel();
+        jReceta9 = new javax.swing.JLabel();
+        jReceta10 = new javax.swing.JLabel();
+        btnAtras = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Dialog", 0, 48)); // NOI18N
         jLabel1.setText("Top 10 recetas");
 
-        jreceta1.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
-        jreceta1.setText("jLabel2");
+        jReceta1.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        jReceta1.setText("jLabel2");
 
-        jreceta2.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
-        jreceta2.setText("jLabel3");
+        jReceta2.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        jReceta2.setText("jLabel3");
 
-        jreceta3.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
-        jreceta3.setText("jLabel4");
+        jReceta3.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        jReceta3.setText("jLabel4");
 
-        jreceta4.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
-        jreceta4.setText("jLabel5");
+        jReceta4.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        jReceta4.setText("jLabel5");
 
-        jreceta5.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
-        jreceta5.setText("jLabel6");
+        jReceta5.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        jReceta5.setText("jLabel6");
 
-        jreceta6.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
-        jreceta6.setText("jLabel7");
+        jReceta6.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        jReceta6.setText("jLabel7");
 
-        jreceta7.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
-        jreceta7.setText("jLabel8");
+        jReceta7.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        jReceta7.setText("jLabel8");
 
-        jreceta8.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
-        jreceta8.setText("jLabel9");
+        jReceta8.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        jReceta8.setText("jLabel9");
 
-        jreceta9.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
-        jreceta9.setText("jLabel10");
+        jReceta9.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        jReceta9.setText("jLabel10");
 
-        jreceta10.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
-        jreceta10.setText("jLabel11");
+        jReceta10.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        jReceta10.setText("jLabel11");
+
+        btnAtras.setText("Atras");
+        btnAtras.setActionCommand("AtrasTop");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -123,68 +131,70 @@ public class PanelTop10 extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(64, 64, 64)
+                        .addContainerGap()
+                        .addComponent(btnAtras)
+                        .addGap(18, 18, 18)
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(126, 126, 126)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jreceta2)
-                            .addComponent(jreceta1)
-                            .addComponent(jreceta3)
-                            .addComponent(jreceta4)
-                            .addComponent(jreceta5)
-                            .addComponent(jreceta6)
-                            .addComponent(jreceta7)
-                            .addComponent(jreceta8)
-                            .addComponent(jreceta9)
-                            .addComponent(jreceta10))))
+                            .addComponent(jReceta2)
+                            .addComponent(jReceta1)
+                            .addComponent(jReceta3)
+                            .addComponent(jReceta4)
+                            .addComponent(jReceta5)
+                            .addComponent(jReceta6)
+                            .addComponent(jReceta7)
+                            .addComponent(jReceta8)
+                            .addComponent(jReceta9)
+                            .addComponent(jReceta10))))
                 .addContainerGap(67, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(btnAtras))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
-                .addComponent(jreceta1)
+                .addComponent(jReceta1)
                 .addGap(18, 18, 18)
-                .addComponent(jreceta2)
+                .addComponent(jReceta2)
                 .addGap(18, 18, 18)
-                .addComponent(jreceta3)
+                .addComponent(jReceta3)
                 .addGap(18, 18, 18)
-                .addComponent(jreceta4)
+                .addComponent(jReceta4)
                 .addGap(18, 18, 18)
-                .addComponent(jreceta5)
+                .addComponent(jReceta5)
                 .addGap(18, 18, 18)
-                .addComponent(jreceta6)
+                .addComponent(jReceta6)
                 .addGap(18, 18, 18)
-                .addComponent(jreceta7)
+                .addComponent(jReceta7)
                 .addGap(18, 18, 18)
-                .addComponent(jreceta8)
+                .addComponent(jReceta8)
                 .addGap(18, 18, 18)
-                .addComponent(jreceta9)
+                .addComponent(jReceta9)
                 .addGap(18, 18, 18)
-                .addComponent(jreceta10)
+                .addComponent(jReceta10)
                 .addGap(28, 28, 28))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAtras;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jreceta1;
-    private javax.swing.JLabel jreceta10;
-    private javax.swing.JLabel jreceta2;
-    private javax.swing.JLabel jreceta3;
-    private javax.swing.JLabel jreceta4;
-    private javax.swing.JLabel jreceta5;
-    private javax.swing.JLabel jreceta6;
-    private javax.swing.JLabel jreceta7;
-    private javax.swing.JLabel jreceta8;
-    private javax.swing.JLabel jreceta9;
+    private javax.swing.JLabel jReceta1;
+    private javax.swing.JLabel jReceta10;
+    private javax.swing.JLabel jReceta2;
+    private javax.swing.JLabel jReceta3;
+    private javax.swing.JLabel jReceta4;
+    private javax.swing.JLabel jReceta5;
+    private javax.swing.JLabel jReceta6;
+    private javax.swing.JLabel jReceta7;
+    private javax.swing.JLabel jReceta8;
+    private javax.swing.JLabel jReceta9;
     // End of variables declaration//GEN-END:variables
 
-    public void escuchar(ControladorPrincipal aThis) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
 }

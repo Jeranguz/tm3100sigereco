@@ -91,7 +91,7 @@ public class FrameRecetario extends javax.swing.JFrame {
     private ucr.ac.cr.sigereco.vista.PanelRecetario panelRecetario1;
     // End of variables declaration//GEN-END:variables
 
-    public void escuchar(ControladorPrincipal aThis) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void escuchar(ControladorPrincipal controladorPrincipal) {
+        panelRecetario1.escuchar(controladorPrincipal);
     }
 }
