@@ -7,6 +7,7 @@ package ucr.ac.cr.sigereco.controlador;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import ucr.ac.cr.sigereco.modelo.Usuario;
 import ucr.ac.cr.sigereco.vista.FrameInicioSesion;
 import ucr.ac.cr.sigereco.vista.FrameRegistro;
@@ -27,6 +28,7 @@ public class ControladorUsuarios implements ActionListener {
         frameInicioSesion=new FrameInicioSesion();
         usuarios=new ArrayList<>();
         frameRegistro.escuchar(this);
+        frameInicioSesion.escuchar(this);
     }
     
     public void mostrarInicioSesion(){
@@ -43,19 +45,43 @@ public class ControladorUsuarios implements ActionListener {
     
     }
     
+    public int validacion(){
     
+        String usuario = frameInicioSesion.getTxtUsuario();
+                String contrasena = frameInicioSesion.getTxtContrasena();
+
+                int validacion = 0;
+
+                for (int i = 0; i < usuarios.size(); i++) {
+                    if (usuarios.get(i).getNombreUsuario().equals(usuario) && usuarios.get(i).getContrasena().equals(contrasena)) {
+
+                        if (usuarios.get(i).getTipoUsuario().equals("Administrador")) {
+                            validacion = 1;
+                        } else {
+                            validacion = 2;
+                        }
+                    }else{
+                    
+                        JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos");
+                    
+                    }
+                }
+                return validacion;
+    }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         
         switch (e.getActionCommand()) {
             
-            case "Guardar":
-                System.out.println("Se presiono el boton guardar");
+            case "Iniciar Sesion":
+                
+                validacion();
+                
                 break;
                 
-            case "Modificar":
-                System.out.println("Se presiono el boton modificar");
+            case "AtrasInicioSesion":
+                frameInicioSesion.dispose();
                 break;
                 
             case "Eliminar":

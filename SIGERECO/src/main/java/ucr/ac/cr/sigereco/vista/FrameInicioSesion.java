@@ -4,6 +4,8 @@
  */
 package ucr.ac.cr.sigereco.vista;
 
+import ucr.ac.cr.sigereco.controlador.ControladorUsuarios;
+
 /**
  *
  * @author Drexler Guzman
@@ -15,6 +17,18 @@ public class FrameInicioSesion extends javax.swing.JFrame {
      */
     public FrameInicioSesion() {
         initComponents();
+    }
+    
+    public String getTxtUsuario(){
+    
+        return panelInicioSesion1.getTxtUsuario();
+    
+    }
+    
+    public String getTxtContrasena(){
+    
+        return panelInicioSesion1.getTxtContrasena();
+    
     }
 
     /**
@@ -87,4 +101,8 @@ public class FrameInicioSesion extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private ucr.ac.cr.sigereco.vista.PanelInicioSesion panelInicioSesion1;
     // End of variables declaration//GEN-END:variables
+
+    public void escuchar(ControladorUsuarios controladorUsuarios) {
+        panelInicioSesion1.escuchar(controladorUsuarios);
+    }
 }

@@ -17,9 +17,9 @@ public class FramePrincipal extends javax.swing.JFrame {
      */
     public FramePrincipal() {
         initComponents();
-        jMenuBar1.add(jMenuIIRegistrarse);
-        jMenuBar1.add(jMenuIIniciarSesion);
-        jMenuBar1.add(jMenuIAyuda);
+        jMenuBar2.add(jMenuIIRegistrarse);
+        jMenuBar2.add(jMenuIIniciarSesion);
+        jMenuBar2.add(jMenuIAyuda);
     }
 
     
@@ -30,9 +30,10 @@ public class FramePrincipal extends javax.swing.JFrame {
         jMenuIAyuda = new javax.swing.JMenuItem();
         jMenuIIRegistrarse = new javax.swing.JMenuItem();
         jMenuIIniciarSesion = new javax.swing.JMenuItem();
-        panelConsulta1 = new ucr.ac.cr.sigereco.vista.PanelConsulta();
-        panelTop101 = new ucr.ac.cr.sigereco.vista.PanelTop10();
-        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenuBar2 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
 
         jMenuIAyuda.setText("Ayuda");
         jMenuIAyuda.setFocusable(true);
@@ -48,30 +49,28 @@ public class FramePrincipal extends javax.swing.JFrame {
         jMenuIIniciarSesion.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setJMenuBar(jMenuBar1);
+
+        jMenu1.setText("Explorador");
+
+        jMenuItem2.setText("Recetario");
+        jMenu1.add(jMenuItem2);
+
+        jMenuItem3.setText("Favoritas");
+        jMenu1.add(jMenuItem3);
+
+        jMenuBar2.add(jMenu1);
+
+        setJMenuBar(jMenuBar2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(58, 58, 58)
-                .addComponent(panelConsulta1, javax.swing.GroupLayout.PREFERRED_SIZE, 475, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 144, Short.MAX_VALUE)
-                .addComponent(panelTop101, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(120, 120, 120))
+            .addGap(0, 834, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addComponent(panelTop101, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(104, 104, 104)
-                        .addComponent(panelConsulta1, javax.swing.GroupLayout.PREFERRED_SIZE, 351, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(157, Short.MAX_VALUE))
+            .addGap(0, 590, Short.MAX_VALUE)
         );
 
         pack();
@@ -80,12 +79,13 @@ public class FramePrincipal extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenuItem jMenuIAyuda;
     private javax.swing.JMenuItem jMenuIIRegistrarse;
     private javax.swing.JMenuItem jMenuIIniciarSesion;
-    private ucr.ac.cr.sigereco.vista.PanelConsulta panelConsulta1;
-    private ucr.ac.cr.sigereco.vista.PanelTop10 panelTop101;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
     // End of variables declaration//GEN-END:variables
 
     public void escuchar(ControladorPrincipal controladorPrincipal) {

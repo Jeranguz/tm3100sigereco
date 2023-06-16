@@ -4,6 +4,8 @@
  */
 package ucr.ac.cr.sigereco.vista;
 
+import ucr.ac.cr.sigereco.controlador.ControladorUsuarios;
+
 /**
  *
  * @author Drexler Guzman
@@ -15,6 +17,18 @@ public class PanelInicioSesion extends javax.swing.JPanel {
      */
     public PanelInicioSesion() {
         initComponents();
+    }
+    
+    public String getTxtUsuario(){
+    
+        return txtUsuario.getText();
+    
+    }
+    
+    public String getTxtContrasena(){
+    
+        return txtContrasena.getText();
+    
     }
 
     /**
@@ -33,6 +47,7 @@ public class PanelInicioSesion extends javax.swing.JPanel {
         lblContrasena = new javax.swing.JLabel();
         txtContrasena = new javax.swing.JTextField();
         btnInicioSesion = new javax.swing.JButton();
+        btnAtras = new javax.swing.JButton();
 
         lblFondo.setText("Imagen");
 
@@ -42,42 +57,48 @@ public class PanelInicioSesion extends javax.swing.JPanel {
 
         lblContrasena.setText("Contraseña:");
 
-        btnInicioSesion.setText("Log In");
+        btnInicioSesion.setText("Iniciar Sesion");
+
+        btnAtras.setText("Atras");
+        btnAtras.setActionCommand("AtrasInicioSesion");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblContrasena)
-                        .addGap(34, 34, 34)
-                        .addComponent(txtContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addGap(173, 173, 173)
-                            .addComponent(lblTitulo))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addGap(54, 54, 54)
-                            .addComponent(lblUsuario)
-                            .addGap(46, 46, 46)
-                            .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(0, 113, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(193, Short.MAX_VALUE)
+                .addComponent(lblFondo)
+                .addGap(167, 167, 167))
+            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(lblFondo)
-                        .addGap(167, 167, 167))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btnInicioSesion)
-                        .addGap(164, 164, 164))))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addGap(173, 173, 173)
+                                .addComponent(lblTitulo))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addGap(54, 54, 54)
+                                .addComponent(lblUsuario)
+                                .addGap(46, 46, 46)
+                                .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(lblContrasena)
+                            .addGap(34, 34, 34)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(btnInicioSesion)
+                                .addComponent(txtContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btnAtras)))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(32, 32, 32)
+                .addContainerGap()
+                .addComponent(btnAtras)
+                .addGap(3, 3, 3)
                 .addComponent(lblFondo)
                 .addGap(53, 53, 53)
                 .addComponent(lblTitulo)
@@ -89,14 +110,15 @@ public class PanelInicioSesion extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblContrasena)
                     .addComponent(txtContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(38, 38, 38)
+                .addGap(41, 41, 41)
                 .addComponent(btnInicioSesion)
-                .addContainerGap(43, Short.MAX_VALUE))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAtras;
     private javax.swing.JButton btnInicioSesion;
     private javax.swing.JLabel lblContrasena;
     private javax.swing.JLabel lblFondo;
@@ -105,4 +127,9 @@ public class PanelInicioSesion extends javax.swing.JPanel {
     private javax.swing.JTextField txtContrasena;
     private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
+
+    public void escuchar(ControladorUsuarios controladorUsuarios) {
+        btnInicioSesion.addActionListener(controladorUsuarios);
+        btnAtras.addActionListener(controladorUsuarios);
+    }
 }

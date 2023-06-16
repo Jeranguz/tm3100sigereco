@@ -7,6 +7,7 @@ package ucr.ac.cr.sigereco.controlador;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import ucr.ac.cr.sigereco.modelo.Consultas;
 import ucr.ac.cr.sigereco.vista.FrameAdmin;
 import ucr.ac.cr.sigereco.vista.FramePrincipal;
@@ -37,7 +38,6 @@ public class ControladorPrincipal implements ActionListener{
         controladorUsuarios=new ControladorUsuarios();
         
 //        frameAdmin.escuchar(this);
-        
 //        frameRecetario.escuchar(this);
 //        frameUsuario.escuchar(this);
 //        panelConsulta.escuchar(this);
@@ -62,6 +62,25 @@ public class ControladorPrincipal implements ActionListener{
             case "Iniciar Sesion":
                 System.out.println("Iniciar sesion");
                 controladorUsuarios.mostrarInicioSesion();
+                
+                switch (controladorUsuarios.validacion()){ //corregir esto para que haga la validacion varias veces
+                    case 1:
+                        
+                        JOptionPane.showMessageDialog(null, "Bienvenido");
+                        framePrincipal.dispose();
+                        frameAdmin.setVisible(true);
+                        frameAdmin.setLocationRelativeTo(null);
+                        
+                        break;
+                        
+                    case 2:
+                        JOptionPane.showMessageDialog(null, "Bienvenido");
+                        framePrincipal.dispose();
+                        frameUsuario.setVisible(true);
+                        frameUsuario.setLocationRelativeTo(null);
+                        break;
+                }
+                
                 
                 break;
                 
