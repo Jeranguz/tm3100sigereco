@@ -33,29 +33,44 @@ public class ControladorPrincipal implements ActionListener{
     public ControladorPrincipal() {
         
         //crear las instancias de los atributos
+        framePrincipal=new FramePrincipal();
+        controladorUsuarios=new ControladorUsuarios();
         
-        frameAdmin.escuchar(this);
+//        frameAdmin.escuchar(this);
+        
+//        frameRecetario.escuchar(this);
+//        frameUsuario.escuchar(this);
+//        panelConsulta.escuchar(this);
+//        panelTop10.escuchar(this);
+        
+        framePrincipal.setVisible(true);
+        framePrincipal.setLocationRelativeTo(null);
         framePrincipal.escuchar(this);
-        frameRecetario.escuchar(this);
-        frameUsuario.escuchar(this);
-        panelConsulta.escuchar(this);
-        panelTop10.escuchar(this);
-        
-        
-        
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         switch (e.getActionCommand()) {
-            case "1":
+            
+            //cases para FrameInicio Sesion o registro de usuarios
+            case "Registrarse":
+                System.out.println("Registrarse");
+                controladorUsuarios.mostrarRegistro();
                 
                 break;
                 
-            case "2":
+            case "Iniciar Sesion":
+                System.out.println("Iniciar sesion");
+                controladorUsuarios.mostrarInicioSesion();
+                
+                break;
+                
+            case "Ayuda":
+                System.out.println("Ayuda");
                 
                 break;
         }
+
     }
     
     

@@ -19,11 +19,12 @@ public class FrameAdmin extends javax.swing.JFrame {
         initComponents();
     }
     
-//    public void escuchar(ControladorPrincipal controladorPrincipal){
-//    
-//        panelAdmin1.escuchar();
-//    
-//    }
+    public void escuchar(ControladorPrincipal controladorPrincipal){
+    
+        panelAdmin1.escuchar(controladorPrincipal);
+        jMenuAyuda.addActionListener(controladorPrincipal);
+    
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -94,7 +95,4 @@ public class FrameAdmin extends javax.swing.JFrame {
     private ucr.ac.cr.sigereco.vista.PanelAdmin panelAdmin1;
     // End of variables declaration//GEN-END:variables
 
-    public void escuchar(ControladorPrincipal aThis) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
 }

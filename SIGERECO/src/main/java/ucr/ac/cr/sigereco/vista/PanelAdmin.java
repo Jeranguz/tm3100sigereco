@@ -4,6 +4,8 @@
  */
 package ucr.ac.cr.sigereco.vista;
 
+import ucr.ac.cr.sigereco.controlador.ControladorPrincipal;
+
 /**
  *
  * @author Drexler Guzman
@@ -18,26 +20,52 @@ public class PanelAdmin extends javax.swing.JPanel {
         buttonGroup1.add(rBtnIngredientes);
         buttonGroup1.add(rBtnRecetas);
         buttonGroup1.add(rBtnUnidades);
+        
     }
     
-//    public void escuchar(ControladorPrincipal controladorPrincipal){
-//    
-//        btnAgregIngr.addActionListener(controladorPrincipal);
-//        btnAgregUnid.addActionListener(controladorPrincipal);
-//        btnAgregarIngr.addActionListener(controladorPrincipal);
-//        btnAgregarRecet.addActionListener(controladorPrincipal);
-//        btnBusIngr.addActionListener(controladorPrincipal);
-//        btnBuscarIdRecet.addActionListener(controladorPrincipal);
-//        btnBuscarImagen.addActionListener(controladorPrincipal);
-//        btnBuscarUnid.addActionListener(controladorPrincipal);
-//        btnElimiIngr.addActionListener(controladorPrincipal);
-//        btnElimiUnid.addActionListener(controladorPrincipal);
-//        btnEliminRecet.addActionListener(controladorPrincipal);
-//        btnModifIngr.addActionListener(controladorPrincipal);
-//        btnModifRecet.addActionListener(controladorPrincipal);
-//        btnModifUnid.addActionListener(controladorPrincipal);
-//    
-//    }
+    public void gestionarPaneles(){
+        
+        if(rBtnIngredientes.isSelected()){
+        
+            jPanelIngredientes.setEnabled(true);
+            jPanelUnidades.setEnabled(false);
+            jPnlRecetas.setEnabled(false);
+        }
+        if(rBtnRecetas.isSelected()){
+        
+            jPanelIngredientes.setEnabled(false);
+            jPanelUnidades.setEnabled(false);
+            jPnlRecetas.setEnabled(true);
+        }
+        if(rBtnUnidades.isSelected()){
+        
+            jPanelIngredientes.setEnabled(false);
+            jPanelUnidades.setEnabled(true);
+            jPnlRecetas.setEnabled(false);
+        }
+    
+    }
+    
+    public void escuchar(ControladorPrincipal controladorPrincipal){
+    
+        btnAgregIngr.addActionListener(controladorPrincipal);
+        btnAgregUnid.addActionListener(controladorPrincipal);
+        btnAgregarIngr.addActionListener(controladorPrincipal);
+        btnAgregarRecet.addActionListener(controladorPrincipal);
+        btnBusIngr.addActionListener(controladorPrincipal);
+        btnBuscarIdRecet.addActionListener(controladorPrincipal);
+        btnBuscarImagen.addActionListener(controladorPrincipal);
+        btnBuscarUnid.addActionListener(controladorPrincipal);
+        btnElimiIngr.addActionListener(controladorPrincipal);
+        btnElimiUnid.addActionListener(controladorPrincipal);
+        btnEliminRecet.addActionListener(controladorPrincipal);
+        btnModifIngr.addActionListener(controladorPrincipal);
+        btnModifRecet.addActionListener(controladorPrincipal);
+        btnModifUnid.addActionListener(controladorPrincipal);
+    
+    }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.

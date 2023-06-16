@@ -26,9 +26,21 @@ public class ControladorUsuarios implements ActionListener {
         frameRegistro = new FrameRegistro();
         frameInicioSesion=new FrameInicioSesion();
         usuarios=new ArrayList<>();
+        frameRegistro.escuchar(this);
+    }
+    
+    public void mostrarInicioSesion(){
+    
+        frameInicioSesion.setVisible(true);
+        frameInicioSesion.setLocationRelativeTo(null);
+    
+    }
+    
+    public void mostrarRegistro(){
+    
         frameRegistro.setVisible(true);
         frameRegistro.setLocationRelativeTo(null);
-        frameRegistro.escuchar(this);
+    
     }
     
     
@@ -63,9 +75,4 @@ public class ControladorUsuarios implements ActionListener {
                 break;
         }
     }
-    
-    public static void main(String[] args) {
-        new ControladorUsuarios();
-    }
-    
 }

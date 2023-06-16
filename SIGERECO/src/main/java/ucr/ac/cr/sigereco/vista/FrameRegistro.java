@@ -19,7 +19,9 @@ public class FrameRegistro extends javax.swing.JFrame {
     public FrameRegistro() {
         initComponents();
         
-    }public String getTxtNombre() {
+    }
+    
+    public String getTxtNombre() {
         return panelRegistro1.getTxtNombre();
     }
 
