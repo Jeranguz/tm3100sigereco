@@ -17,40 +17,35 @@ import ucr.ac.cr.sigereco.vista.FrameRegistro;
  *
  * @author XPC
  */
-public class ControladorUsuarios implements ActionListener {
+public class ControladorUsuarios implements ActionListener{
     
-    private FrameRegistro frameRegistro;
-    private FrameInicioSesion frameInicioSesion;
     private ArrayList <Usuario> usuarios;
+    private FrameRegistro frameRegistro;
 
     public ControladorUsuarios() {
-        frameRegistro = new FrameRegistro();
-        frameInicioSesion=new FrameInicioSesion();
+
         usuarios=new ArrayList<>();
+        frameRegistro=new FrameRegistro();
         frameRegistro.escuchar(this);
-        frameInicioSesion.escuchar(this);
     }
     
-    public void mostrarInicioSesion(){
-    
-        frameInicioSesion.setVisible(true);
-        frameInicioSesion.setLocationRelativeTo(null);
-    
-    }
-    
-    public void mostrarRegistro(){
+    public void mostrarRegistroUsuario(){
     
         frameRegistro.setVisible(true);
         frameRegistro.setLocationRelativeTo(null);
     
     }
     
-    public int validacion(){
+    public void agregarUsuario(Usuario usuario){
     
-        String usuario = frameInicioSesion.getTxtUsuario();
-                String contrasena = frameInicioSesion.getTxtContrasena();
+        usuarios.add(usuario);
+    
+    }
 
-                int validacion = 0;
+    
+    public int validacion(String usuario, String contrasena){
+        
+      int validacion = 0;
 
                 for (int i = 0; i < usuarios.size(); i++) {
                     if (usuarios.get(i).getNombreUsuario().equals(usuario) && usuarios.get(i).getContrasena().equals(contrasena)) {
@@ -62,8 +57,6 @@ public class ControladorUsuarios implements ActionListener {
                         }
                     }else{
                     
-                        JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos");
-                    
                     }
                 }
                 return validacion;
@@ -71,34 +64,37 @@ public class ControladorUsuarios implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        
         switch (e.getActionCommand()) {
-            
-            case "Iniciar Sesion":
-                
-                validacion();
+        
+            case "BuscarPanReg":
+                System.out.println("BuscarPanReg");
                 
                 break;
                 
-            case "AtrasInicioSesion":
-                frameInicioSesion.dispose();
+            case "AgregarPanReg":
+                System.out.println("AgregarPanReg");
+//                agregarUsuario(new Usuario(frameRegistro.getTxtNombre(), frameRegistro.getTxtCorreo(), frameRegistro.getTxtPais(), frameRegistro.getCboxTipo(), frameRegistro.getTxtNombreUsuario(), frameRegistro.getTxtApellido(), frameRegistro.getTxtContrasena()));
+//                frameRegistro.limpiar();
                 break;
                 
-            case "Eliminar":
-                System.out.println("Se presiono el boton eliminar");
+            case "ModificarPanReg":
+                System.out.println("ModificarPanReg");
+                
                 break;
                 
-            case "Usuarios":
-                System.out.println("Se presiono el boton usuarios");
+            case "EliminarPanReg":
+                System.out.println("EliminarPanReg");
+                
                 break;
                 
-            case "Salir":
-                frameRegistro.setVisible(false);
-                break;
+            case "SalirPanReg":
+                frameRegistro.dispose();
+                frameRegistro.limpiar();
                 
-            case "Registrar":
-                System.out.println("Se presiono el boton Registrar");
                 break;
+        
+        
         }
     }
+
 }

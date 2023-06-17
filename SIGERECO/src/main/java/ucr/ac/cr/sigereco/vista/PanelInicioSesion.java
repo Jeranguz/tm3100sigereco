@@ -4,6 +4,7 @@
  */
 package ucr.ac.cr.sigereco.vista;
 
+import ucr.ac.cr.sigereco.controlador.ControladorPrincipal;
 import ucr.ac.cr.sigereco.controlador.ControladorUsuarios;
 
 /**
@@ -29,6 +30,13 @@ public class PanelInicioSesion extends javax.swing.JPanel {
     
         return txtContrasena.getText();
     
+    }
+    
+    public void limpiar() {
+        
+        txtContrasena.setText("");
+        txtUsuario.setText("");
+        
     }
 
     /**
@@ -58,9 +66,10 @@ public class PanelInicioSesion extends javax.swing.JPanel {
         lblContrasena.setText("Contraseña:");
 
         btnInicioSesion.setText("Iniciar Sesion");
+        btnInicioSesion.setActionCommand("IniciarSesionPanIS");
 
         btnAtras.setText("Atras");
-        btnAtras.setActionCommand("AtrasInicioSesion");
+        btnAtras.setActionCommand("AtrasPanIS");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -128,8 +137,10 @@ public class PanelInicioSesion extends javax.swing.JPanel {
     private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
 
-    public void escuchar(ControladorUsuarios controladorUsuarios) {
-        btnInicioSesion.addActionListener(controladorUsuarios);
-        btnAtras.addActionListener(controladorUsuarios);
+    public void escuchar(ControladorPrincipal controladorPrincipal) {
+        
+        btnAtras.addActionListener(controladorPrincipal);
+        btnInicioSesion.addActionListener(controladorPrincipal);
     }
+
 }

@@ -5,6 +5,7 @@
 package ucr.ac.cr.sigereco.vista;
 
 import java.awt.event.ActionListener;
+import ucr.ac.cr.sigereco.controlador.ControladorPrincipal;
 import ucr.ac.cr.sigereco.controlador.ControladorUsuarios;
 
 
@@ -104,18 +105,13 @@ public class PanelRegistro extends javax.swing.JPanel {
     }
     
     public void escuchar (ControladorUsuarios controladorUsuarios){
-//        txtNombre.addActionListener(controladorUsuarios);
-//        txtApellido.addActionListener(controladorUsuarios);
-//        txtCorreo.addActionListener(controladorUsuarios);
-//        txtNombreUsuario.addActionListener(controladorUsuarios);
-//        txtPais.addActionListener(controladorUsuarios);
-//        txtContrasena.addActionListener(controladorUsuarios);
 
           btnEliminar.addActionListener(controladorUsuarios);
           btnModificar.addActionListener(controladorUsuarios);
           btnRegistrar.addActionListener(controladorUsuarios);
           btnSalir.addActionListener(controladorUsuarios);
           btnUsuarios.addActionListener(controladorUsuarios);
+          btnAgregar.addActionListener(controladorUsuarios);
     }
 
     @SuppressWarnings("unchecked")
@@ -143,8 +139,7 @@ public class PanelRegistro extends javax.swing.JPanel {
         btnSalir = new javax.swing.JButton();
         txtCod = new javax.swing.JTextField();
         lblCod = new javax.swing.JLabel();
-        txtId = new javax.swing.JTextField();
-        lblId = new javax.swing.JLabel();
+        btnAgregar = new javax.swing.JButton();
 
         lblNombre.setText("Nombre:");
 
@@ -171,12 +166,16 @@ public class PanelRegistro extends javax.swing.JPanel {
         btnRegistrar.setText("Registrar");
 
         btnModificar.setText("Modificar");
+        btnModificar.setActionCommand("ModificarPanReg");
 
         btnEliminar.setText("Eliminar");
+        btnEliminar.setActionCommand("EliminarPanReg");
 
-        btnUsuarios.setText("Usuarios");
+        btnUsuarios.setText("Buscar");
+        btnUsuarios.setActionCommand("BuscarPanReg");
 
         btnSalir.setText("Salir");
+        btnSalir.setActionCommand("SalirPanReg");
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSalirActionPerformed(evt);
@@ -185,7 +184,8 @@ public class PanelRegistro extends javax.swing.JPanel {
 
         lblCod.setText("cod:");
 
-        lblId.setText("ID");
+        btnAgregar.setText("Agregar");
+        btnAgregar.setActionCommand("AgregarPanReg");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -208,16 +208,14 @@ public class PanelRegistro extends javax.swing.JPanel {
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addComponent(txtApellido)))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblId)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
+                        .addComponent(btnAgregar)
+                        .addGap(19, 19, 19)
                         .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnModificar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
                         .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -284,8 +282,7 @@ public class PanelRegistro extends javax.swing.JPanel {
                     .addComponent(btnSalir)
                     .addComponent(btnUsuarios)
                     .addComponent(btnModificar)
-                    .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblId))
+                    .addComponent(btnAgregar))
                 .addGap(26, 26, 26))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -300,6 +297,7 @@ public class PanelRegistro extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAgregar;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnModificar;
     private javax.swing.JButton btnRegistrar;
@@ -310,7 +308,6 @@ public class PanelRegistro extends javax.swing.JPanel {
     private javax.swing.JLabel lblCod;
     private javax.swing.JLabel lblContrasena;
     private javax.swing.JLabel lblCorreo;
-    private javax.swing.JLabel lblId;
     private javax.swing.JLabel lblNombre;
     private javax.swing.JLabel lblNombreUsuario;
     private javax.swing.JLabel lblPais;
@@ -319,7 +316,6 @@ public class PanelRegistro extends javax.swing.JPanel {
     private javax.swing.JTextField txtCod;
     private javax.swing.JTextField txtContrasena;
     private javax.swing.JTextField txtCorreo;
-    private javax.swing.JTextField txtId;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtNombreUsuario;
     private javax.swing.JTextField txtPais;

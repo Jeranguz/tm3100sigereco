@@ -37,16 +37,14 @@
                       </Group>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
-                      <Component id="lblId" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="txtId" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="btnUsuarios" min="-2" pref="81" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="btnAgregar" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                       <Component id="btnEliminar" min="-2" pref="81" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="btnModificar" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="14" max="32767" attributes="0"/>
+                      <EmptySpace pref="16" max="32767" attributes="0"/>
                       <Component id="btnSalir" min="-2" pref="81" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
@@ -131,8 +129,7 @@
                   <Component id="btnSalir" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnUsuarios" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnModificar" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtId" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblId" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnAgregar" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
           </Group>
@@ -211,21 +208,25 @@
     <Component class="javax.swing.JButton" name="btnModificar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Modificar"/>
+        <Property name="actionCommand" type="java.lang.String" value="ModificarPanReg"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="btnEliminar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Eliminar"/>
+        <Property name="actionCommand" type="java.lang.String" value="EliminarPanReg"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="btnUsuarios">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Usuarios"/>
+        <Property name="text" type="java.lang.String" value="Buscar"/>
+        <Property name="actionCommand" type="java.lang.String" value="BuscarPanReg"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="btnSalir">
       <Properties>
         <Property name="text" type="java.lang.String" value="Salir"/>
+        <Property name="actionCommand" type="java.lang.String" value="SalirPanReg"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSalirActionPerformed"/>
@@ -238,11 +239,10 @@
         <Property name="text" type="java.lang.String" value="cod:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtId">
-    </Component>
-    <Component class="javax.swing.JLabel" name="lblId">
+    <Component class="javax.swing.JButton" name="btnAgregar">
       <Properties>
-        <Property name="text" type="java.lang.String" value="ID"/>
+        <Property name="text" type="java.lang.String" value="Agregar"/>
+        <Property name="actionCommand" type="java.lang.String" value="AgregarPanReg"/>
       </Properties>
     </Component>
   </SubComponents>

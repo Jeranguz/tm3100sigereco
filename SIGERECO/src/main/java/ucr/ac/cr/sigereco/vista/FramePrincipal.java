@@ -30,10 +30,12 @@ public class FramePrincipal extends javax.swing.JFrame {
         jMenuIAyuda = new javax.swing.JMenuItem();
         jMenuIIRegistrarse = new javax.swing.JMenuItem();
         jMenuIIniciarSesion = new javax.swing.JMenuItem();
+        panelConsulta1 = new ucr.ac.cr.sigereco.vista.PanelConsulta();
+        panelTop101 = new ucr.ac.cr.sigereco.vista.PanelTop10();
         jMenuBar2 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuIRecetario = new javax.swing.JMenuItem();
+        jMenuIFavoritas = new javax.swing.JMenuItem();
 
         jMenuIAyuda.setText("Ayuda");
         jMenuIAyuda.setFocusable(true);
@@ -52,11 +54,11 @@ public class FramePrincipal extends javax.swing.JFrame {
 
         jMenu1.setText("Explorador");
 
-        jMenuItem2.setText("Recetario");
-        jMenu1.add(jMenuItem2);
+        jMenuIRecetario.setText("Recetario");
+        jMenu1.add(jMenuIRecetario);
 
-        jMenuItem3.setText("Favoritas");
-        jMenu1.add(jMenuItem3);
+        jMenuIFavoritas.setText("Favoritas");
+        jMenu1.add(jMenuIFavoritas);
 
         jMenuBar2.add(jMenu1);
 
@@ -66,11 +68,24 @@ public class FramePrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 834, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(panelConsulta1, javax.swing.GroupLayout.PREFERRED_SIZE, 455, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(panelTop101, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 590, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(64, 64, 64)
+                        .addComponent(panelConsulta1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(panelTop101, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -82,16 +97,21 @@ public class FramePrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenuItem jMenuIAyuda;
+    private javax.swing.JMenuItem jMenuIFavoritas;
     private javax.swing.JMenuItem jMenuIIRegistrarse;
     private javax.swing.JMenuItem jMenuIIniciarSesion;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuIRecetario;
+    private ucr.ac.cr.sigereco.vista.PanelConsulta panelConsulta1;
+    private ucr.ac.cr.sigereco.vista.PanelTop10 panelTop101;
     // End of variables declaration//GEN-END:variables
 
     public void escuchar(ControladorPrincipal controladorPrincipal) {
         jMenuIAyuda.addActionListener(controladorPrincipal);
         jMenuIIRegistrarse.addActionListener(controladorPrincipal);
         jMenuIIniciarSesion.addActionListener(controladorPrincipal);
+        jMenuIRecetario.addActionListener(controladorPrincipal);
+        jMenuIFavoritas.addActionListener(controladorPrincipal);
+        jMenuIFavoritas.setEnabled(false);
         
     }
 }

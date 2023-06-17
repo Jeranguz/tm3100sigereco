@@ -9,9 +9,12 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import ucr.ac.cr.sigereco.modelo.Consultas;
+import ucr.ac.cr.sigereco.modelo.Usuario;
 import ucr.ac.cr.sigereco.vista.FrameAdmin;
+import ucr.ac.cr.sigereco.vista.FrameInicioSesion;
 import ucr.ac.cr.sigereco.vista.FramePrincipal;
 import ucr.ac.cr.sigereco.vista.FrameRecetario;
+import ucr.ac.cr.sigereco.vista.FrameRegistro;
 import ucr.ac.cr.sigereco.vista.FrameUsuario;
 import ucr.ac.cr.sigereco.vista.PanelConsulta;
 import ucr.ac.cr.sigereco.vista.PanelTop10;
@@ -30,12 +33,17 @@ public class ControladorPrincipal implements ActionListener{
     private ControladorRecetas controladorRecetas;
     private FrameAdmin frameAdmin;
     private ControladorUsuarios controladorUsuarios;
+    private FrameInicioSesion frameInicioSesion;
+    private FrameRegistro frameRegistro;
 
     public ControladorPrincipal() {
         
         //crear las instancias de los atributos
         framePrincipal=new FramePrincipal();
+        frameInicioSesion=new FrameInicioSesion();
         controladorUsuarios=new ControladorUsuarios();
+        
+        
         
 //        frameAdmin.escuchar(this);
 //        frameRecetario.escuchar(this);
@@ -46,31 +54,65 @@ public class ControladorPrincipal implements ActionListener{
         framePrincipal.setVisible(true);
         framePrincipal.setLocationRelativeTo(null);
         framePrincipal.escuchar(this);
+        frameInicioSesion.escuchar(this);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         switch (e.getActionCommand()) {
             
-            //cases para FrameInicio Sesion o registro de usuarios
+/////////////////cases para FramePrinicpal///////////////////////////
             case "Registrarse":
                 System.out.println("Registrarse");
-                controladorUsuarios.mostrarRegistro();
+                
+                controladorUsuarios.mostrarRegistroUsuario();
                 
                 break;
                 
             case "Iniciar Sesion":
                 System.out.println("Iniciar sesion");
-                controladorUsuarios.mostrarInicioSesion();
                 
-                switch (controladorUsuarios.validacion()){ //corregir esto para que haga la validacion varias veces
-                    case 1:
+                 frameInicioSesion.setVisible(true);
+                 frameInicioSesion.setLocationRelativeTo(null);
+                
+                break;
+                
+            case "Recetario":
+                System.out.println("Recetario");
+                
+                break;
+                
+            case "Favoritas":
+                System.out.println("Favoritos");
+                
+                break;
+                
+            case "Ayuda":
+                System.out.println("Ayuda");
+                
+                break;
+                
+/////////////////cases para FrameInicioSesion///////////////////////////
+                
+            case "AtrasPanIS":
+                System.out.println("AtrasPanIS");
+                frameInicioSesion.limpiar();
+                frameInicioSesion.dispose();
+                
+                break;
+                
+            case "IniciarSesionPanIS":
+                System.out.println("IniciarSesionPanIS");
+                switch (controladorUsuarios.validacion(frameInicioSesion.getTxtUsuario(), frameInicioSesion.getTxtContrasena())) {
+                    case 0:
+                        JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos.");
+                        break;
                         
+                    case 1:
                         JOptionPane.showMessageDialog(null, "Bienvenido");
                         framePrincipal.dispose();
                         frameAdmin.setVisible(true);
                         frameAdmin.setLocationRelativeTo(null);
-                        
                         break;
                         
                     case 2:
@@ -80,12 +122,7 @@ public class ControladorPrincipal implements ActionListener{
                         frameUsuario.setLocationRelativeTo(null);
                         break;
                 }
-                
-                
-                break;
-                
-            case "Ayuda":
-                System.out.println("Ayuda");
+
                 
                 break;
         }

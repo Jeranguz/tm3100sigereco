@@ -108,12 +108,13 @@
     <Component class="javax.swing.JButton" name="btnInicioSesion">
       <Properties>
         <Property name="text" type="java.lang.String" value="Iniciar Sesion"/>
+        <Property name="actionCommand" type="java.lang.String" value="IniciarSesionPanIS"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="btnAtras">
       <Properties>
         <Property name="text" type="java.lang.String" value="Atras"/>
-        <Property name="actionCommand" type="java.lang.String" value="AtrasInicioSesion"/>
+        <Property name="actionCommand" type="java.lang.String" value="AtrasPanIS"/>
       </Properties>
     </Component>
   </SubComponents>

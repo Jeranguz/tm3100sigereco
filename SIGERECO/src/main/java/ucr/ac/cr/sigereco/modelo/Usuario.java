@@ -18,8 +18,7 @@ public class Usuario {
     public Usuario() {
     }
 
-    public Usuario(int id, String nombre, String correo, String pais, String tipoUsuario, String nombreUsuario, String apellido, String contrasena, Caracteristicas privilegios, Perfil perfil) {
-        this.id = id;
+    public Usuario(String nombre, String correo, String pais, String tipoUsuario, String nombreUsuario, String apellido, String contrasena) {
         this.nombre = nombre;
         this.correo = correo;
         this.pais = pais;
@@ -27,8 +26,6 @@ public class Usuario {
         this.nombreUsuario = nombreUsuario;
         this.apellido = apellido;
         this.contrasena = contrasena;
-        this.privilegios=privilegios;
-        this.perfil=perfil;
     }
 
     public int getId() {

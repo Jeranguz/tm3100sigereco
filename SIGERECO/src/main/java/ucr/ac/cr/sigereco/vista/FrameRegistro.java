@@ -5,6 +5,7 @@
 package ucr.ac.cr.sigereco.vista;
 
 import javax.swing.JOptionPane;
+import ucr.ac.cr.sigereco.controlador.ControladorPrincipal;
 import ucr.ac.cr.sigereco.controlador.ControladorUsuarios;
 
 /**
@@ -75,6 +76,12 @@ public class FrameRegistro extends javax.swing.JFrame {
 
     public void setCboxTipo(String jComboTipo) {
         panelRegistro1.setCboxTipo(jComboTipo);
+    }
+    
+    public void limpiar(){
+    
+        panelRegistro1.limpiar();
+        
     }
     /**
      * This method is called from within the constructor to initialize the form.

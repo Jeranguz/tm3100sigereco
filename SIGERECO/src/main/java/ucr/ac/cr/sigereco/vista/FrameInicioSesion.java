@@ -4,6 +4,7 @@
  */
 package ucr.ac.cr.sigereco.vista;
 
+import ucr.ac.cr.sigereco.controlador.ControladorPrincipal;
 import ucr.ac.cr.sigereco.controlador.ControladorUsuarios;
 
 /**
@@ -28,6 +29,12 @@ public class FrameInicioSesion extends javax.swing.JFrame {
     public String getTxtContrasena(){
     
         return panelInicioSesion1.getTxtContrasena();
+    
+    }
+    
+    public void limpiar(){
+    
+        panelInicioSesion1.limpiar();
     
     }
 
@@ -102,7 +109,7 @@ public class FrameInicioSesion extends javax.swing.JFrame {
     private ucr.ac.cr.sigereco.vista.PanelInicioSesion panelInicioSesion1;
     // End of variables declaration//GEN-END:variables
 
-    public void escuchar(ControladorUsuarios controladorUsuarios) {
-        panelInicioSesion1.escuchar(controladorUsuarios);
+    public void escuchar(ControladorPrincipal controladorPrincipal) {
+        panelInicioSesion1.escuchar(controladorPrincipal);
     }
 }
