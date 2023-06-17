@@ -13,6 +13,7 @@ public class Receta {
     private int id;
     private int porciones;
     private String descripcion;
+    private String nombre;
     private String imagen;
     private String tiempoPreparacion;
     private String tiempoCoccion;
@@ -23,12 +24,13 @@ public class Receta {
     private Ocasion ocasion;
     private int meGusta;
 
-    public Receta(int id, int porciones, String descripcion, String imagen, String tiempoPreparacion,
+    public Receta(int id, int porciones, String descripcion, String nombre, String imagen, String tiempoPreparacion,
             String tiempoCoccion, String instrucciones, Categoria categoria, Dificultad dificultad,
             Ingrediente ingrediente, Ocasion ocasion, int meGusta) {
         this.id = id;
         this.porciones = porciones;
         this.descripcion = descripcion;
+        this.nombre = nombre;
         this.imagen = imagen;
         this.tiempoPreparacion = tiempoPreparacion;
         this.tiempoCoccion = tiempoCoccion;
@@ -96,6 +98,14 @@ public class Receta {
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
+    }
+    
+    public String getNombre(){
+        return nombre;
+    }
+    
+    public void setNombre(String nombre){
+        this.nombre = nombre;
     }
 
     public String getImagen() {
