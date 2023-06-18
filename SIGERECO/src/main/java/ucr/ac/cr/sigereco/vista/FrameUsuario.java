@@ -17,6 +17,9 @@ public class FrameUsuario extends javax.swing.JFrame {
      */
     public FrameUsuario() {
         initComponents();
+        jMenuBarUsuario.add(jMenuIAyuda);
+        jMenuBarUsuario.add(jMenuIUsuario);
+        jMenuBarUsuario.add(jMenuICerrarSesion);
     }
 
     /**
@@ -28,17 +31,65 @@ public class FrameUsuario extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jMenuIAyuda = new javax.swing.JMenuItem();
+        jMenuIUsuario = new javax.swing.JMenuItem();
+        jMenuICerrarSesion = new javax.swing.JMenuItem();
+        panelConsulta1 = new ucr.ac.cr.sigereco.vista.PanelConsulta();
+        panelTop101 = new ucr.ac.cr.sigereco.vista.PanelTop10();
+        jMenuBarUsuario = new javax.swing.JMenuBar();
+        jMenuExplorador = new javax.swing.JMenu();
+        jMenuIRecetario = new javax.swing.JMenuItem();
+        jMenuIFavoritas = new javax.swing.JMenuItem();
+
+        jMenuIAyuda.setText("Ayuda");
+        jMenuIAyuda.setFocusable(true);
+        jMenuIAyuda.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jMenuIAyuda.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+
+        jMenuIUsuario.setText("nombreUsuario");
+        jMenuIUsuario.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jMenuIUsuario.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+
+        jMenuICerrarSesion.setText("Cerrar sesión");
+        jMenuICerrarSesion.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jMenuICerrarSesion.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jMenuExplorador.setText("Explorador");
+
+        jMenuIRecetario.setText("Recetario");
+        jMenuExplorador.add(jMenuIRecetario);
+
+        jMenuIFavoritas.setText("Favoritas");
+        jMenuExplorador.add(jMenuIFavoritas);
+
+        jMenuBarUsuario.add(jMenuExplorador);
+
+        setJMenuBar(jMenuBarUsuario);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(12, 12, 12)
+                .addComponent(panelConsulta1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(panelTop101, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(48, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(panelTop101, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(71, 71, 71)
+                        .addComponent(panelConsulta1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -79,10 +130,25 @@ public class FrameUsuario extends javax.swing.JFrame {
 //        });
 //    }
 
-    public void escuchar(ControladorPrincipal aThis) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void escuchar(ControladorPrincipal controladorPrincipal) {
+        
+        
+        
+    }
+
+    public void asignarUsuario(String usuario) {
+        jMenuIUsuario.setText(usuario);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuBar jMenuBarUsuario;
+    private javax.swing.JMenu jMenuExplorador;
+    private javax.swing.JMenuItem jMenuIAyuda;
+    private javax.swing.JMenuItem jMenuICerrarSesion;
+    private javax.swing.JMenuItem jMenuIFavoritas;
+    private javax.swing.JMenuItem jMenuIRecetario;
+    private javax.swing.JMenuItem jMenuIUsuario;
+    private ucr.ac.cr.sigereco.vista.PanelConsulta panelConsulta1;
+    private ucr.ac.cr.sigereco.vista.PanelTop10 panelTop101;
     // End of variables declaration//GEN-END:variables
 }

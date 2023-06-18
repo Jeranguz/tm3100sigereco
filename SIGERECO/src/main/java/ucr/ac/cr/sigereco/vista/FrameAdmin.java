@@ -5,6 +5,7 @@
 package ucr.ac.cr.sigereco.vista;
 
 import ucr.ac.cr.sigereco.controlador.ControladorPrincipal;
+import ucr.ac.cr.sigereco.modelo.Usuario;
 
 /**
  *
@@ -23,6 +24,12 @@ public class FrameAdmin extends javax.swing.JFrame {
     
         panelAdmin1.escuchar(controladorPrincipal);
         jMenuAyuda.addActionListener(controladorPrincipal);
+    
+    }
+    
+    public void asignarUsuario(String nombreUsuario){
+    
+        jMenuNomUsu.setText(nombreUsuario);
     
     }
 

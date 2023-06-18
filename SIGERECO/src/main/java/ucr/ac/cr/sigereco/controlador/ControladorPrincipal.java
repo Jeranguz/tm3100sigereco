@@ -35,13 +35,16 @@ public class ControladorPrincipal implements ActionListener{
     private ControladorUsuarios controladorUsuarios;
     private FrameInicioSesion frameInicioSesion;
     private FrameRegistro frameRegistro;
+    private Usuario usuarioActual=null;
 
     public ControladorPrincipal() {
         
         //crear las instancias de los atributos
         framePrincipal=new FramePrincipal();
         frameInicioSesion=new FrameInicioSesion();
+        frameAdmin=new FrameAdmin();
         controladorUsuarios=new ControladorUsuarios();
+        frameUsuario=new FrameUsuario();
         
         
         
@@ -55,6 +58,7 @@ public class ControladorPrincipal implements ActionListener{
         framePrincipal.setLocationRelativeTo(null);
         framePrincipal.escuchar(this);
         frameInicioSesion.escuchar(this);
+        frameAdmin.escuchar(this);
     }
 
     @Override
@@ -111,6 +115,8 @@ public class ControladorPrincipal implements ActionListener{
                     case 1:
                         JOptionPane.showMessageDialog(null, "Bienvenido");
                         framePrincipal.dispose();
+                        frameInicioSesion.dispose();
+                        frameAdmin.asignarUsuario(frameInicioSesion.getTxtUsuario());
                         frameAdmin.setVisible(true);
                         frameAdmin.setLocationRelativeTo(null);
                         break;
@@ -118,6 +124,8 @@ public class ControladorPrincipal implements ActionListener{
                     case 2:
                         JOptionPane.showMessageDialog(null, "Bienvenido");
                         framePrincipal.dispose();
+                        frameInicioSesion.dispose();
+                        frameUsuario.asignarUsuario(frameInicioSesion.getTxtUsuario());
                         frameUsuario.setVisible(true);
                         frameUsuario.setLocationRelativeTo(null);
                         break;
@@ -125,6 +133,8 @@ public class ControladorPrincipal implements ActionListener{
 
                 
                 break;
+                
+////////////////////////Cases para FrameAdmin///////////////////
         }
 
     }

@@ -53,9 +53,9 @@ public class PanelInicioSesion extends javax.swing.JPanel {
         lblUsuario = new javax.swing.JLabel();
         txtUsuario = new javax.swing.JTextField();
         lblContrasena = new javax.swing.JLabel();
-        txtContrasena = new javax.swing.JTextField();
         btnInicioSesion = new javax.swing.JButton();
         btnAtras = new javax.swing.JButton();
+        txtContrasena = new javax.swing.JPasswordField();
 
         lblFondo.setText("Imagen");
 
@@ -82,15 +82,14 @@ public class PanelInicioSesion extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addGap(173, 173, 173)
-                                .addComponent(lblTitulo))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addGap(54, 54, 54)
-                                .addComponent(lblUsuario)
-                                .addGap(46, 46, 46)
-                                .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addGap(173, 173, 173)
+                            .addComponent(lblTitulo))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addGap(54, 54, 54)
+                            .addComponent(lblUsuario)
+                            .addGap(46, 46, 46)
+                            .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(layout.createSequentialGroup()
                             .addComponent(lblContrasena)
                             .addGap(34, 34, 34)
@@ -133,7 +132,7 @@ public class PanelInicioSesion extends javax.swing.JPanel {
     private javax.swing.JLabel lblFondo;
     private javax.swing.JLabel lblTitulo;
     private javax.swing.JLabel lblUsuario;
-    private javax.swing.JTextField txtContrasena;
+    private javax.swing.JPasswordField txtContrasena;
     private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
 

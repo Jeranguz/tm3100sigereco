@@ -27,6 +27,8 @@ public class ControladorUsuarios implements ActionListener{
         usuarios=new ArrayList<>();
         frameRegistro=new FrameRegistro();
         frameRegistro.escuchar(this);
+        usuarios.add(new Usuario ("Adim", "admin@sigereco.com", "Costa Rica", "Administrador", "Admin", "Admin", "Admin"));
+        usuarios.add(new Usuario ("user", "user@sigereco.com", "Costa Rica", "Consultor", "user", "user", "user"));
     }
     
     public void mostrarRegistroUsuario(){
