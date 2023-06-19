@@ -2,32 +2,42 @@
 
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <NonVisualComponents>
+    <Component class="javax.swing.JMenuItem" name="jMenuINombreUsuario">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Usuario"/>
+        <Property name="actionCommand" type="java.lang.String" value="NombreUsuario"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JMenuItem" name="jMenuIAyuda">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Ayuda"/>
+        <Property name="actionCommand" type="java.lang.String" value="AyudaAdmin"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JMenuItem" name="jMenuICerrarSesion">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Cerrar sesion"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JMenuItem" name="JMenuIConsulta">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Consulta"/>
+        <Property name="actionCommand" type="java.lang.String" value="Consulta"/>
+      </Properties>
+    </Component>
     <Menu class="javax.swing.JMenuBar" name="jMenuBar">
       <SubComponents>
-        <Menu class="javax.swing.JMenu" name="jMenuAyuda">
+        <Menu class="javax.swing.JMenu" name="jMenuExplorador">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Ayuda"/>
+            <Property name="text" type="java.lang.String" value="Explorador"/>
           </Properties>
-        </Menu>
-        <Menu class="javax.swing.JMenu" name="jMenuModUsu">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Modo Usuario"/>
-          </Properties>
-        </Menu>
-        <Menu class="javax.swing.JMenu" name="jMenuModAdmin">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Modo Administrador"/>
-          </Properties>
-        </Menu>
-        <Menu class="javax.swing.JMenu" name="jMenuNomUsu">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Nombre_Usuario"/>
-          </Properties>
-        </Menu>
-        <Menu class="javax.swing.JMenu" name="jMenuCerrarSesion">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Cerrar sesion"/>
-          </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuIRecetario">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Recetario"/>
+              </Properties>
+            </MenuItem>
+          </SubComponents>
         </Menu>
       </SubComponents>
     </Menu>

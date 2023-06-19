@@ -101,16 +101,19 @@
         <Component class="javax.swing.JRadioButton" name="rBtnRecetas">
           <Properties>
             <Property name="text" type="java.lang.String" value="Recetas"/>
+            <Property name="actionCommand" type="java.lang.String" value="rbtnRece"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JRadioButton" name="rBtnIngredientes">
           <Properties>
             <Property name="text" type="java.lang.String" value="Ingredientes"/>
+            <Property name="actionCommand" type="java.lang.String" value="rbtnIngr"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JRadioButton" name="rBtnUnidades">
           <Properties>
             <Property name="text" type="java.lang.String" value="unidades"/>
+            <Property name="actionCommand" type="java.lang.String" value="rbtnUni"/>
           </Properties>
         </Component>
         <Container class="javax.swing.JPanel" name="jPnlRecetas">
@@ -472,7 +475,7 @@
             <Component class="javax.swing.JButton" name="btnAgregarIngr">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Agregar"/>
-                <Property name="actionCommand" type="java.lang.String" value="AgregarIngr"/>
+                <Property name="actionCommand" type="java.lang.String" value="AgregarLista"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel33">
@@ -518,11 +521,13 @@
             <Component class="javax.swing.JButton" name="btnAgregarRecet">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Agregar"/>
+                <Property name="actionCommand" type="java.lang.String" value="AgregarRece"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="btnBuscarIdRecet">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Buscar"/>
+                <Property name="actionCommand" type="java.lang.String" value="BuscarRece"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="lblIdRecet">
@@ -535,11 +540,13 @@
             <Component class="javax.swing.JButton" name="btnModifRecet">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Modificar"/>
+                <Property name="actionCommand" type="java.lang.String" value="ModificarRece"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="btnEliminRecet">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Eliminar"/>
+                <Property name="actionCommand" type="java.lang.String" value="EliminarRece"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JSpinner" name="jSpinnerPorciones">
@@ -630,21 +637,25 @@
             <Component class="javax.swing.JButton" name="btnBusIngr">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Buscar"/>
+                <Property name="actionCommand" type="java.lang.String" value="BuscarIngr"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="btnAgregIngr">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Agregar"/>
+                <Property name="actionCommand" type="java.lang.String" value="AgregarIngr"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="btnModifIngr">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Modificar"/>
+                <Property name="actionCommand" type="java.lang.String" value="ModificarIngr"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="btnElimiIngr">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Eliminar"/>
+                <Property name="actionCommand" type="java.lang.String" value="EliminarIngr"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtNombreIngre">
@@ -729,21 +740,25 @@
             <Component class="javax.swing.JButton" name="btnBuscarUnid">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Buscar"/>
+                <Property name="actionCommand" type="java.lang.String" value="BuscarUni"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="btnAgregUnid">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Agregar"/>
+                <Property name="actionCommand" type="java.lang.String" value="AgregarUni"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="btnModifUnid">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Modificar"/>
+                <Property name="actionCommand" type="java.lang.String" value="ModificarUni"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="btnElimiUnid">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Eliminar"/>
+                <Property name="actionCommand" type="java.lang.String" value="EliminarUni"/>
               </Properties>
             </Component>
           </SubComponents>

@@ -62,6 +62,10 @@ public class PanelAdmin extends javax.swing.JPanel {
         btnModifIngr.addActionListener(controladorPrincipal);
         btnModifRecet.addActionListener(controladorPrincipal);
         btnModifUnid.addActionListener(controladorPrincipal);
+        rBtnIngredientes.addActionListener(controladorPrincipal);
+        rBtnRecetas.addActionListener(controladorPrincipal);
+        rBtnUnidades.addActionListener(controladorPrincipal);
+        
     
     }
     
@@ -147,10 +151,13 @@ public class PanelAdmin extends javax.swing.JPanel {
         jPanelAdmin.setPreferredSize(new java.awt.Dimension(1280, 800));
 
         rBtnRecetas.setText("Recetas");
+        rBtnRecetas.setActionCommand("rbtnRece");
 
         rBtnIngredientes.setText("Ingredientes");
+        rBtnIngredientes.setActionCommand("rbtnIngr");
 
         rBtnUnidades.setText("unidades");
+        rBtnUnidades.setActionCommand("rbtnUni");
 
         jPnlRecetas.setBorder(javax.swing.BorderFactory.createTitledBorder("Recetas"));
         jPnlRecetas.setToolTipText("Recetas");
@@ -198,7 +205,7 @@ public class PanelAdmin extends javax.swing.JPanel {
         jLabel32.setText("Unidad");
 
         btnAgregarIngr.setText("Agregar");
-        btnAgregarIngr.setActionCommand("AgregarIngr");
+        btnAgregarIngr.setActionCommand("AgregarLista");
 
         jLabel33.setText("Descripción:");
 
@@ -213,14 +220,18 @@ public class PanelAdmin extends javax.swing.JPanel {
         jScrollPane7.setViewportView(jTextAreaInstrucciones);
 
         btnAgregarRecet.setText("Agregar");
+        btnAgregarRecet.setActionCommand("AgregarRece");
 
         btnBuscarIdRecet.setText("Buscar");
+        btnBuscarIdRecet.setActionCommand("BuscarRece");
 
         lblIdRecet.setText("ID receta");
 
         btnModifRecet.setText("Modificar");
+        btnModifRecet.setActionCommand("ModificarRece");
 
         btnEliminRecet.setText("Eliminar");
+        btnEliminRecet.setActionCommand("EliminarRece");
 
         lblImagen.setText("Imagen");
 
@@ -411,12 +422,16 @@ public class PanelAdmin extends javax.swing.JPanel {
         lblDescrIngr.setText("Descripcion:");
 
         btnBusIngr.setText("Buscar");
+        btnBusIngr.setActionCommand("BuscarIngr");
 
         btnAgregIngr.setText("Agregar");
+        btnAgregIngr.setActionCommand("AgregarIngr");
 
         btnModifIngr.setText("Modificar");
+        btnModifIngr.setActionCommand("ModificarIngr");
 
         btnElimiIngr.setText("Eliminar");
+        btnElimiIngr.setActionCommand("EliminarIngr");
 
         txtDescripIngre.setColumns(20);
         txtDescripIngre.setRows(5);
@@ -471,12 +486,16 @@ public class PanelAdmin extends javax.swing.JPanel {
         lblNombreUnid.setText("Nombre:");
 
         btnBuscarUnid.setText("Buscar");
+        btnBuscarUnid.setActionCommand("BuscarUni");
 
         btnAgregUnid.setText("Agregar");
+        btnAgregUnid.setActionCommand("AgregarUni");
 
         btnModifUnid.setText("Modificar");
+        btnModifUnid.setActionCommand("ModificarUni");
 
         btnElimiUnid.setText("Eliminar");
+        btnElimiUnid.setActionCommand("EliminarUni");
 
         javax.swing.GroupLayout jPanelUnidadesLayout = new javax.swing.GroupLayout(jPanelUnidades);
         jPanelUnidades.setLayout(jPanelUnidadesLayout);

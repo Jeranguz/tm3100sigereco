@@ -10,18 +10,17 @@
         <Property name="horizontalTextPosition" type="int" value="4"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JMenuItem" name="jMenuIUsuario">
+    <Component class="javax.swing.JMenuItem" name="jMenuICerrarSesion">
       <Properties>
-        <Property name="text" type="java.lang.String" value="nombreUsuario"/>
+        <Property name="text" type="java.lang.String" value="Cerrar sesi&#xf3;n"/>
+        <Property name="actionCommand" type="java.lang.String" value="Cerrar sesion"/>
         <Property name="horizontalAlignment" type="int" value="4"/>
         <Property name="horizontalTextPosition" type="int" value="4"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JMenuItem" name="jMenuICerrarSesion">
+    <Component class="javax.swing.JMenuItem" name="jMenuIUsuario">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Cerrar sesi&#xf3;n"/>
-        <Property name="horizontalAlignment" type="int" value="4"/>
-        <Property name="horizontalTextPosition" type="int" value="4"/>
+        <Property name="text" type="java.lang.String" value="jMenuItem1"/>
       </Properties>
     </Component>
     <Menu class="javax.swing.JMenuBar" name="jMenuBarUsuario">

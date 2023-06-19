@@ -16,6 +16,7 @@ import ucr.ac.cr.sigereco.vista.FramePrincipal;
 import ucr.ac.cr.sigereco.vista.FrameRecetario;
 import ucr.ac.cr.sigereco.vista.FrameRegistro;
 import ucr.ac.cr.sigereco.vista.FrameUsuario;
+import ucr.ac.cr.sigereco.vista.PanelAdmin;
 import ucr.ac.cr.sigereco.vista.PanelConsulta;
 import ucr.ac.cr.sigereco.vista.PanelTop10;
 
@@ -35,7 +36,9 @@ public class ControladorPrincipal implements ActionListener{
     private ControladorUsuarios controladorUsuarios;
     private FrameInicioSesion frameInicioSesion;
     private FrameRegistro frameRegistro;
-    private Usuario usuarioActual=null;
+    private String usuarioActual="";
+    
+    private PanelAdmin panelAdmin;
 
     public ControladorPrincipal() {
         
@@ -85,7 +88,8 @@ public class ControladorPrincipal implements ActionListener{
                 break;
                 
             case "Recetario":
-                System.out.println("Recetario");
+                frameRecetario.setVisible(true);
+                frameRecetario.setLocationRelativeTo(null);
                 
                 break;
                 
@@ -96,6 +100,11 @@ public class ControladorPrincipal implements ActionListener{
                 
             case "Ayuda":
                 System.out.println("Ayuda");
+                
+                break;
+                
+            case "Atras":
+                frameRecetario.dispose();
                 
                 break;
                 
@@ -118,8 +127,10 @@ public class ControladorPrincipal implements ActionListener{
                     case 1:
                         JOptionPane.showMessageDialog(null, "Bienvenido");
                         framePrincipal.dispose();
+                        usuarioActual=frameInicioSesion.getTxtUsuario();
+                        frameAdmin.asignarUsuario(usuarioActual);
+                        frameInicioSesion.limpiar();
                         frameInicioSesion.dispose();
-                        frameAdmin.asignarUsuario(frameInicioSesion.getTxtUsuario());
                         frameAdmin.setVisible(true);
                         frameAdmin.setLocationRelativeTo(null);
                         break;
@@ -127,18 +138,117 @@ public class ControladorPrincipal implements ActionListener{
                     case 2:
                         JOptionPane.showMessageDialog(null, "Bienvenido");
                         framePrincipal.dispose();
+                        usuarioActual=frameInicioSesion.getTxtUsuario();
+                        frameUsuario.asignarUsuario(usuarioActual);
+                        frameInicioSesion.limpiar();
                         frameInicioSesion.dispose();
-                        frameUsuario.asignarUsuario(frameInicioSesion.getTxtUsuario());
                         frameUsuario.setVisible(true);
                         frameUsuario.setLocationRelativeTo(null);
                         break;
                 }
 
+                break;
+////////////////////////Cases para FrameAdmin///////////////////
+
+                
+            case "Consulta":
+                frameUsuario.setVisible(true);
                 
                 break;
                 
-////////////////////////Cases para FrameAdmin///////////////////
-                ////////////////////////Cases para FrameAdmin///////////////////
+            case "Cerrar sesion":
+                
+                frameAdmin.dispose();
+                frameUsuario.dispose();
+                framePrincipal.setVisible(true);
+                
+                break;
+                
+            case "BuscarIngr":
+                
+                System.out.println("Conexion Exitosa");
+                
+                break;
+                
+            case "AgregarIngr":
+                
+                System.out.println("Conexion Exitosa");
+                
+                break;
+                
+            case "ModificarIngr":
+                
+                System.out.println("Conexion Exitosa");
+                
+                break;
+                
+            case "EliminarIngr":
+                
+                System.out.println("Conexion Exitosa");
+                
+                break;
+                
+            case "BuscarUni":
+                
+                System.out.println("Conexion Exitosa");
+                
+                break;
+                
+            case "AgregarUni":
+                
+                System.out.println("Conexion Exitosa");
+                
+                break;
+                
+            case "ModificarUni":
+                
+                System.out.println("Conexion Exitosa");
+                
+                break;
+                
+            case "EliminarUni":
+                
+                System.out.println("Conexion Exitosa");
+                
+                break;
+                
+            case "BuscarRece":
+                
+                System.out.println("Conexion Exitosa");
+                
+                break;
+                
+            case "AgregarLista":
+                
+                System.out.println("Conexion Exitosa");
+                
+                break;
+                
+            case "AgregarRece":
+                
+                System.out.println("Conexion Exitosa");
+                
+                break;
+                
+            case "BuscarImagen":
+                
+                System.out.println("Conexion Exitosa");
+                
+                break;
+                
+            case "ModificarRece":
+                
+                System.out.println("Conexion Exitosa");
+                
+                break;
+                
+            case "EliminarRece":
+                
+                System.out.println("Conexion Exitosa");
+                
+                break;
+                
+                ////////////////////////Cases para Usuario///////////////////
         }
 
     }

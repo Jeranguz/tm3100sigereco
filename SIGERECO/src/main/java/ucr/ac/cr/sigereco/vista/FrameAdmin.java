@@ -16,20 +16,29 @@ public class FrameAdmin extends javax.swing.JFrame {
     /**
      * Creates new form FrameAdmin
      */
+    
     public FrameAdmin() {
         initComponents();
+        jMenuBar.add(jMenuIAyuda);
+        jMenuBar.add(jMenuINombreUsuario);
+        jMenuBar.add(jMenuICerrarSesion);
+        
     }
-    
+
     public void escuchar(ControladorPrincipal controladorPrincipal){
     
         panelAdmin1.escuchar(controladorPrincipal);
-        jMenuAyuda.addActionListener(controladorPrincipal);
+        jMenuIAyuda.addActionListener(controladorPrincipal);
+        jMenuICerrarSesion.addActionListener(controladorPrincipal);
+        jMenuINombreUsuario.addActionListener(controladorPrincipal);
+        jMenuIRecetario.addActionListener(controladorPrincipal);
+        
     
     }
     
     public void asignarUsuario(String nombreUsuario){
     
-        jMenuNomUsu.setText(nombreUsuario);
+        jMenuINombreUsuario.setText(nombreUsuario);
     
     }
 
@@ -42,30 +51,34 @@ public class FrameAdmin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jMenuINombreUsuario = new javax.swing.JMenuItem();
+        jMenuIAyuda = new javax.swing.JMenuItem();
+        jMenuICerrarSesion = new javax.swing.JMenuItem();
+        JMenuIConsulta = new javax.swing.JMenuItem();
         panelAdmin1 = new ucr.ac.cr.sigereco.vista.PanelAdmin();
         jMenuBar = new javax.swing.JMenuBar();
-        jMenuAyuda = new javax.swing.JMenu();
-        jMenuModUsu = new javax.swing.JMenu();
-        jMenuModAdmin = new javax.swing.JMenu();
-        jMenuNomUsu = new javax.swing.JMenu();
-        jMenuCerrarSesion = new javax.swing.JMenu();
+        jMenuExplorador = new javax.swing.JMenu();
+        jMenuIRecetario = new javax.swing.JMenuItem();
+
+        jMenuINombreUsuario.setText("Usuario");
+        jMenuINombreUsuario.setActionCommand("NombreUsuario");
+
+        jMenuIAyuda.setText("Ayuda");
+        jMenuIAyuda.setActionCommand("AyudaAdmin");
+
+        jMenuICerrarSesion.setText("Cerrar sesion");
+
+        JMenuIConsulta.setText("Consulta");
+        JMenuIConsulta.setActionCommand("Consulta");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jMenuAyuda.setText("Ayuda");
-        jMenuBar.add(jMenuAyuda);
+        jMenuExplorador.setText("Explorador");
 
-        jMenuModUsu.setText("Modo Usuario");
-        jMenuBar.add(jMenuModUsu);
+        jMenuIRecetario.setText("Recetario");
+        jMenuExplorador.add(jMenuIRecetario);
 
-        jMenuModAdmin.setText("Modo Administrador");
-        jMenuBar.add(jMenuModAdmin);
-
-        jMenuNomUsu.setText("Nombre_Usuario");
-        jMenuBar.add(jMenuNomUsu);
-
-        jMenuCerrarSesion.setText("Cerrar sesion");
-        jMenuBar.add(jMenuCerrarSesion);
+        jMenuBar.add(jMenuExplorador);
 
         setJMenuBar(jMenuBar);
 
@@ -93,12 +106,13 @@ public class FrameAdmin extends javax.swing.JFrame {
      */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu jMenuAyuda;
+    private javax.swing.JMenuItem JMenuIConsulta;
     private javax.swing.JMenuBar jMenuBar;
-    private javax.swing.JMenu jMenuCerrarSesion;
-    private javax.swing.JMenu jMenuModAdmin;
-    private javax.swing.JMenu jMenuModUsu;
-    private javax.swing.JMenu jMenuNomUsu;
+    private javax.swing.JMenu jMenuExplorador;
+    private javax.swing.JMenuItem jMenuIAyuda;
+    private javax.swing.JMenuItem jMenuICerrarSesion;
+    private javax.swing.JMenuItem jMenuINombreUsuario;
+    private javax.swing.JMenuItem jMenuIRecetario;
     private ucr.ac.cr.sigereco.vista.PanelAdmin panelAdmin1;
     // End of variables declaration//GEN-END:variables
 

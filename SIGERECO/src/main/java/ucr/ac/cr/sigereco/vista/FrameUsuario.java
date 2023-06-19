@@ -32,8 +32,8 @@ public class FrameUsuario extends javax.swing.JFrame {
     private void initComponents() {
 
         jMenuIAyuda = new javax.swing.JMenuItem();
-        jMenuIUsuario = new javax.swing.JMenuItem();
         jMenuICerrarSesion = new javax.swing.JMenuItem();
+        jMenuIUsuario = new javax.swing.JMenuItem();
         panelConsulta1 = new ucr.ac.cr.sigereco.vista.PanelConsulta();
         panelTop101 = new ucr.ac.cr.sigereco.vista.PanelTop10();
         jMenuBarUsuario = new javax.swing.JMenuBar();
@@ -46,13 +46,12 @@ public class FrameUsuario extends javax.swing.JFrame {
         jMenuIAyuda.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jMenuIAyuda.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
 
-        jMenuIUsuario.setText("nombreUsuario");
-        jMenuIUsuario.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jMenuIUsuario.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-
         jMenuICerrarSesion.setText("Cerrar sesión");
+        jMenuICerrarSesion.setActionCommand("Cerrar sesion");
         jMenuICerrarSesion.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jMenuICerrarSesion.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+
+        jMenuIUsuario.setText("jMenuItem1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -132,7 +131,10 @@ public class FrameUsuario extends javax.swing.JFrame {
 
     public void escuchar(ControladorPrincipal controladorPrincipal) {
         
-        
+        jMenuIAyuda.addActionListener(controladorPrincipal);
+        jMenuICerrarSesion.addActionListener(controladorPrincipal);
+        jMenuIFavoritas.addActionListener(controladorPrincipal);
+        jMenuIRecetario.addActionListener(controladorPrincipal);
         
     }
 
