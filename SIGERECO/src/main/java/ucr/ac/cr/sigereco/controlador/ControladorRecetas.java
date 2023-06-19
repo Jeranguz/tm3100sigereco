@@ -28,6 +28,7 @@ public class ControladorRecetas implements ActionListener {
     private ArrayList <Dificultad> listaDificultad;
     private ArrayList <Ocasion> listaOcasion;
     private ArrayList <UnidadMedida> listaUnidad;
+    private ArrayList <Categoria> listaCategorias;
 
     public ControladorRecetas() {
         listaRecetas = new ArrayList();
@@ -35,6 +36,7 @@ public class ControladorRecetas implements ActionListener {
         listaDificultad = new ArrayList();
         listaOcasion = new ArrayList();
         listaUnidad = new ArrayList();
+        listaCategorias = new ArrayList();
     }
     
     //Metodos para gestionar las recetas
@@ -253,6 +255,51 @@ public class ControladorRecetas implements ActionListener {
             return "Valores Modificados";
 
         } else if (listaUnidad == null) {
+            return "no hay valores";
+        }
+        return "no hay valores";
+    }
+    
+    //metodos para gestionar las categorias
+    
+    public String agregarCategoria(Categoria categoria) {
+
+        if (listaCategorias.add(categoria)) {
+            return "La categoria fue ingresada con exito";
+        }
+        return "Hubo un error al ingresar la categoria";
+    }
+    
+    public Categoria buscarCategoria(String nombre) {
+
+        for (int indice = 0; indice < listaCategorias.size(); indice++) {
+
+            if (listaCategorias.get(indice).getNombre().equalsIgnoreCase(nombre)) {
+                return listaCategorias.get(indice);
+            }
+        }
+        return null;
+
+    }
+    
+    public String eliminarCategoria(Categoria categoria) {
+        if (listaCategorias.remove(categoria)) {
+
+            return "La categoria fue eliminada con exito";
+
+        }
+        return "Hubo un problema a la hora de eliminar la categoria";
+
+    }
+    
+    public String modificarCategoria(Categoria categoria) {
+
+        if (listaCategorias != null) {
+
+            listaCategorias.equals(categoria);
+            return "Valores Modificados";
+
+        } else if (listaCategorias == null) {
             return "no hay valores";
         }
         return "no hay valores";
