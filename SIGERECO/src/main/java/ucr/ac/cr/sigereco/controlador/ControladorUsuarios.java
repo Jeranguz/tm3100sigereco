@@ -75,8 +75,8 @@ public class ControladorUsuarios implements ActionListener{
                 
             case "AgregarPanReg":
                 System.out.println("AgregarPanReg");
-//                agregarUsuario(new Usuario(frameRegistro.getTxtNombre(), frameRegistro.getTxtCorreo(), frameRegistro.getTxtPais(), frameRegistro.getCboxTipo(), frameRegistro.getTxtNombreUsuario(), frameRegistro.getTxtApellido(), frameRegistro.getTxtContrasena()));
-//                frameRegistro.limpiar();
+                agregarUsuario(new Usuario(frameRegistro.getTxtNombre(), frameRegistro.getTxtCorreo(), frameRegistro.getTxtPais(), frameRegistro.getCboxTipo(), frameRegistro.getTxtNombreUsuario(), frameRegistro.getTxtApellido(), frameRegistro.getTxtContrasena()));
+                frameRegistro.limpiar();
                 break;
                 
             case "ModificarPanReg":

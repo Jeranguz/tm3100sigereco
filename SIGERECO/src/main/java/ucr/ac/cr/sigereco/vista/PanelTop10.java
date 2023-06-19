@@ -60,9 +60,6 @@ public class PanelTop10 extends javax.swing.JPanel {
         jReceta9.setText(receta9);
     }
     
-    public void escuchar(ControladorPrincipal controladorPrincipal){
-        btnAtras.addActionListener(controladorPrincipal);
-    }
     
     
 
@@ -86,7 +83,6 @@ public class PanelTop10 extends javax.swing.JPanel {
         jReceta8 = new javax.swing.JLabel();
         jReceta9 = new javax.swing.JLabel();
         jReceta10 = new javax.swing.JLabel();
-        btnAtras = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Dialog", 0, 48)); // NOI18N
         jLabel1.setText("Top 10 recetas");
@@ -121,9 +117,6 @@ public class PanelTop10 extends javax.swing.JPanel {
         jReceta10.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         jReceta10.setText("jLabel11");
 
-        btnAtras.setText("Atras");
-        btnAtras.setActionCommand("AtrasTop");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -131,9 +124,7 @@ public class PanelTop10 extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btnAtras)
-                        .addGap(18, 18, 18)
+                        .addGap(64, 64, 64)
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(126, 126, 126)
@@ -154,9 +145,7 @@ public class PanelTop10 extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(btnAtras))
+                .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addComponent(jReceta1)
                 .addGap(18, 18, 18)
@@ -183,7 +172,6 @@ public class PanelTop10 extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAtras;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jReceta1;
     private javax.swing.JLabel jReceta10;

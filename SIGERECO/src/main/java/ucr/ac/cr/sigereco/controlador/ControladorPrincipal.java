@@ -43,16 +43,19 @@ public class ControladorPrincipal implements ActionListener{
         framePrincipal=new FramePrincipal();
         frameInicioSesion=new FrameInicioSesion();
         frameAdmin=new FrameAdmin();
+        frameRecetario= new FrameRecetario();
         controladorUsuarios=new ControladorUsuarios();
         frameUsuario=new FrameUsuario();
+        panelConsulta = new PanelConsulta();
+        panelTop10 = new PanelTop10();
+        
         
         
         
 //        frameAdmin.escuchar(this);
-//        frameRecetario.escuchar(this);
-//        frameUsuario.escuchar(this);
-//        panelConsulta.escuchar(this);
-//        panelTop10.escuchar(this);
+        frameRecetario.escuchar(this);
+        frameUsuario.escuchar(this);
+        panelConsulta.escuchar(this);
         
         framePrincipal.setVisible(true);
         framePrincipal.setLocationRelativeTo(null);
@@ -135,6 +138,7 @@ public class ControladorPrincipal implements ActionListener{
                 break;
                 
 ////////////////////////Cases para FrameAdmin///////////////////
+                ////////////////////////Cases para FrameAdmin///////////////////
         }
 
     }
