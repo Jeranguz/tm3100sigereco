@@ -6,6 +6,8 @@ package ucr.ac.cr.sigereco.controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import ucr.ac.cr.sigereco.modelo.Consultas;
@@ -252,6 +254,7 @@ public class ControladorPrincipal implements ActionListener{
         }
 
     }
+
     
     
 }
