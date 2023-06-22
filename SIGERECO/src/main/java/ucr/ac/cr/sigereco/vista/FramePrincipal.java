@@ -32,6 +32,7 @@ public class FramePrincipal extends javax.swing.JFrame {
         jMenuIIniciarSesion = new javax.swing.JMenuItem();
         panelConsulta1 = new ucr.ac.cr.sigereco.vista.PanelConsulta();
         panelTop101 = new ucr.ac.cr.sigereco.vista.PanelTop10();
+        jLabel1 = new javax.swing.JLabel();
         jMenuBar2 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuIRecetario = new javax.swing.JMenuItem();
@@ -52,8 +53,17 @@ public class FramePrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(panelConsulta1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 64, 455, -1));
-        getContentPane().add(panelTop101, new org.netbeans.lib.awtextra.AbsoluteConstraints(486, 6, -1, -1));
+
+        panelConsulta1.setOpaque(false);
+        getContentPane().add(panelConsulta1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 455, -1));
+
+        panelTop101.setOpaque(false);
+        getContentPane().add(panelTop101, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 130, -1, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/principal.png"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        jMenuBar2.setBackground(new java.awt.Color(112, 164, 215));
 
         jMenu1.setText("Explorador");
 
@@ -73,6 +83,7 @@ public class FramePrincipal extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenuItem jMenuIAyuda;

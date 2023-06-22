@@ -48,7 +48,6 @@ public class PanelInicioSesion extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblFondo = new javax.swing.JLabel();
         lblTitulo = new javax.swing.JLabel();
         lblUsuario = new javax.swing.JLabel();
         txtUsuario = new javax.swing.JTextField();
@@ -56,72 +55,31 @@ public class PanelInicioSesion extends javax.swing.JPanel {
         btnInicioSesion = new javax.swing.JButton();
         btnAtras = new javax.swing.JButton();
         txtContrasena = new javax.swing.JPasswordField();
+        lblFondo = new javax.swing.JLabel();
 
-        lblFondo.setText("Imagen");
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblTitulo.setText("Iniciar sesion");
+        add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(173, 101, -1, -1));
 
         lblUsuario.setText("Usuario:");
+        add(lblUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(54, 138, -1, -1));
+        add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(142, 135, 145, -1));
 
         lblContrasena.setText("Contraseña:");
+        add(lblContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(46, 178, -1, -1));
 
         btnInicioSesion.setText("Iniciar Sesion");
         btnInicioSesion.setActionCommand("IniciarSesionPanIS");
+        add(btnInicioSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 230, -1, -1));
 
         btnAtras.setText("Atras");
         btnAtras.setActionCommand("AtrasPanIS");
+        add(btnAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, -1, -1));
+        add(txtContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(142, 175, 145, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(193, Short.MAX_VALUE)
-                .addComponent(lblFondo)
-                .addGap(167, 167, 167))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addGap(173, 173, 173)
-                            .addComponent(lblTitulo))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addGap(54, 54, 54)
-                            .addComponent(lblUsuario)
-                            .addGap(46, 46, 46)
-                            .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(lblContrasena)
-                            .addGap(34, 34, 34)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(btnInicioSesion)
-                                .addComponent(txtContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btnAtras)))
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btnAtras)
-                .addGap(3, 3, 3)
-                .addComponent(lblFondo)
-                .addGap(53, 53, 53)
-                .addComponent(lblTitulo)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblUsuario)
-                    .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblContrasena)
-                    .addComponent(txtContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(41, 41, 41)
-                .addComponent(btnInicioSesion)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/inicioSesion.jpg"))); // NOI18N
+        add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
 

@@ -140,39 +140,61 @@ public class PanelRegistro extends javax.swing.JPanel {
         txtCod = new javax.swing.JTextField();
         lblCod = new javax.swing.JLabel();
         btnAgregar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+
+        setOpaque(false);
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 36, 179, -1));
 
         lblNombre.setText("Nombre:");
+        add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 14, -1, -1));
 
         lblApellido.setText("Apellido:");
+        add(lblApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(255, 14, -1, -1));
 
         txtApellido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtApellidoActionPerformed(evt);
             }
         });
+        add(txtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(255, 36, 213, -1));
 
         lblCorreo.setText("Correo:");
+        add(lblCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(255, 76, -1, -1));
+        add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(255, 98, 213, -1));
 
         lblNombreUsuario.setText("Nombre de usuario:");
+        add(lblNombreUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 138, -1, -1));
+        add(txtNombreUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 160, 179, -1));
 
         lblPais.setText("Pais:");
+        add(lblPais, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 76, -1, -1));
+        add(txtPais, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 98, 179, -1));
 
         lblContrasena.setText("Contraseña:");
+        add(lblContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(255, 138, -1, -1));
+        add(txtContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(255, 160, 213, -1));
 
         lblTipoUsuario.setText("Tipo usuario:");
+        add(lblTipoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 214, -1, -1));
 
         cBoxTipoUsuario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrador", "Consultor" }));
+        add(cBoxTipoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(86, 211, -1, -1));
 
         btnRegistrar.setText("Registrar");
+        add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 260, 462, -1));
 
         btnModificar.setText("Modificar");
         btnModificar.setActionCommand("ModificarPanReg");
+        add(btnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 308, -1, -1));
 
         btnEliminar.setText("Eliminar");
         btnEliminar.setActionCommand("EliminarPanReg");
+        add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(197, 308, 81, -1));
 
         btnUsuarios.setText("Buscar");
         btnUsuarios.setActionCommand("BuscarPanReg");
+        add(btnUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 308, 81, -1));
 
         btnSalir.setText("Salir");
         btnSalir.setActionCommand("SalirPanReg");
@@ -181,110 +203,18 @@ public class PanelRegistro extends javax.swing.JPanel {
                 btnSalirActionPerformed(evt);
             }
         });
+        add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(387, 308, 81, -1));
+        add(txtCod, new org.netbeans.lib.awtextra.AbsoluteConstraints(305, 211, 163, -1));
 
         lblCod.setText("cod:");
+        add(lblCod, new org.netbeans.lib.awtextra.AbsoluteConstraints(265, 214, -1, -1));
 
         btnAgregar.setText("Agregar");
         btnAgregar.setActionCommand("AgregarPanReg");
+        add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(105, 308, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnRegistrar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(txtNombreUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
-                            .addComponent(txtPais, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtNombre, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblNombre, javax.swing.GroupLayout.Alignment.LEADING))
-                        .addGap(70, 70, 70)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblApellido)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(txtApellido)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnAgregar)
-                        .addGap(19, 19, 19)
-                        .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnModificar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
-                        .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblTipoUsuario)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(cBoxTipoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(lblPais)
-                            .addComponent(lblNombreUsuario))
-                        .addGap(59, 59, 59)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtContrasena)
-                            .addComponent(txtCorreo)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblCorreo)
-                                    .addComponent(lblContrasena))
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(lblCod)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtCod, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(29, 29, 29))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblNombre)
-                    .addComponent(lblApellido))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblPais)
-                    .addComponent(lblCorreo))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtPais, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblNombreUsuario)
-                    .addComponent(lblContrasena))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtNombreUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblTipoUsuario)
-                    .addComponent(cBoxTipoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtCod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblCod))
-                .addGap(27, 27, 27)
-                .addComponent(btnRegistrar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnEliminar)
-                    .addComponent(btnSalir)
-                    .addComponent(btnUsuarios)
-                    .addComponent(btnModificar)
-                    .addComponent(btnAgregar))
-                .addGap(26, 26, 26))
-        );
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Registro.jpg.png"))); // NOI18N
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtApellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtApellidoActionPerformed
@@ -304,6 +234,7 @@ public class PanelRegistro extends javax.swing.JPanel {
     private javax.swing.JButton btnSalir;
     private javax.swing.JButton btnUsuarios;
     private javax.swing.JComboBox<String> cBoxTipoUsuario;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblApellido;
     private javax.swing.JLabel lblCod;
     private javax.swing.JLabel lblContrasena;
