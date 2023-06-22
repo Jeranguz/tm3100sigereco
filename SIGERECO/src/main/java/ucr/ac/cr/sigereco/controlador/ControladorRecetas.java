@@ -6,7 +6,18 @@ package ucr.ac.cr.sigereco.controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 import ucr.ac.cr.sigereco.modelo.Categoria;
 import ucr.ac.cr.sigereco.modelo.Dificultad;
 import ucr.ac.cr.sigereco.modelo.Ingrediente;
@@ -29,6 +40,8 @@ public class ControladorRecetas implements ActionListener {
     private ArrayList <Ocasion> listaOcasion;
     private ArrayList <UnidadMedida> listaUnidad;
     private ArrayList <Categoria> listaCategorias;
+    private JSONObject objetoBase;
+    private File archivo;
 
     public ControladorRecetas() {
         listaRecetas = new ArrayList();
@@ -37,19 +50,88 @@ public class ControladorRecetas implements ActionListener {
         listaOcasion = new ArrayList();
         listaUnidad = new ArrayList();
         listaCategorias = new ArrayList();
+        archivo = new File ("Recetas.json");
+        leerJson();
+    }
+    
+    public void escribirJson (){
+        JSONArray listaRecetasJson = new JSONArray();
+        objetoBase = new JSONObject();
+        for (int i = 0; i < listaRecetas.size(); i++) {
+            JSONObject objJSONReceta = new JSONObject();
+            objJSONReceta.put("id",listaRecetas.get(i).getId());
+            objJSONReceta.put("porciones",listaRecetas.get(i).getPorciones());
+            objJSONReceta.put("descripcion",listaRecetas.get(i).getDescripcion());
+            objJSONReceta.put("nombre",listaRecetas.get(i).getNombre());
+            objJSONReceta.put("imagen",listaRecetas.get(i).getImagen());
+            objJSONReceta.put("tiempo de preparacion",listaRecetas.get(i).getTiempoPreparacion());
+            objJSONReceta.put("tiempo de coccion",listaRecetas.get(i).getTiempoCoccion());
+            objJSONReceta.put("instrucciones",listaRecetas.get(i).getInstrucciones());
+            objJSONReceta.put("categoria",listaRecetas.get(i).getCategoria());
+            objJSONReceta.put("dificultad",listaRecetas.get(i).getDificultad());
+            objJSONReceta.put("ingredientes",listaRecetas.get(i).getIngrediente());
+            objJSONReceta.put("ocasion",listaRecetas.get(i).getOcasion());
+            objJSONReceta.put("imagen",listaRecetas.get(i).getImagen());
+            objJSONReceta.put("me gustas",listaRecetas.get(i).getMeGusta());
+            listaRecetasJson.add(objJSONReceta);
+        }
+        objetoBase.put("Recetas",listaRecetasJson);
+        try {
+            FileWriter escribir = new FileWriter(archivo);
+            escribir.write(objetoBase.toJSONString());
+            escribir.flush();
+            escribir.close();
+        } catch (IOException ex) {
+            System.err.println("Error al escribir el archivo");
+        }
+    }
+    
+    public void leerJson(){
+        JSONParser parser = new JSONParser();
+        try {
+            FileReader leer = new FileReader(archivo);
+            Object obj = parser.parse(leer);
+            objetoBase = (JSONObject) obj;
+            JSONArray arregloJSON = (JSONArray) objetoBase.get("Recetas");
+            for (Object object : arregloJSON) {
+                JSONObject objReceta = (JSONObject) object;
+                receta = new Receta (Integer.parseInt(objReceta.get("id").toString()),
+                        Integer.parseInt(objReceta.get("porciones").toString()),
+                        objReceta.get("descripcion").toString(),
+                        objReceta.get("nombre").toString(),
+                        objReceta.get("imagen").toString(),
+                        Integer.parseInt(objReceta.get("tiempo de preparacion").toString()),
+                        Integer.parseInt(objReceta.get("tiempo de coccion").toString()),
+                        objReceta.get("instrucciones").toString(),
+                        (Categoria) objReceta.get("categoria"),
+                        (Dificultad) objReceta.get("dificultad"),
+                        (Ingrediente) objReceta.get("ingrediente"),
+                        (Ocasion) objReceta.get("ocasion"),
+                        Integer.parseInt(objReceta.get("me gustas").toString()));
+                listaRecetas.add(receta);
+            }
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(ControladorRecetas.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(ControladorRecetas.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ParseException ex) {
+            Logger.getLogger(ControladorRecetas.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     //Metodos para gestionar las recetas
     public String agregarReceta(Receta receta) {
 
         if (listaRecetas.add(receta)) {
-            return "La receta fue ingresada con exito";
+            escribirJson ();
+            return "La receta fue ingresada con exito"; 
         }
         return "Hubo un error al ingresar la receta";
     }
     
     public Receta buscarReceta(String nombre) {
 
+        escribirJson ();
         for (int indice = 0; indice < listaRecetas.size(); indice++) {
 
             if (listaRecetas.get(indice).getNombre().equalsIgnoreCase(nombre)) {

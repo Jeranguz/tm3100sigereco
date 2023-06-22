@@ -15,8 +15,8 @@ public class Receta {
     private String descripcion;
     private String nombre;
     private String imagen;
-    private String tiempoPreparacion;
-    private String tiempoCoccion;
+    private int tiempoPreparacion;
+    private int tiempoCoccion;
     private String instrucciones;
     private Categoria categoria;
     private Dificultad dificultad;
@@ -24,8 +24,8 @@ public class Receta {
     private Ocasion ocasion;
     private int meGusta;
 
-    public Receta(int id, int porciones, String descripcion, String nombre, String imagen, String tiempoPreparacion,
-            String tiempoCoccion, String instrucciones, Categoria categoria, Dificultad dificultad,
+    public Receta(int id, int porciones, String descripcion, String nombre, String imagen, int tiempoPreparacion,
+            int tiempoCoccion, String instrucciones, Categoria categoria, Dificultad dificultad,
             Ingrediente ingrediente, Ocasion ocasion, int meGusta) {
         this.id = id;
         this.porciones = porciones;
@@ -116,19 +116,19 @@ public class Receta {
         this.imagen = imagen;
     }
 
-    public String getTiempoPreparacion() {
+    public int getTiempoPreparacion() {
         return tiempoPreparacion;
     }
 
-    public void setTiempoPreparacion(String tiempoPreparacion) {
+    public void setTiempoPreparacion(int tiempoPreparacion) {
         this.tiempoPreparacion = tiempoPreparacion;
     }
 
-    public String getTiempoCoccion() {
+    public int getTiempoCoccion() {
         return tiempoCoccion;
     }
 
-    public void setTiempoCoccion(String tiempoCoccion) {
+    public void setTiempoCoccion(int tiempoCoccion) {
         this.tiempoCoccion = tiempoCoccion;
     }
 
