@@ -95,6 +95,18 @@ public class PanelRegistro extends javax.swing.JPanel {
         this.cBoxTipoUsuario.setSelectedItem(jComboTipo);
     }
     
+    public String getTxtID(){
+    
+        return txtID.getText();
+    
+    }
+    
+    public void setTxtID(String ID){
+    
+        txtID.setText(ID);
+    
+    }
+    
     public void limpiar() {
         txtNombre.setText("");
         txtApellido.setText("");
@@ -108,7 +120,6 @@ public class PanelRegistro extends javax.swing.JPanel {
 
           btnEliminar.addActionListener(controladorUsuarios);
           btnModificar.addActionListener(controladorUsuarios);
-          btnRegistrar.addActionListener(controladorUsuarios);
           btnSalir.addActionListener(controladorUsuarios);
           btnUsuarios.addActionListener(controladorUsuarios);
           btnAgregar.addActionListener(controladorUsuarios);
@@ -132,14 +143,15 @@ public class PanelRegistro extends javax.swing.JPanel {
         txtContrasena = new javax.swing.JTextField();
         lblTipoUsuario = new javax.swing.JLabel();
         cBoxTipoUsuario = new javax.swing.JComboBox<>();
-        btnRegistrar = new javax.swing.JButton();
         btnModificar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
         btnUsuarios = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
-        txtCod = new javax.swing.JTextField();
+        txtID = new javax.swing.JTextField();
         lblCod = new javax.swing.JLabel();
         btnAgregar = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setOpaque(false);
@@ -181,9 +193,6 @@ public class PanelRegistro extends javax.swing.JPanel {
         cBoxTipoUsuario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrador", "Consultor" }));
         add(cBoxTipoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(86, 211, -1, -1));
 
-        btnRegistrar.setText("Registrar");
-        add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 260, 462, -1));
-
         btnModificar.setText("Modificar");
         btnModificar.setActionCommand("ModificarPanReg");
         add(btnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 308, -1, -1));
@@ -204,14 +213,20 @@ public class PanelRegistro extends javax.swing.JPanel {
             }
         });
         add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(387, 308, 81, -1));
-        add(txtCod, new org.netbeans.lib.awtextra.AbsoluteConstraints(305, 211, 163, -1));
+        add(txtID, new org.netbeans.lib.awtextra.AbsoluteConstraints(305, 211, 160, -1));
 
-        lblCod.setText("cod:");
-        add(lblCod, new org.netbeans.lib.awtextra.AbsoluteConstraints(265, 214, -1, -1));
+        lblCod.setText("ID:");
+        add(lblCod, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 210, -1, -1));
 
         btnAgregar.setText("Agregar");
         btnAgregar.setActionCommand("AgregarPanReg");
         add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(105, 308, -1, -1));
+
+        jLabel3.setText("*");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 200, 10, -1));
+
+        jLabel2.setText("(*) si deseas modificar o eliminar su informacion escriba si ID y presione buscar");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Registro.jpg.png"))); // NOI18N
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -230,11 +245,12 @@ public class PanelRegistro extends javax.swing.JPanel {
     private javax.swing.JButton btnAgregar;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnModificar;
-    private javax.swing.JButton btnRegistrar;
     private javax.swing.JButton btnSalir;
     private javax.swing.JButton btnUsuarios;
     private javax.swing.JComboBox<String> cBoxTipoUsuario;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel lblApellido;
     private javax.swing.JLabel lblCod;
     private javax.swing.JLabel lblContrasena;
@@ -244,11 +260,19 @@ public class PanelRegistro extends javax.swing.JPanel {
     private javax.swing.JLabel lblPais;
     private javax.swing.JLabel lblTipoUsuario;
     private javax.swing.JTextField txtApellido;
-    private javax.swing.JTextField txtCod;
     private javax.swing.JTextField txtContrasena;
     private javax.swing.JTextField txtCorreo;
+    private javax.swing.JTextField txtID;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtNombreUsuario;
     private javax.swing.JTextField txtPais;
     // End of variables declaration//GEN-END:variables
+
+    public void bloquearID() {
+        txtID.setEnabled(false);
+    }
+    
+    public void habilitarID() {
+        txtID.setEnabled(true);
+    }
 }

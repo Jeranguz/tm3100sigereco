@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import ucr.ac.cr.sigereco.exceptions.NonexistentEntityException;
+import ucr.ac.cr.sigereco.controlador.exceptions.NonexistentEntityException;
 import ucr.ac.cr.sigereco.modelo.UnidadMedidaTb;
 
 /**

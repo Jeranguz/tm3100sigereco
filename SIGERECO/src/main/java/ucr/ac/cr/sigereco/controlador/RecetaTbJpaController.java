@@ -14,29 +14,26 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-import ucr.ac.cr.sigereco.exceptions.IllegalOrphanException;
-import ucr.ac.cr.sigereco.exceptions.NonexistentEntityException;
+import ucr.ac.cr.sigereco.controlador.exceptions.IllegalOrphanException;
+import ucr.ac.cr.sigereco.controlador.exceptions.NonexistentEntityException;
 import ucr.ac.cr.sigereco.modelo.ComplejidadTb;
 import ucr.ac.cr.sigereco.modelo.CategoriaTb;
 import ucr.ac.cr.sigereco.modelo.ConsultaTb;
 import ucr.ac.cr.sigereco.modelo.UsuarioHasRecetaTb;
+import ucr.ac.cr.sigereco.modelo.UsuarioHasReceta1Tb;
 import ucr.ac.cr.sigereco.modelo.RecetaHasIngredienteTb;
 import ucr.ac.cr.sigereco.modelo.RecetaTb;
-import ucr.ac.cr.sigereco.modelo.UsuarioHasReceta1Tb;
 
 /**
  *
  * @author Drexler Guzman
  */
 public class RecetaTbJpaController implements Serializable {
-    
-    private EntityManagerFactory emf = null;
 
-    public RecetaTbJpaController() {
-        this.emf = Persistence.createEntityManagerFactory("SIGERECOPersistence");
+    public RecetaTbJpaController(EntityManagerFactory emf) {
+        this.emf = emf;
     }
-    
+    private EntityManagerFactory emf = null;
 
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
@@ -58,11 +55,11 @@ public class RecetaTbJpaController implements Serializable {
         if (recetaTb.getUsuarioHasRecetaTbList() == null) {
             recetaTb.setUsuarioHasRecetaTbList(new ArrayList<UsuarioHasRecetaTb>());
         }
-        if (recetaTb.getRecetaHasIngredienteTbList() == null) {
-            recetaTb.setRecetaHasIngredienteTbList(new ArrayList<RecetaHasIngredienteTb>());
-        }
         if (recetaTb.getUsuarioHasReceta1TbList() == null) {
             recetaTb.setUsuarioHasReceta1TbList(new ArrayList<UsuarioHasReceta1Tb>());
+        }
+        if (recetaTb.getRecetaHasIngredienteTbList() == null) {
+            recetaTb.setRecetaHasIngredienteTbList(new ArrayList<RecetaHasIngredienteTb>());
         }
         EntityManager em = null;
         try {
@@ -98,18 +95,18 @@ public class RecetaTbJpaController implements Serializable {
                 attachedUsuarioHasRecetaTbList.add(usuarioHasRecetaTbListUsuarioHasRecetaTbToAttach);
             }
             recetaTb.setUsuarioHasRecetaTbList(attachedUsuarioHasRecetaTbList);
-            List<RecetaHasIngredienteTb> attachedRecetaHasIngredienteTbList = new ArrayList<RecetaHasIngredienteTb>();
-            for (RecetaHasIngredienteTb recetaHasIngredienteTbListRecetaHasIngredienteTbToAttach : recetaTb.getRecetaHasIngredienteTbList()) {
-                recetaHasIngredienteTbListRecetaHasIngredienteTbToAttach = em.getReference(recetaHasIngredienteTbListRecetaHasIngredienteTbToAttach.getClass(), recetaHasIngredienteTbListRecetaHasIngredienteTbToAttach.getRecetaHasIngredienteTbPK());
-                attachedRecetaHasIngredienteTbList.add(recetaHasIngredienteTbListRecetaHasIngredienteTbToAttach);
-            }
-            recetaTb.setRecetaHasIngredienteTbList(attachedRecetaHasIngredienteTbList);
             List<UsuarioHasReceta1Tb> attachedUsuarioHasReceta1TbList = new ArrayList<UsuarioHasReceta1Tb>();
             for (UsuarioHasReceta1Tb usuarioHasReceta1TbListUsuarioHasReceta1TbToAttach : recetaTb.getUsuarioHasReceta1TbList()) {
                 usuarioHasReceta1TbListUsuarioHasReceta1TbToAttach = em.getReference(usuarioHasReceta1TbListUsuarioHasReceta1TbToAttach.getClass(), usuarioHasReceta1TbListUsuarioHasReceta1TbToAttach.getUsuarioHasReceta1TbPK());
                 attachedUsuarioHasReceta1TbList.add(usuarioHasReceta1TbListUsuarioHasReceta1TbToAttach);
             }
             recetaTb.setUsuarioHasReceta1TbList(attachedUsuarioHasReceta1TbList);
+            List<RecetaHasIngredienteTb> attachedRecetaHasIngredienteTbList = new ArrayList<RecetaHasIngredienteTb>();
+            for (RecetaHasIngredienteTb recetaHasIngredienteTbListRecetaHasIngredienteTbToAttach : recetaTb.getRecetaHasIngredienteTbList()) {
+                recetaHasIngredienteTbListRecetaHasIngredienteTbToAttach = em.getReference(recetaHasIngredienteTbListRecetaHasIngredienteTbToAttach.getClass(), recetaHasIngredienteTbListRecetaHasIngredienteTbToAttach.getRecetaHasIngredienteTbPK());
+                attachedRecetaHasIngredienteTbList.add(recetaHasIngredienteTbListRecetaHasIngredienteTbToAttach);
+            }
+            recetaTb.setRecetaHasIngredienteTbList(attachedRecetaHasIngredienteTbList);
             em.persist(recetaTb);
             for (OcasionTb ocasionTbListOcasionTb : recetaTb.getOcasionTbList()) {
                 ocasionTbListOcasionTb.getRecetaTbList().add(recetaTb);
@@ -136,15 +133,6 @@ public class RecetaTbJpaController implements Serializable {
                     oldRecetaTbOfUsuarioHasRecetaTbListUsuarioHasRecetaTb = em.merge(oldRecetaTbOfUsuarioHasRecetaTbListUsuarioHasRecetaTb);
                 }
             }
-            for (RecetaHasIngredienteTb recetaHasIngredienteTbListRecetaHasIngredienteTb : recetaTb.getRecetaHasIngredienteTbList()) {
-                RecetaTb oldRecetaTbOfRecetaHasIngredienteTbListRecetaHasIngredienteTb = recetaHasIngredienteTbListRecetaHasIngredienteTb.getRecetaTb();
-                recetaHasIngredienteTbListRecetaHasIngredienteTb.setRecetaTb(recetaTb);
-                recetaHasIngredienteTbListRecetaHasIngredienteTb = em.merge(recetaHasIngredienteTbListRecetaHasIngredienteTb);
-                if (oldRecetaTbOfRecetaHasIngredienteTbListRecetaHasIngredienteTb != null) {
-                    oldRecetaTbOfRecetaHasIngredienteTbListRecetaHasIngredienteTb.getRecetaHasIngredienteTbList().remove(recetaHasIngredienteTbListRecetaHasIngredienteTb);
-                    oldRecetaTbOfRecetaHasIngredienteTbListRecetaHasIngredienteTb = em.merge(oldRecetaTbOfRecetaHasIngredienteTbListRecetaHasIngredienteTb);
-                }
-            }
             for (UsuarioHasReceta1Tb usuarioHasReceta1TbListUsuarioHasReceta1Tb : recetaTb.getUsuarioHasReceta1TbList()) {
                 RecetaTb oldRecetaTbOfUsuarioHasReceta1TbListUsuarioHasReceta1Tb = usuarioHasReceta1TbListUsuarioHasReceta1Tb.getRecetaTb();
                 usuarioHasReceta1TbListUsuarioHasReceta1Tb.setRecetaTb(recetaTb);
@@ -152,6 +140,15 @@ public class RecetaTbJpaController implements Serializable {
                 if (oldRecetaTbOfUsuarioHasReceta1TbListUsuarioHasReceta1Tb != null) {
                     oldRecetaTbOfUsuarioHasReceta1TbListUsuarioHasReceta1Tb.getUsuarioHasReceta1TbList().remove(usuarioHasReceta1TbListUsuarioHasReceta1Tb);
                     oldRecetaTbOfUsuarioHasReceta1TbListUsuarioHasReceta1Tb = em.merge(oldRecetaTbOfUsuarioHasReceta1TbListUsuarioHasReceta1Tb);
+                }
+            }
+            for (RecetaHasIngredienteTb recetaHasIngredienteTbListRecetaHasIngredienteTb : recetaTb.getRecetaHasIngredienteTbList()) {
+                RecetaTb oldRecetaTbOfRecetaHasIngredienteTbListRecetaHasIngredienteTb = recetaHasIngredienteTbListRecetaHasIngredienteTb.getRecetaTb();
+                recetaHasIngredienteTbListRecetaHasIngredienteTb.setRecetaTb(recetaTb);
+                recetaHasIngredienteTbListRecetaHasIngredienteTb = em.merge(recetaHasIngredienteTbListRecetaHasIngredienteTb);
+                if (oldRecetaTbOfRecetaHasIngredienteTbListRecetaHasIngredienteTb != null) {
+                    oldRecetaTbOfRecetaHasIngredienteTbListRecetaHasIngredienteTb.getRecetaHasIngredienteTbList().remove(recetaHasIngredienteTbListRecetaHasIngredienteTb);
+                    oldRecetaTbOfRecetaHasIngredienteTbListRecetaHasIngredienteTb = em.merge(oldRecetaTbOfRecetaHasIngredienteTbListRecetaHasIngredienteTb);
                 }
             }
             em.getTransaction().commit();
@@ -178,10 +175,10 @@ public class RecetaTbJpaController implements Serializable {
             List<ConsultaTb> consultaTbListNew = recetaTb.getConsultaTbList();
             List<UsuarioHasRecetaTb> usuarioHasRecetaTbListOld = persistentRecetaTb.getUsuarioHasRecetaTbList();
             List<UsuarioHasRecetaTb> usuarioHasRecetaTbListNew = recetaTb.getUsuarioHasRecetaTbList();
-            List<RecetaHasIngredienteTb> recetaHasIngredienteTbListOld = persistentRecetaTb.getRecetaHasIngredienteTbList();
-            List<RecetaHasIngredienteTb> recetaHasIngredienteTbListNew = recetaTb.getRecetaHasIngredienteTbList();
             List<UsuarioHasReceta1Tb> usuarioHasReceta1TbListOld = persistentRecetaTb.getUsuarioHasReceta1TbList();
             List<UsuarioHasReceta1Tb> usuarioHasReceta1TbListNew = recetaTb.getUsuarioHasReceta1TbList();
+            List<RecetaHasIngredienteTb> recetaHasIngredienteTbListOld = persistentRecetaTb.getRecetaHasIngredienteTbList();
+            List<RecetaHasIngredienteTb> recetaHasIngredienteTbListNew = recetaTb.getRecetaHasIngredienteTbList();
             List<String> illegalOrphanMessages = null;
             for (UsuarioHasRecetaTb usuarioHasRecetaTbListOldUsuarioHasRecetaTb : usuarioHasRecetaTbListOld) {
                 if (!usuarioHasRecetaTbListNew.contains(usuarioHasRecetaTbListOldUsuarioHasRecetaTb)) {
@@ -191,20 +188,20 @@ public class RecetaTbJpaController implements Serializable {
                     illegalOrphanMessages.add("You must retain UsuarioHasRecetaTb " + usuarioHasRecetaTbListOldUsuarioHasRecetaTb + " since its recetaTb field is not nullable.");
                 }
             }
-            for (RecetaHasIngredienteTb recetaHasIngredienteTbListOldRecetaHasIngredienteTb : recetaHasIngredienteTbListOld) {
-                if (!recetaHasIngredienteTbListNew.contains(recetaHasIngredienteTbListOldRecetaHasIngredienteTb)) {
-                    if (illegalOrphanMessages == null) {
-                        illegalOrphanMessages = new ArrayList<String>();
-                    }
-                    illegalOrphanMessages.add("You must retain RecetaHasIngredienteTb " + recetaHasIngredienteTbListOldRecetaHasIngredienteTb + " since its recetaTb field is not nullable.");
-                }
-            }
             for (UsuarioHasReceta1Tb usuarioHasReceta1TbListOldUsuarioHasReceta1Tb : usuarioHasReceta1TbListOld) {
                 if (!usuarioHasReceta1TbListNew.contains(usuarioHasReceta1TbListOldUsuarioHasReceta1Tb)) {
                     if (illegalOrphanMessages == null) {
                         illegalOrphanMessages = new ArrayList<String>();
                     }
                     illegalOrphanMessages.add("You must retain UsuarioHasReceta1Tb " + usuarioHasReceta1TbListOldUsuarioHasReceta1Tb + " since its recetaTb field is not nullable.");
+                }
+            }
+            for (RecetaHasIngredienteTb recetaHasIngredienteTbListOldRecetaHasIngredienteTb : recetaHasIngredienteTbListOld) {
+                if (!recetaHasIngredienteTbListNew.contains(recetaHasIngredienteTbListOldRecetaHasIngredienteTb)) {
+                    if (illegalOrphanMessages == null) {
+                        illegalOrphanMessages = new ArrayList<String>();
+                    }
+                    illegalOrphanMessages.add("You must retain RecetaHasIngredienteTb " + recetaHasIngredienteTbListOldRecetaHasIngredienteTb + " since its recetaTb field is not nullable.");
                 }
             }
             if (illegalOrphanMessages != null) {
@@ -245,13 +242,6 @@ public class RecetaTbJpaController implements Serializable {
             }
             usuarioHasRecetaTbListNew = attachedUsuarioHasRecetaTbListNew;
             recetaTb.setUsuarioHasRecetaTbList(usuarioHasRecetaTbListNew);
-            List<RecetaHasIngredienteTb> attachedRecetaHasIngredienteTbListNew = new ArrayList<RecetaHasIngredienteTb>();
-            for (RecetaHasIngredienteTb recetaHasIngredienteTbListNewRecetaHasIngredienteTbToAttach : recetaHasIngredienteTbListNew) {
-                recetaHasIngredienteTbListNewRecetaHasIngredienteTbToAttach = em.getReference(recetaHasIngredienteTbListNewRecetaHasIngredienteTbToAttach.getClass(), recetaHasIngredienteTbListNewRecetaHasIngredienteTbToAttach.getRecetaHasIngredienteTbPK());
-                attachedRecetaHasIngredienteTbListNew.add(recetaHasIngredienteTbListNewRecetaHasIngredienteTbToAttach);
-            }
-            recetaHasIngredienteTbListNew = attachedRecetaHasIngredienteTbListNew;
-            recetaTb.setRecetaHasIngredienteTbList(recetaHasIngredienteTbListNew);
             List<UsuarioHasReceta1Tb> attachedUsuarioHasReceta1TbListNew = new ArrayList<UsuarioHasReceta1Tb>();
             for (UsuarioHasReceta1Tb usuarioHasReceta1TbListNewUsuarioHasReceta1TbToAttach : usuarioHasReceta1TbListNew) {
                 usuarioHasReceta1TbListNewUsuarioHasReceta1TbToAttach = em.getReference(usuarioHasReceta1TbListNewUsuarioHasReceta1TbToAttach.getClass(), usuarioHasReceta1TbListNewUsuarioHasReceta1TbToAttach.getUsuarioHasReceta1TbPK());
@@ -259,6 +249,13 @@ public class RecetaTbJpaController implements Serializable {
             }
             usuarioHasReceta1TbListNew = attachedUsuarioHasReceta1TbListNew;
             recetaTb.setUsuarioHasReceta1TbList(usuarioHasReceta1TbListNew);
+            List<RecetaHasIngredienteTb> attachedRecetaHasIngredienteTbListNew = new ArrayList<RecetaHasIngredienteTb>();
+            for (RecetaHasIngredienteTb recetaHasIngredienteTbListNewRecetaHasIngredienteTbToAttach : recetaHasIngredienteTbListNew) {
+                recetaHasIngredienteTbListNewRecetaHasIngredienteTbToAttach = em.getReference(recetaHasIngredienteTbListNewRecetaHasIngredienteTbToAttach.getClass(), recetaHasIngredienteTbListNewRecetaHasIngredienteTbToAttach.getRecetaHasIngredienteTbPK());
+                attachedRecetaHasIngredienteTbListNew.add(recetaHasIngredienteTbListNewRecetaHasIngredienteTbToAttach);
+            }
+            recetaHasIngredienteTbListNew = attachedRecetaHasIngredienteTbListNew;
+            recetaTb.setRecetaHasIngredienteTbList(recetaHasIngredienteTbListNew);
             recetaTb = em.merge(recetaTb);
             for (OcasionTb ocasionTbListOldOcasionTb : ocasionTbListOld) {
                 if (!ocasionTbListNew.contains(ocasionTbListOldOcasionTb)) {
@@ -319,17 +316,6 @@ public class RecetaTbJpaController implements Serializable {
                     }
                 }
             }
-            for (RecetaHasIngredienteTb recetaHasIngredienteTbListNewRecetaHasIngredienteTb : recetaHasIngredienteTbListNew) {
-                if (!recetaHasIngredienteTbListOld.contains(recetaHasIngredienteTbListNewRecetaHasIngredienteTb)) {
-                    RecetaTb oldRecetaTbOfRecetaHasIngredienteTbListNewRecetaHasIngredienteTb = recetaHasIngredienteTbListNewRecetaHasIngredienteTb.getRecetaTb();
-                    recetaHasIngredienteTbListNewRecetaHasIngredienteTb.setRecetaTb(recetaTb);
-                    recetaHasIngredienteTbListNewRecetaHasIngredienteTb = em.merge(recetaHasIngredienteTbListNewRecetaHasIngredienteTb);
-                    if (oldRecetaTbOfRecetaHasIngredienteTbListNewRecetaHasIngredienteTb != null && !oldRecetaTbOfRecetaHasIngredienteTbListNewRecetaHasIngredienteTb.equals(recetaTb)) {
-                        oldRecetaTbOfRecetaHasIngredienteTbListNewRecetaHasIngredienteTb.getRecetaHasIngredienteTbList().remove(recetaHasIngredienteTbListNewRecetaHasIngredienteTb);
-                        oldRecetaTbOfRecetaHasIngredienteTbListNewRecetaHasIngredienteTb = em.merge(oldRecetaTbOfRecetaHasIngredienteTbListNewRecetaHasIngredienteTb);
-                    }
-                }
-            }
             for (UsuarioHasReceta1Tb usuarioHasReceta1TbListNewUsuarioHasReceta1Tb : usuarioHasReceta1TbListNew) {
                 if (!usuarioHasReceta1TbListOld.contains(usuarioHasReceta1TbListNewUsuarioHasReceta1Tb)) {
                     RecetaTb oldRecetaTbOfUsuarioHasReceta1TbListNewUsuarioHasReceta1Tb = usuarioHasReceta1TbListNewUsuarioHasReceta1Tb.getRecetaTb();
@@ -338,6 +324,17 @@ public class RecetaTbJpaController implements Serializable {
                     if (oldRecetaTbOfUsuarioHasReceta1TbListNewUsuarioHasReceta1Tb != null && !oldRecetaTbOfUsuarioHasReceta1TbListNewUsuarioHasReceta1Tb.equals(recetaTb)) {
                         oldRecetaTbOfUsuarioHasReceta1TbListNewUsuarioHasReceta1Tb.getUsuarioHasReceta1TbList().remove(usuarioHasReceta1TbListNewUsuarioHasReceta1Tb);
                         oldRecetaTbOfUsuarioHasReceta1TbListNewUsuarioHasReceta1Tb = em.merge(oldRecetaTbOfUsuarioHasReceta1TbListNewUsuarioHasReceta1Tb);
+                    }
+                }
+            }
+            for (RecetaHasIngredienteTb recetaHasIngredienteTbListNewRecetaHasIngredienteTb : recetaHasIngredienteTbListNew) {
+                if (!recetaHasIngredienteTbListOld.contains(recetaHasIngredienteTbListNewRecetaHasIngredienteTb)) {
+                    RecetaTb oldRecetaTbOfRecetaHasIngredienteTbListNewRecetaHasIngredienteTb = recetaHasIngredienteTbListNewRecetaHasIngredienteTb.getRecetaTb();
+                    recetaHasIngredienteTbListNewRecetaHasIngredienteTb.setRecetaTb(recetaTb);
+                    recetaHasIngredienteTbListNewRecetaHasIngredienteTb = em.merge(recetaHasIngredienteTbListNewRecetaHasIngredienteTb);
+                    if (oldRecetaTbOfRecetaHasIngredienteTbListNewRecetaHasIngredienteTb != null && !oldRecetaTbOfRecetaHasIngredienteTbListNewRecetaHasIngredienteTb.equals(recetaTb)) {
+                        oldRecetaTbOfRecetaHasIngredienteTbListNewRecetaHasIngredienteTb.getRecetaHasIngredienteTbList().remove(recetaHasIngredienteTbListNewRecetaHasIngredienteTb);
+                        oldRecetaTbOfRecetaHasIngredienteTbListNewRecetaHasIngredienteTb = em.merge(oldRecetaTbOfRecetaHasIngredienteTbListNewRecetaHasIngredienteTb);
                     }
                 }
             }
@@ -378,19 +375,19 @@ public class RecetaTbJpaController implements Serializable {
                 }
                 illegalOrphanMessages.add("This RecetaTb (" + recetaTb + ") cannot be destroyed since the UsuarioHasRecetaTb " + usuarioHasRecetaTbListOrphanCheckUsuarioHasRecetaTb + " in its usuarioHasRecetaTbList field has a non-nullable recetaTb field.");
             }
-            List<RecetaHasIngredienteTb> recetaHasIngredienteTbListOrphanCheck = recetaTb.getRecetaHasIngredienteTbList();
-            for (RecetaHasIngredienteTb recetaHasIngredienteTbListOrphanCheckRecetaHasIngredienteTb : recetaHasIngredienteTbListOrphanCheck) {
-                if (illegalOrphanMessages == null) {
-                    illegalOrphanMessages = new ArrayList<String>();
-                }
-                illegalOrphanMessages.add("This RecetaTb (" + recetaTb + ") cannot be destroyed since the RecetaHasIngredienteTb " + recetaHasIngredienteTbListOrphanCheckRecetaHasIngredienteTb + " in its recetaHasIngredienteTbList field has a non-nullable recetaTb field.");
-            }
             List<UsuarioHasReceta1Tb> usuarioHasReceta1TbListOrphanCheck = recetaTb.getUsuarioHasReceta1TbList();
             for (UsuarioHasReceta1Tb usuarioHasReceta1TbListOrphanCheckUsuarioHasReceta1Tb : usuarioHasReceta1TbListOrphanCheck) {
                 if (illegalOrphanMessages == null) {
                     illegalOrphanMessages = new ArrayList<String>();
                 }
                 illegalOrphanMessages.add("This RecetaTb (" + recetaTb + ") cannot be destroyed since the UsuarioHasReceta1Tb " + usuarioHasReceta1TbListOrphanCheckUsuarioHasReceta1Tb + " in its usuarioHasReceta1TbList field has a non-nullable recetaTb field.");
+            }
+            List<RecetaHasIngredienteTb> recetaHasIngredienteTbListOrphanCheck = recetaTb.getRecetaHasIngredienteTbList();
+            for (RecetaHasIngredienteTb recetaHasIngredienteTbListOrphanCheckRecetaHasIngredienteTb : recetaHasIngredienteTbListOrphanCheck) {
+                if (illegalOrphanMessages == null) {
+                    illegalOrphanMessages = new ArrayList<String>();
+                }
+                illegalOrphanMessages.add("This RecetaTb (" + recetaTb + ") cannot be destroyed since the RecetaHasIngredienteTb " + recetaHasIngredienteTbListOrphanCheckRecetaHasIngredienteTb + " in its recetaHasIngredienteTbList field has a non-nullable recetaTb field.");
             }
             if (illegalOrphanMessages != null) {
                 throw new IllegalOrphanException(illegalOrphanMessages);

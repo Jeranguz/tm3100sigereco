@@ -16,8 +16,8 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import ucr.ac.cr.sigereco.exceptions.NonexistentEntityException;
-import ucr.ac.cr.sigereco.exceptions.PreexistingEntityException;
+import ucr.ac.cr.sigereco.controlador.exceptions.NonexistentEntityException;
+import ucr.ac.cr.sigereco.controlador.exceptions.PreexistingEntityException;
 import ucr.ac.cr.sigereco.modelo.RecetaHasIngredienteTb;
 import ucr.ac.cr.sigereco.modelo.RecetaHasIngredienteTbPK;
 
@@ -43,8 +43,8 @@ public class RecetaHasIngredienteTbJpaController implements Serializable {
         if (recetaHasIngredienteTb.getUnidadMedidaTbList() == null) {
             recetaHasIngredienteTb.setUnidadMedidaTbList(new ArrayList<UnidadMedidaTb>());
         }
-        recetaHasIngredienteTb.getRecetaHasIngredienteTbPK().setRecetaId(recetaHasIngredienteTb.getRecetaTb().getId());
         recetaHasIngredienteTb.getRecetaHasIngredienteTbPK().setIngredienteId(recetaHasIngredienteTb.getIngredienteTb().getId());
+        recetaHasIngredienteTb.getRecetaHasIngredienteTbPK().setRecetaId(recetaHasIngredienteTb.getRecetaTb().getId());
         EntityManager em = null;
         try {
             em = getEntityManager();
@@ -92,8 +92,8 @@ public class RecetaHasIngredienteTbJpaController implements Serializable {
     }
 
     public void edit(RecetaHasIngredienteTb recetaHasIngredienteTb) throws NonexistentEntityException, Exception {
-        recetaHasIngredienteTb.getRecetaHasIngredienteTbPK().setRecetaId(recetaHasIngredienteTb.getRecetaTb().getId());
         recetaHasIngredienteTb.getRecetaHasIngredienteTbPK().setIngredienteId(recetaHasIngredienteTb.getIngredienteTb().getId());
+        recetaHasIngredienteTb.getRecetaHasIngredienteTbPK().setRecetaId(recetaHasIngredienteTb.getRecetaTb().getId());
         EntityManager em = null;
         try {
             em = getEntityManager();

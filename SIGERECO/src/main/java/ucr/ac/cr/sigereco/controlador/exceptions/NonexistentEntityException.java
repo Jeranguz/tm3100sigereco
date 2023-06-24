@@ -1,4 +1,4 @@
-package ucr.ac.cr.sigereco.exceptions;
+package ucr.ac.cr.sigereco.controlador.exceptions;
 
 public class NonexistentEntityException extends Exception {
     public NonexistentEntityException(String message, Throwable cause) {

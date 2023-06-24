@@ -7,7 +7,9 @@ package ucr.ac.cr.sigereco.controlador;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import javax.persistence.Persistence;
 import javax.swing.JOptionPane;
+import ucr.ac.cr.sigereco.modelo.UsuarioTb;
 import ucr.ac.cr.sigereco.modelo.Usuario;
 import ucr.ac.cr.sigereco.vista.FrameInicioSesion;
 import ucr.ac.cr.sigereco.vista.FrameRegistro;
@@ -19,16 +21,20 @@ import ucr.ac.cr.sigereco.vista.FrameRegistro;
  */
 public class ControladorUsuarios implements ActionListener{
     
-    private ArrayList <Usuario> usuarios;
+    private ArrayList <UsuarioTb> usuarios;
     private FrameRegistro frameRegistro;
+    private UsuarioTbJpaController usuarioTbControlador;
+    private int id=0;
 
     public ControladorUsuarios() {
 
         usuarios=new ArrayList<>();
         frameRegistro=new FrameRegistro();
+        usuarioTbControlador=new UsuarioTbJpaController(Persistence.createEntityManagerFactory("SIGERECOPersistence"));
         frameRegistro.escuchar(this);
-        usuarios.add(new Usuario ("Adim", "admin@sigereco.com", "Costa Rica", "Administrador", "Admin", "Admin", "Admin"));
-        usuarios.add(new Usuario ("user", "user@sigereco.com", "Costa Rica", "Consultor", "user", "user", "user"));
+        id=usuarioTbControlador.getUsuarioTbCount();
+        //usuarios.add(new Usuario ("Adim", "admin@sigereco.com", "Costa Rica", "Administrador", "Admin", "Admin", "Admin"));
+        //usuarios.add(new Usuario ("user", "user@sigereco.com", "Costa Rica", "Consultor", "user", "user", "user"));
     }
     
     public void mostrarRegistroUsuario(){
@@ -38,7 +44,7 @@ public class ControladorUsuarios implements ActionListener{
     
     }
     
-    public void agregarUsuario(Usuario usuario){
+    public void agregarUsuario(UsuarioTb usuario){
     
         usuarios.add(usuario);
     
@@ -70,12 +76,23 @@ public class ControladorUsuarios implements ActionListener{
         
             case "BuscarPanReg":
                 System.out.println("BuscarPanReg");
-                
+                UsuarioTb usuarioBuscado=usuarioTbControlador.findUsuarioTb(Integer.parseInt(frameRegistro.getTxtID()));
+                frameRegistro.bloquearID();
+                frameRegistro.setTxtApellido(usuarioBuscado.getApellido());
+                frameRegistro.setTxtContrasena(usuarioBuscado.getContrasena());
+                frameRegistro.setTxtCorreo(usuarioBuscado.getCorreo());
+                frameRegistro.setTxtNombre(usuarioBuscado.getNombre());
+                frameRegistro.setTxtNombreUsuario(usuarioBuscado.getNombreUsuario());
+                frameRegistro.setTxtPais(usuarioBuscado.getPais());
+                frameRegistro.setCboxTipo(usuarioBuscado.getTipoUsuario());
                 break;
                 
             case "AgregarPanReg":
                 System.out.println("AgregarPanReg");
-                agregarUsuario(new Usuario(frameRegistro.getTxtNombre(), frameRegistro.getTxtCorreo(), frameRegistro.getTxtPais(), frameRegistro.getCboxTipo(), frameRegistro.getTxtNombreUsuario(), frameRegistro.getTxtApellido(), frameRegistro.getTxtContrasena()));
+                id++;
+                //agregarUsuario(new UsuarioTb(id, frameRegistro.getTxtNombre(), frameRegistro.getTxtApellido(), frameRegistro.getTxtCorreo(), frameRegistro.getTxtPais(), frameRegistro.getTxtNombreUsuario(), frameRegistro.getCboxTipo(), frameRegistro.getTxtContrasena()));
+                usuarioTbControlador.create(new UsuarioTb(id, frameRegistro.getTxtNombre(), frameRegistro.getTxtApellido(), frameRegistro.getTxtCorreo(), frameRegistro.getTxtPais(), frameRegistro.getTxtNombreUsuario(), frameRegistro.getCboxTipo(), frameRegistro.getTxtContrasena()));
+                JOptionPane.showMessageDialog(null, "Su ID es el:"+id+ "No lo olvides.");
                 frameRegistro.limpiar();
                 break;
                 

@@ -14,9 +14,8 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import ucr.ac.cr.sigereco.exceptions.NonexistentEntityException;
+import ucr.ac.cr.sigereco.controlador.exceptions.NonexistentEntityException;
 import ucr.ac.cr.sigereco.modelo.PerfilTb;
-import ucr.ac.cr.sigereco.modelo.UsuarioTb;
 
 /**
  *
@@ -37,9 +36,6 @@ public class PerfilTbJpaController implements Serializable {
         if (perfilTb.getPrivilegioTbList() == null) {
             perfilTb.setPrivilegioTbList(new ArrayList<PrivilegioTb>());
         }
-        if (perfilTb.getUsuarioTbList() == null) {
-            perfilTb.setUsuarioTbList(new ArrayList<UsuarioTb>());
-        }
         EntityManager em = null;
         try {
             em = getEntityManager();
@@ -50,20 +46,10 @@ public class PerfilTbJpaController implements Serializable {
                 attachedPrivilegioTbList.add(privilegioTbListPrivilegioTbToAttach);
             }
             perfilTb.setPrivilegioTbList(attachedPrivilegioTbList);
-            List<UsuarioTb> attachedUsuarioTbList = new ArrayList<UsuarioTb>();
-            for (UsuarioTb usuarioTbListUsuarioTbToAttach : perfilTb.getUsuarioTbList()) {
-                usuarioTbListUsuarioTbToAttach = em.getReference(usuarioTbListUsuarioTbToAttach.getClass(), usuarioTbListUsuarioTbToAttach.getId());
-                attachedUsuarioTbList.add(usuarioTbListUsuarioTbToAttach);
-            }
-            perfilTb.setUsuarioTbList(attachedUsuarioTbList);
             em.persist(perfilTb);
             for (PrivilegioTb privilegioTbListPrivilegioTb : perfilTb.getPrivilegioTbList()) {
                 privilegioTbListPrivilegioTb.getPerfilTbList().add(perfilTb);
                 privilegioTbListPrivilegioTb = em.merge(privilegioTbListPrivilegioTb);
-            }
-            for (UsuarioTb usuarioTbListUsuarioTb : perfilTb.getUsuarioTbList()) {
-                usuarioTbListUsuarioTb.getPerfilTbList().add(perfilTb);
-                usuarioTbListUsuarioTb = em.merge(usuarioTbListUsuarioTb);
             }
             em.getTransaction().commit();
         } finally {
@@ -81,8 +67,6 @@ public class PerfilTbJpaController implements Serializable {
             PerfilTb persistentPerfilTb = em.find(PerfilTb.class, perfilTb.getId());
             List<PrivilegioTb> privilegioTbListOld = persistentPerfilTb.getPrivilegioTbList();
             List<PrivilegioTb> privilegioTbListNew = perfilTb.getPrivilegioTbList();
-            List<UsuarioTb> usuarioTbListOld = persistentPerfilTb.getUsuarioTbList();
-            List<UsuarioTb> usuarioTbListNew = perfilTb.getUsuarioTbList();
             List<PrivilegioTb> attachedPrivilegioTbListNew = new ArrayList<PrivilegioTb>();
             for (PrivilegioTb privilegioTbListNewPrivilegioTbToAttach : privilegioTbListNew) {
                 privilegioTbListNewPrivilegioTbToAttach = em.getReference(privilegioTbListNewPrivilegioTbToAttach.getClass(), privilegioTbListNewPrivilegioTbToAttach.getId());
@@ -90,13 +74,6 @@ public class PerfilTbJpaController implements Serializable {
             }
             privilegioTbListNew = attachedPrivilegioTbListNew;
             perfilTb.setPrivilegioTbList(privilegioTbListNew);
-            List<UsuarioTb> attachedUsuarioTbListNew = new ArrayList<UsuarioTb>();
-            for (UsuarioTb usuarioTbListNewUsuarioTbToAttach : usuarioTbListNew) {
-                usuarioTbListNewUsuarioTbToAttach = em.getReference(usuarioTbListNewUsuarioTbToAttach.getClass(), usuarioTbListNewUsuarioTbToAttach.getId());
-                attachedUsuarioTbListNew.add(usuarioTbListNewUsuarioTbToAttach);
-            }
-            usuarioTbListNew = attachedUsuarioTbListNew;
-            perfilTb.setUsuarioTbList(usuarioTbListNew);
             perfilTb = em.merge(perfilTb);
             for (PrivilegioTb privilegioTbListOldPrivilegioTb : privilegioTbListOld) {
                 if (!privilegioTbListNew.contains(privilegioTbListOldPrivilegioTb)) {
@@ -108,18 +85,6 @@ public class PerfilTbJpaController implements Serializable {
                 if (!privilegioTbListOld.contains(privilegioTbListNewPrivilegioTb)) {
                     privilegioTbListNewPrivilegioTb.getPerfilTbList().add(perfilTb);
                     privilegioTbListNewPrivilegioTb = em.merge(privilegioTbListNewPrivilegioTb);
-                }
-            }
-            for (UsuarioTb usuarioTbListOldUsuarioTb : usuarioTbListOld) {
-                if (!usuarioTbListNew.contains(usuarioTbListOldUsuarioTb)) {
-                    usuarioTbListOldUsuarioTb.getPerfilTbList().remove(perfilTb);
-                    usuarioTbListOldUsuarioTb = em.merge(usuarioTbListOldUsuarioTb);
-                }
-            }
-            for (UsuarioTb usuarioTbListNewUsuarioTb : usuarioTbListNew) {
-                if (!usuarioTbListOld.contains(usuarioTbListNewUsuarioTb)) {
-                    usuarioTbListNewUsuarioTb.getPerfilTbList().add(perfilTb);
-                    usuarioTbListNewUsuarioTb = em.merge(usuarioTbListNewUsuarioTb);
                 }
             }
             em.getTransaction().commit();
@@ -155,11 +120,6 @@ public class PerfilTbJpaController implements Serializable {
             for (PrivilegioTb privilegioTbListPrivilegioTb : privilegioTbList) {
                 privilegioTbListPrivilegioTb.getPerfilTbList().remove(perfilTb);
                 privilegioTbListPrivilegioTb = em.merge(privilegioTbListPrivilegioTb);
-            }
-            List<UsuarioTb> usuarioTbList = perfilTb.getUsuarioTbList();
-            for (UsuarioTb usuarioTbListUsuarioTb : usuarioTbList) {
-                usuarioTbListUsuarioTb.getPerfilTbList().remove(perfilTb);
-                usuarioTbListUsuarioTb = em.merge(usuarioTbListUsuarioTb);
             }
             em.remove(perfilTb);
             em.getTransaction().commit();

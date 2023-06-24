@@ -9,14 +9,13 @@ import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
-import ucr.ac.cr.sigereco.modelo.UsuarioTb;
+import ucr.ac.cr.sigereco.modelo.RecetaTb;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import ucr.ac.cr.sigereco.exceptions.NonexistentEntityException;
+import ucr.ac.cr.sigereco.controlador.exceptions.NonexistentEntityException;
 import ucr.ac.cr.sigereco.modelo.ConsultaTb;
-import ucr.ac.cr.sigereco.modelo.RecetaTb;
 
 /**
  *
@@ -34,9 +33,6 @@ public class ConsultaTbJpaController implements Serializable {
     }
 
     public void create(ConsultaTb consultaTb) {
-        if (consultaTb.getUsuarioTbList() == null) {
-            consultaTb.setUsuarioTbList(new ArrayList<UsuarioTb>());
-        }
         if (consultaTb.getRecetaTbList() == null) {
             consultaTb.setRecetaTbList(new ArrayList<RecetaTb>());
         }
@@ -44,12 +40,6 @@ public class ConsultaTbJpaController implements Serializable {
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            List<UsuarioTb> attachedUsuarioTbList = new ArrayList<UsuarioTb>();
-            for (UsuarioTb usuarioTbListUsuarioTbToAttach : consultaTb.getUsuarioTbList()) {
-                usuarioTbListUsuarioTbToAttach = em.getReference(usuarioTbListUsuarioTbToAttach.getClass(), usuarioTbListUsuarioTbToAttach.getId());
-                attachedUsuarioTbList.add(usuarioTbListUsuarioTbToAttach);
-            }
-            consultaTb.setUsuarioTbList(attachedUsuarioTbList);
             List<RecetaTb> attachedRecetaTbList = new ArrayList<RecetaTb>();
             for (RecetaTb recetaTbListRecetaTbToAttach : consultaTb.getRecetaTbList()) {
                 recetaTbListRecetaTbToAttach = em.getReference(recetaTbListRecetaTbToAttach.getClass(), recetaTbListRecetaTbToAttach.getId());
@@ -57,10 +47,6 @@ public class ConsultaTbJpaController implements Serializable {
             }
             consultaTb.setRecetaTbList(attachedRecetaTbList);
             em.persist(consultaTb);
-            for (UsuarioTb usuarioTbListUsuarioTb : consultaTb.getUsuarioTbList()) {
-                usuarioTbListUsuarioTb.getConsultaTbList().add(consultaTb);
-                usuarioTbListUsuarioTb = em.merge(usuarioTbListUsuarioTb);
-            }
             for (RecetaTb recetaTbListRecetaTb : consultaTb.getRecetaTbList()) {
                 recetaTbListRecetaTb.getConsultaTbList().add(consultaTb);
                 recetaTbListRecetaTb = em.merge(recetaTbListRecetaTb);
@@ -79,17 +65,8 @@ public class ConsultaTbJpaController implements Serializable {
             em = getEntityManager();
             em.getTransaction().begin();
             ConsultaTb persistentConsultaTb = em.find(ConsultaTb.class, consultaTb.getId());
-            List<UsuarioTb> usuarioTbListOld = persistentConsultaTb.getUsuarioTbList();
-            List<UsuarioTb> usuarioTbListNew = consultaTb.getUsuarioTbList();
             List<RecetaTb> recetaTbListOld = persistentConsultaTb.getRecetaTbList();
             List<RecetaTb> recetaTbListNew = consultaTb.getRecetaTbList();
-            List<UsuarioTb> attachedUsuarioTbListNew = new ArrayList<UsuarioTb>();
-            for (UsuarioTb usuarioTbListNewUsuarioTbToAttach : usuarioTbListNew) {
-                usuarioTbListNewUsuarioTbToAttach = em.getReference(usuarioTbListNewUsuarioTbToAttach.getClass(), usuarioTbListNewUsuarioTbToAttach.getId());
-                attachedUsuarioTbListNew.add(usuarioTbListNewUsuarioTbToAttach);
-            }
-            usuarioTbListNew = attachedUsuarioTbListNew;
-            consultaTb.setUsuarioTbList(usuarioTbListNew);
             List<RecetaTb> attachedRecetaTbListNew = new ArrayList<RecetaTb>();
             for (RecetaTb recetaTbListNewRecetaTbToAttach : recetaTbListNew) {
                 recetaTbListNewRecetaTbToAttach = em.getReference(recetaTbListNewRecetaTbToAttach.getClass(), recetaTbListNewRecetaTbToAttach.getId());
@@ -98,18 +75,6 @@ public class ConsultaTbJpaController implements Serializable {
             recetaTbListNew = attachedRecetaTbListNew;
             consultaTb.setRecetaTbList(recetaTbListNew);
             consultaTb = em.merge(consultaTb);
-            for (UsuarioTb usuarioTbListOldUsuarioTb : usuarioTbListOld) {
-                if (!usuarioTbListNew.contains(usuarioTbListOldUsuarioTb)) {
-                    usuarioTbListOldUsuarioTb.getConsultaTbList().remove(consultaTb);
-                    usuarioTbListOldUsuarioTb = em.merge(usuarioTbListOldUsuarioTb);
-                }
-            }
-            for (UsuarioTb usuarioTbListNewUsuarioTb : usuarioTbListNew) {
-                if (!usuarioTbListOld.contains(usuarioTbListNewUsuarioTb)) {
-                    usuarioTbListNewUsuarioTb.getConsultaTbList().add(consultaTb);
-                    usuarioTbListNewUsuarioTb = em.merge(usuarioTbListNewUsuarioTb);
-                }
-            }
             for (RecetaTb recetaTbListOldRecetaTb : recetaTbListOld) {
                 if (!recetaTbListNew.contains(recetaTbListOldRecetaTb)) {
                     recetaTbListOldRecetaTb.getConsultaTbList().remove(consultaTb);
@@ -150,11 +115,6 @@ public class ConsultaTbJpaController implements Serializable {
                 consultaTb.getId();
             } catch (EntityNotFoundException enfe) {
                 throw new NonexistentEntityException("The consultaTb with id " + id + " no longer exists.", enfe);
-            }
-            List<UsuarioTb> usuarioTbList = consultaTb.getUsuarioTbList();
-            for (UsuarioTb usuarioTbListUsuarioTb : usuarioTbList) {
-                usuarioTbListUsuarioTb.getConsultaTbList().remove(consultaTb);
-                usuarioTbListUsuarioTb = em.merge(usuarioTbListUsuarioTb);
             }
             List<RecetaTb> recetaTbList = consultaTb.getRecetaTbList();
             for (RecetaTb recetaTbListRecetaTb : recetaTbList) {

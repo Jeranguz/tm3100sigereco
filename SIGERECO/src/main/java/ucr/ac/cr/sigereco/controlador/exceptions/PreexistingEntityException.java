@@ -1,4 +1,4 @@
-package ucr.ac.cr.sigereco.exceptions;
+package ucr.ac.cr.sigereco.controlador.exceptions;
 
 public class PreexistingEntityException extends Exception {
     public PreexistingEntityException(String message, Throwable cause) {

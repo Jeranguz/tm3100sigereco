@@ -1,4 +1,4 @@
-package ucr.ac.cr.sigereco.exceptions;
+package ucr.ac.cr.sigereco.controlador.exceptions;
 
 import java.util.ArrayList;
 import java.util.List;

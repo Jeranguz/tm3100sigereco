@@ -78,6 +78,18 @@ public class FrameRegistro extends javax.swing.JFrame {
         panelRegistro1.setCboxTipo(jComboTipo);
     }
     
+    public String getTxtID() {
+
+        return panelRegistro1.getTxtID();
+
+    }
+
+    public void setTxtID(String ID) {
+
+        panelRegistro1.setTxtID(ID);
+
+    }
+    
     public void limpiar(){
     
         panelRegistro1.limpiar();
@@ -112,5 +124,13 @@ public class FrameRegistro extends javax.swing.JFrame {
 
     public void escuchar(ControladorUsuarios controladorUsuarios) {
         panelRegistro1.escuchar(controladorUsuarios);
+    }
+
+    public void bloquearID() {
+        panelRegistro1.bloquearID();
+    }
+    
+    public void habilitarID() {
+        panelRegistro1.habilitarID();
     }
 }

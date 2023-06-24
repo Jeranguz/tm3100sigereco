@@ -47,11 +47,6 @@ public class ConsultaTb implements Serializable {
     @Column(name = "fecha_hora")
     @Temporal(TemporalType.TIMESTAMP)
     private Date fechaHora;
-    @JoinTable(name = "consulta_has_usuario", joinColumns = {
-        @JoinColumn(name = "consulta_id", referencedColumnName = "id")}, inverseJoinColumns = {
-        @JoinColumn(name = "usuario_id", referencedColumnName = "id")})
-    @ManyToMany
-    private List<UsuarioTb> usuarioTbList;
     @JoinTable(name = "consulta_has_receta", joinColumns = {
         @JoinColumn(name = "consulta_id", referencedColumnName = "id")}, inverseJoinColumns = {
         @JoinColumn(name = "receta_id", referencedColumnName = "id")})
@@ -84,15 +79,6 @@ public class ConsultaTb implements Serializable {
 
     public void setFechaHora(Date fechaHora) {
         this.fechaHora = fechaHora;
-    }
-
-    @XmlTransient
-    public List<UsuarioTb> getUsuarioTbList() {
-        return usuarioTbList;
-    }
-
-    public void setUsuarioTbList(List<UsuarioTb> usuarioTbList) {
-        this.usuarioTbList = usuarioTbList;
     }
 
     @XmlTransient

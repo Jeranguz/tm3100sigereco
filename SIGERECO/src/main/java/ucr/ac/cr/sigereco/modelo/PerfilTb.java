@@ -52,11 +52,6 @@ public class PerfilTb implements Serializable {
         @JoinColumn(name = "privilegio_id", referencedColumnName = "id")})
     @ManyToMany
     private List<PrivilegioTb> privilegioTbList;
-    @JoinTable(name = "usuario_has_perfil", joinColumns = {
-        @JoinColumn(name = "perfil_id", referencedColumnName = "id")}, inverseJoinColumns = {
-        @JoinColumn(name = "usuario_id", referencedColumnName = "id")})
-    @ManyToMany
-    private List<UsuarioTb> usuarioTbList;
 
     public PerfilTb() {
     }
@@ -102,15 +97,6 @@ public class PerfilTb implements Serializable {
 
     public void setPrivilegioTbList(List<PrivilegioTb> privilegioTbList) {
         this.privilegioTbList = privilegioTbList;
-    }
-
-    @XmlTransient
-    public List<UsuarioTb> getUsuarioTbList() {
-        return usuarioTbList;
-    }
-
-    public void setUsuarioTbList(List<UsuarioTb> usuarioTbList) {
-        this.usuarioTbList = usuarioTbList;
     }
 
     @Override

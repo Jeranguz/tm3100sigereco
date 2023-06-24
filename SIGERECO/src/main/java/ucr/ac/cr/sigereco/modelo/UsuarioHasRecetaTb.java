@@ -47,9 +47,6 @@ public class UsuarioHasRecetaTb implements Serializable {
     @JoinColumn(name = "receta_id", referencedColumnName = "id", insertable = false, updatable = false)
     @ManyToOne(optional = false)
     private RecetaTb recetaTb;
-    @JoinColumn(name = "usuario_id", referencedColumnName = "id", insertable = false, updatable = false)
-    @ManyToOne(optional = false)
-    private UsuarioTb usuarioTb;
 
     public UsuarioHasRecetaTb() {
     }
@@ -98,14 +95,6 @@ public class UsuarioHasRecetaTb implements Serializable {
 
     public void setRecetaTb(RecetaTb recetaTb) {
         this.recetaTb = recetaTb;
-    }
-
-    public UsuarioTb getUsuarioTb() {
-        return usuarioTb;
-    }
-
-    public void setUsuarioTb(UsuarioTb usuarioTb) {
-        this.usuarioTb = usuarioTb;
     }
 
     @Override

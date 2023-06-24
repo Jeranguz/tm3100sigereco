@@ -5,21 +5,16 @@
 package ucr.ac.cr.sigereco.modelo;
 
 import java.io.Serializable;
-import java.util.List;
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -36,7 +31,8 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "UsuarioTb.findByCorreo", query = "SELECT u FROM UsuarioTb u WHERE u.correo = :correo"),
     @NamedQuery(name = "UsuarioTb.findByPais", query = "SELECT u FROM UsuarioTb u WHERE u.pais = :pais"),
     @NamedQuery(name = "UsuarioTb.findByNombreUsuario", query = "SELECT u FROM UsuarioTb u WHERE u.nombreUsuario = :nombreUsuario"),
-    @NamedQuery(name = "UsuarioTb.findByTipoUsuario", query = "SELECT u FROM UsuarioTb u WHERE u.tipoUsuario = :tipoUsuario")})
+    @NamedQuery(name = "UsuarioTb.findByTipoUsuario", query = "SELECT u FROM UsuarioTb u WHERE u.tipoUsuario = :tipoUsuario"),
+    @NamedQuery(name = "UsuarioTb.findByContrasena", query = "SELECT u FROM UsuarioTb u WHERE u.contrasena = :contrasena")})
 public class UsuarioTb implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -45,6 +41,7 @@ public class UsuarioTb implements Serializable {
     @Basic(optional = false)
     @Column(name = "id")
     private Integer id;
+    @Basic(optional = false)
     @Column(name = "nombre")
     private String nombre;
     @Basic(optional = false)
@@ -62,14 +59,9 @@ public class UsuarioTb implements Serializable {
     @Basic(optional = false)
     @Column(name = "tipo_usuario")
     private String tipoUsuario;
-    @ManyToMany(mappedBy = "usuarioTbList")
-    private List<ConsultaTb> consultaTbList;
-    @ManyToMany(mappedBy = "usuarioTbList")
-    private List<PerfilTb> perfilTbList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "usuarioTb")
-    private List<UsuarioHasRecetaTb> usuarioHasRecetaTbList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "usuarioTb")
-    private List<UsuarioHasReceta1Tb> usuarioHasReceta1TbList;
+    @Basic(optional = false)
+    @Column(name = "contrasena")
+    private String contrasena;
 
     public UsuarioTb() {
     }
@@ -78,13 +70,15 @@ public class UsuarioTb implements Serializable {
         this.id = id;
     }
 
-    public UsuarioTb(Integer id, String apellido, String correo, String pais, String nombreUsuario, String tipoUsuario) {
+    public UsuarioTb(Integer id, String nombre, String apellido, String correo, String pais, String nombreUsuario, String tipoUsuario, String contrasena) {
         this.id = id;
+        this.nombre = nombre;
         this.apellido = apellido;
         this.correo = correo;
         this.pais = pais;
         this.nombreUsuario = nombreUsuario;
         this.tipoUsuario = tipoUsuario;
+        this.contrasena = contrasena;
     }
 
     public Integer getId() {
@@ -143,40 +137,12 @@ public class UsuarioTb implements Serializable {
         this.tipoUsuario = tipoUsuario;
     }
 
-    @XmlTransient
-    public List<ConsultaTb> getConsultaTbList() {
-        return consultaTbList;
+    public String getContrasena() {
+        return contrasena;
     }
 
-    public void setConsultaTbList(List<ConsultaTb> consultaTbList) {
-        this.consultaTbList = consultaTbList;
-    }
-
-    @XmlTransient
-    public List<PerfilTb> getPerfilTbList() {
-        return perfilTbList;
-    }
-
-    public void setPerfilTbList(List<PerfilTb> perfilTbList) {
-        this.perfilTbList = perfilTbList;
-    }
-
-    @XmlTransient
-    public List<UsuarioHasRecetaTb> getUsuarioHasRecetaTbList() {
-        return usuarioHasRecetaTbList;
-    }
-
-    public void setUsuarioHasRecetaTbList(List<UsuarioHasRecetaTb> usuarioHasRecetaTbList) {
-        this.usuarioHasRecetaTbList = usuarioHasRecetaTbList;
-    }
-
-    @XmlTransient
-    public List<UsuarioHasReceta1Tb> getUsuarioHasReceta1TbList() {
-        return usuarioHasReceta1TbList;
-    }
-
-    public void setUsuarioHasReceta1TbList(List<UsuarioHasReceta1Tb> usuarioHasReceta1TbList) {
-        this.usuarioHasReceta1TbList = usuarioHasReceta1TbList;
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
     }
 
     @Override

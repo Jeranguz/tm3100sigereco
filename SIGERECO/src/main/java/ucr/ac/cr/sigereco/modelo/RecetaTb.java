@@ -13,7 +13,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -34,6 +33,7 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "RecetaTb.findById", query = "SELECT r FROM RecetaTb r WHERE r.id = :id"),
     @NamedQuery(name = "RecetaTb.findByNombre", query = "SELECT r FROM RecetaTb r WHERE r.nombre = :nombre"),
     @NamedQuery(name = "RecetaTb.findByDescripcion", query = "SELECT r FROM RecetaTb r WHERE r.descripcion = :descripcion"),
+    @NamedQuery(name = "RecetaTb.findByImagen", query = "SELECT r FROM RecetaTb r WHERE r.imagen = :imagen"),
     @NamedQuery(name = "RecetaTb.findByInstrucciones", query = "SELECT r FROM RecetaTb r WHERE r.instrucciones = :instrucciones"),
     @NamedQuery(name = "RecetaTb.findByMinutosPreparacion", query = "SELECT r FROM RecetaTb r WHERE r.minutosPreparacion = :minutosPreparacion"),
     @NamedQuery(name = "RecetaTb.findByMinutosCoccion", query = "SELECT r FROM RecetaTb r WHERE r.minutosCoccion = :minutosCoccion"),
@@ -53,9 +53,8 @@ public class RecetaTb implements Serializable {
     @Column(name = "descripcion")
     private String descripcion;
     @Basic(optional = false)
-    @Lob
     @Column(name = "imagen")
-    private byte[] imagen;
+    private String imagen;
     @Basic(optional = false)
     @Column(name = "instrucciones")
     private String instrucciones;
@@ -79,9 +78,9 @@ public class RecetaTb implements Serializable {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "recetaTb")
     private List<UsuarioHasRecetaTb> usuarioHasRecetaTbList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "recetaTb")
-    private List<RecetaHasIngredienteTb> recetaHasIngredienteTbList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "recetaTb")
     private List<UsuarioHasReceta1Tb> usuarioHasReceta1TbList;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "recetaTb")
+    private List<RecetaHasIngredienteTb> recetaHasIngredienteTbList;
 
     public RecetaTb() {
     }
@@ -90,7 +89,7 @@ public class RecetaTb implements Serializable {
         this.id = id;
     }
 
-    public RecetaTb(Integer id, String nombre, String descripcion, byte[] imagen, String instrucciones, int minutosPreparacion, int minutosCoccion, int porciones) {
+    public RecetaTb(Integer id, String nombre, String descripcion, String imagen, String instrucciones, int minutosPreparacion, int minutosCoccion, int porciones) {
         this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;
@@ -125,11 +124,11 @@ public class RecetaTb implements Serializable {
         this.descripcion = descripcion;
     }
 
-    public byte[] getImagen() {
+    public String getImagen() {
         return imagen;
     }
 
-    public void setImagen(byte[] imagen) {
+    public void setImagen(String imagen) {
         this.imagen = imagen;
     }
 
@@ -211,21 +210,21 @@ public class RecetaTb implements Serializable {
     }
 
     @XmlTransient
-    public List<RecetaHasIngredienteTb> getRecetaHasIngredienteTbList() {
-        return recetaHasIngredienteTbList;
-    }
-
-    public void setRecetaHasIngredienteTbList(List<RecetaHasIngredienteTb> recetaHasIngredienteTbList) {
-        this.recetaHasIngredienteTbList = recetaHasIngredienteTbList;
-    }
-
-    @XmlTransient
     public List<UsuarioHasReceta1Tb> getUsuarioHasReceta1TbList() {
         return usuarioHasReceta1TbList;
     }
 
     public void setUsuarioHasReceta1TbList(List<UsuarioHasReceta1Tb> usuarioHasReceta1TbList) {
         this.usuarioHasReceta1TbList = usuarioHasReceta1TbList;
+    }
+
+    @XmlTransient
+    public List<RecetaHasIngredienteTb> getRecetaHasIngredienteTbList() {
+        return recetaHasIngredienteTbList;
+    }
+
+    public void setRecetaHasIngredienteTbList(List<RecetaHasIngredienteTb> recetaHasIngredienteTbList) {
+        this.recetaHasIngredienteTbList = recetaHasIngredienteTbList;
     }
 
     @Override

@@ -2,19 +2,20 @@
 <persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
   <persistence-unit name="SIGERECOPersistence" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
-    <class>ucr.ac.cr.sigereco.modelo.RecetaTb</class>
-    <class>ucr.ac.cr.sigereco.modelo.UnidadMedidaTb</class>
-    <class>ucr.ac.cr.sigereco.modelo.OcasionTb</class>
-    <class>ucr.ac.cr.sigereco.modelo.PerfilTb</class>
+    <class>ucr.ac.cr.sigereco.modelo.UsuarioHasReceta1Tb</class>
     <class>ucr.ac.cr.sigereco.modelo.PrivilegioTb</class>
-    <class>ucr.ac.cr.sigereco.modelo.UsuarioHasRecetaTb</class>
-    <class>ucr.ac.cr.sigereco.modelo.IngredienteTb</class>
-    <class>ucr.ac.cr.sigereco.modelo.UsuarioTb</class>
-    <class>ucr.ac.cr.sigereco.modelo.RecetaHasIngredienteTb</class>
+    <class>ucr.ac.cr.sigereco.modelo.UnidadMedidaTb</class>
+    <class>ucr.ac.cr.sigereco.modelo.PerfilTb</class>
     <class>ucr.ac.cr.sigereco.modelo.ComplejidadTb</class>
+    <class>ucr.ac.cr.sigereco.modelo.UsuarioHasRecetaTb</class>
     <class>ucr.ac.cr.sigereco.modelo.CategoriaTb</class>
     <class>ucr.ac.cr.sigereco.modelo.ConsultaTb</class>
-    <class>ucr.ac.cr.sigereco.modelo.UsuarioHasReceta1Tb</class>
+    <class>ucr.ac.cr.sigereco.modelo.RecetaHasIngredienteTb</class>
+    <class>ucr.ac.cr.sigereco.modelo.OcasionTb</class>
+    <class>ucr.ac.cr.sigereco.modelo.IngredienteTb</class>
+    <class>ucr.ac.cr.sigereco.modelo.RecetaTb</class>
+    <class>ucr.ac.cr.sigereco.modelo.UsuarioTb</class>
+    
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://172.24.135.27:3306/recetario?zeroDateTimeBehavior=CONVERT_TO_NULL"/>
       <property name="javax.persistence.jdbc.user" value="adminNAC"/>
