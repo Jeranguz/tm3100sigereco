@@ -114,6 +114,7 @@ public class PanelRegistro extends javax.swing.JPanel {
         txtNombreUsuario.setText("");
         txtPais.setText("");
         txtContrasena.setText("");
+        txtID.setText("");
     }
     
     public void escuchar (ControladorUsuarios controladorUsuarios){
