@@ -7,6 +7,7 @@ package ucr.ac.cr.sigereco.controlador;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.persistence.Persistence;
@@ -27,7 +28,6 @@ public class ControladorUsuarios implements ActionListener{
     private ArrayList <UsuarioTb> usuarios;
     private FrameRegistro frameRegistro;
     private UsuarioTbJpaController usuarioTbControlador;
-    private int id=0;
 
     public ControladorUsuarios() {
 
@@ -44,7 +44,6 @@ public class ControladorUsuarios implements ActionListener{
     
         frameRegistro.setVisible(true);
         frameRegistro.setLocationRelativeTo(null);
-        id=usuarioTbControlador.getUsuarioTbCount();
         System.out.println(usuarioTbControlador.getUsuarioTbCount());
     
     }
@@ -58,10 +57,21 @@ public class ControladorUsuarios implements ActionListener{
     
     public int validacion(String usuario, String contrasena){
         
+        List lista=usuarioTbControlador.findUsuarioTbEntities();
+                System.out.println(lista);
+                System.out.println("AgregarPanReg");
+                int ultimoId=0;
+                for (int i = 0; i < lista.size(); i++) {
+                    UsuarioTb obj = (UsuarioTb) lista.get(i);
+            if(obj.getId()>ultimoId){
+                ultimoId=obj.getId();
+            }
+        }
       int validacion = 0;
-      int ultimoId = usuarioTbControlador.findUsuarioTb(usuarioTbControlador.getUsuarioTbCount()).getId();
+      //int ultimoId = usuarioTbControlador.findUsuarioTb(usuarioTbControlador.getUsuarioTbCount()).getId();
 
-                for (int i = 1; i <= ultimoId; i++) {
+                for (int i = 0; i <= ultimoId; i++) {
+                    if(usuarioTbControlador.findUsuarioTb(i)!=null){
                     if (usuarioTbControlador.findUsuarioTb(i).getNombreUsuario().equals(usuario) && usuarioTbControlador.findUsuarioTb(i).getContrasena().equals(contrasena)) {
 
                         if (usuarioTbControlador.findUsuarioTb(i).getTipoUsuario().equals("Administrador")) {
@@ -71,7 +81,9 @@ public class ControladorUsuarios implements ActionListener{
                         }
                     }
                 }
+                }
                 return validacion;
+                
     }
 
     @Override
@@ -92,24 +104,20 @@ public class ControladorUsuarios implements ActionListener{
                 break;
                 
             case "AgregarPanReg":
-                System.out.println("AgregarPanReg");
-                
-                if(frameRegistro.getTxtApellido().equals("invalido")||frameRegistro.getTxtContrasena().equals("invalido")||frameRegistro.getTxtCorreo().equals("invalido")||frameRegistro.getTxtNombre().equals("invalido")||frameRegistro.getTxtNombreUsuario().equals("invalido")||frameRegistro.getTxtPais().equals("invalido")){
+
+                if (frameRegistro.getTxtApellido().equals("invalido") || frameRegistro.getTxtContrasena().equals("invalido") || frameRegistro.getTxtCorreo().equals("invalido") || frameRegistro.getTxtNombre().equals("invalido") || frameRegistro.getTxtNombreUsuario().equals("invalido") || frameRegistro.getTxtPais().equals("invalido")) {
                     JOptionPane.showMessageDialog(null, "Debe rellenar todos los espacios para poder registrar un usuario");
-                }else{
-                    id=usuarioTbControlador.getUsuarioTbCount();
-//                    id++;
-                //agregarUsuario(new UsuarioTb(id, frameRegistro.getTxtNombre(), frameRegistro.getTxtApellido(), frameRegistro.getTxtCorreo(), frameRegistro.getTxtPais(), frameRegistro.getTxtNombreUsuario(), frameRegistro.getCboxTipo(), frameRegistro.getTxtContrasena()));
-                UsuarioTb usuario = new UsuarioTb(id, frameRegistro.getTxtNombre(), frameRegistro.getTxtApellido(), frameRegistro.getTxtCorreo(), frameRegistro.getTxtPais(), frameRegistro.getTxtNombreUsuario(), frameRegistro.getCboxTipo(), frameRegistro.getTxtContrasena());
-                usuarioTbControlador.create(usuario);
-                JOptionPane.showMessageDialog(null, "Su ID es el: "+usuario.getId()+ "No lo olvides.");
-                frameRegistro.limpiar();
+                } else {
+                    UsuarioTb usuario = new UsuarioTb(frameRegistro.getTxtNombre(), frameRegistro.getTxtApellido(), frameRegistro.getTxtCorreo(), frameRegistro.getTxtPais(), frameRegistro.getTxtNombreUsuario(), frameRegistro.getCboxTipo(), frameRegistro.getTxtContrasena());
+                    usuarioTbControlador.create(usuario);
+                    JOptionPane.showMessageDialog(null, "Su ID es el: " + usuario.getId() + "No lo olvides.");
+                    frameRegistro.limpiar();
                 }
                 break;
-                
+
             case "ModificarPanReg":
                 System.out.println("ModificarPanReg");
-                UsuarioTb usuarioModificar= new UsuarioTb(Integer.parseInt(frameRegistro.getTxtID()), frameRegistro.getTxtNombre(), frameRegistro.getTxtApellido(), frameRegistro.getTxtCorreo(), frameRegistro.getTxtPais(), frameRegistro.getTxtNombreUsuario(), frameRegistro.getCboxTipo(), frameRegistro.getTxtContrasena());
+                UsuarioTb usuarioModificar= new UsuarioTb(frameRegistro.getTxtNombre(), frameRegistro.getTxtApellido(), frameRegistro.getTxtCorreo(), frameRegistro.getTxtPais(), frameRegistro.getTxtNombreUsuario(), frameRegistro.getCboxTipo(), frameRegistro.getTxtContrasena());
                 
             {
                 try {
@@ -131,8 +139,6 @@ public class ControladorUsuarios implements ActionListener{
                     usuarioTbControlador.destroy(Integer.parseInt(frameRegistro.getTxtID()));
                     frameRegistro.limpiar();
                     frameRegistro.habilitarID();
-                    id=usuarioTbControlador.getUsuarioTbCount();
-                    id--;
                 } catch (NonexistentEntityException ex) {
                     Logger.getLogger(ControladorUsuarios.class.getName()).log(Level.SEVERE, null, ex);
                 }
