@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
+import javax.persistence.Persistence;
 import javax.swing.JOptionPane;
 import ucr.ac.cr.sigereco.modelo.Consultas;
 import ucr.ac.cr.sigereco.modelo.Usuario;
@@ -28,6 +29,7 @@ import ucr.ac.cr.sigereco.vista.PanelTop10;
  */
 public class ControladorPrincipal implements ActionListener{
     private ArrayList <Consultas> registroConsulta;
+    private RecetaTbJpaController recetaTbControlador;
     private FrameUsuario frameUsuario;
     private FramePrincipal framePrincipal;
     private PanelConsulta panelConsulta;
@@ -45,6 +47,7 @@ public class ControladorPrincipal implements ActionListener{
     public ControladorPrincipal() {
         
         //crear las instancias de los atributos
+        recetaTbControlador=new RecetaTbJpaController(Persistence.createEntityManagerFactory("SIGERECOPersistence"));
         framePrincipal=new FramePrincipal();
         frameInicioSesion=new FrameInicioSesion();
         frameAdmin=new FrameAdmin();
@@ -167,49 +170,49 @@ public class ControladorPrincipal implements ActionListener{
                 break;
                 
             case "BuscarIngr":
-                
+                //Esto no se va usar
                 System.out.println("Conexion Exitosa");
                 
                 break;
                 
             case "AgregarIngr":
-                
+                //Esto no se va usar
                 System.out.println("Conexion Exitosa");
                 
                 break;
                 
             case "ModificarIngr":
-                
+                //Esto no se va usar
                 System.out.println("Conexion Exitosa");
                 
                 break;
                 
             case "EliminarIngr":
-                
+                //Esto no se va usar
                 System.out.println("Conexion Exitosa");
                 
                 break;
                 
             case "BuscarUni":
-                
+                //Esto no se va usar
                 System.out.println("Conexion Exitosa");
                 
                 break;
                 
             case "AgregarUni":
-                
+                //Esto no se va usar
                 System.out.println("Conexion Exitosa");
                 
                 break;
                 
             case "ModificarUni":
-                
+                //Esto no se va usar
                 System.out.println("Conexion Exitosa");
                 
                 break;
                 
             case "EliminarUni":
-                
+                //Esto no se va usar
                 System.out.println("Conexion Exitosa");
                 
                 break;
