@@ -70,8 +70,7 @@ public class UsuarioTb implements Serializable {
         this.id = id;
     }
 
-    public UsuarioTb(Integer id, String nombre, String apellido, String correo, String pais, String nombreUsuario, String tipoUsuario, String contrasena) {
-        this.id = id;
+    public UsuarioTb(String nombre, String apellido, String correo, String pais, String nombreUsuario, String tipoUsuario, String contrasena) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.correo = correo;

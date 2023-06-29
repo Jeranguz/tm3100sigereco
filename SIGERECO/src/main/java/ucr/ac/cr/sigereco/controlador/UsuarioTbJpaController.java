@@ -5,6 +5,7 @@
 package ucr.ac.cr.sigereco.controlador;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -91,6 +92,10 @@ public class UsuarioTbJpaController implements Serializable {
     public List<UsuarioTb> findUsuarioTbEntities() {
         return findUsuarioTbEntities(true, -1, -1);
     }
+    public ArrayList<UsuarioTb> findUsuarioTbEntities2() {
+        return (ArrayList<UsuarioTb>) findUsuarioTbEntities(true, -1, -1);
+    }
+    
 
     public List<UsuarioTb> findUsuarioTbEntities(int maxResults, int firstResult) {
         return findUsuarioTbEntities(false, maxResults, firstResult);
