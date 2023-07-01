@@ -41,6 +41,10 @@ public class FrameAdmin extends javax.swing.JFrame {
         jMenuINombreUsuario.setText(nombreUsuario);
     
     }
+    
+    public PanelAdmin getPanelAdmin(){
+        return panelAdmin1;
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.

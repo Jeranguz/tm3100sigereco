@@ -89,8 +89,7 @@ public class RecetaTb implements Serializable {
         this.id = id;
     }
 
-    public RecetaTb(Integer id, String nombre, String descripcion, String imagen, String instrucciones, int minutosPreparacion, int minutosCoccion, int porciones) {
-        this.id = id;
+    public RecetaTb(String nombre, String descripcion, String imagen, String instrucciones, int minutosPreparacion, int minutosCoccion, int porciones) {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.imagen = imagen;

@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import javax.persistence.Persistence;
 import javax.swing.JOptionPane;
 import ucr.ac.cr.sigereco.modelo.Consultas;
+import ucr.ac.cr.sigereco.modelo.RecetaTb;
 import ucr.ac.cr.sigereco.modelo.Usuario;
 import ucr.ac.cr.sigereco.vista.FrameAdmin;
 import ucr.ac.cr.sigereco.vista.FrameInicioSesion;
@@ -30,6 +31,7 @@ import ucr.ac.cr.sigereco.vista.PanelTop10;
 public class ControladorPrincipal implements ActionListener{
     private ArrayList <Consultas> registroConsulta;
     private RecetaTbJpaController recetaTbControlador;
+    private RecetaTb recetaTb;
     private FrameUsuario frameUsuario;
     private FramePrincipal framePrincipal;
     private PanelConsulta panelConsulta;
@@ -41,6 +43,7 @@ public class ControladorPrincipal implements ActionListener{
     private FrameInicioSesion frameInicioSesion;
     private FrameRegistro frameRegistro;
     private String usuarioActual="";
+    
     
     private PanelAdmin panelAdmin;
 
@@ -56,6 +59,7 @@ public class ControladorPrincipal implements ActionListener{
         frameUsuario=new FrameUsuario();
         panelConsulta = new PanelConsulta();
         panelTop10 = new PanelTop10();
+        panelAdmin = frameAdmin.getPanelAdmin();
         
         
         
@@ -232,6 +236,16 @@ public class ControladorPrincipal implements ActionListener{
             case "AgregarRece":
                 
                 System.out.println("Conexion Exitosa");
+                recetaTb = new RecetaTb(panelAdmin.getTxtNombreRecet(),
+                        panelAdmin.getAreaDescripcion(),
+                        panelAdmin.getTxtImagen(),
+                        panelAdmin.getAreaInstrucciones(),
+                        panelAdmin.getTxtTiempPrep(),
+                        panelAdmin.getTxtTiempcoccion(),
+                        panelAdmin.getjSpinnerPorciones());
+                recetaTbControlador.create(recetaTb);
+                JOptionPane.showMessageDialog(null, "Receta agregada con exito :)");
+                panelAdmin.limpiar();
                 
                 break;
                 

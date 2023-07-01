@@ -65,8 +65,121 @@ public class PanelAdmin extends javax.swing.JPanel {
         rBtnIngredientes.addActionListener(controladorPrincipal);
         rBtnRecetas.addActionListener(controladorPrincipal);
         rBtnUnidades.addActionListener(controladorPrincipal);
-        
+    }
     
+    public String getTxtNombreRecet (){
+        if (txtNombreRecet.getText().equals("")){
+            return "invalido";
+        }else{
+            return txtNombreRecet.getText();
+        }
+    }
+    
+    public void setTxtNombre(String nombre){
+        this.txtNombreRecet.setText(nombre);
+   }
+    
+    public int getTxtTiempPrep (){
+        if (txtTiempPrep.getText().equals("")){
+            return -1;
+        }else{
+            return Integer.parseInt(txtTiempPrep.getText());
+        }
+    }
+    
+    public void setTxtTiempPrep(int tiempoPrep){
+        this.txtNombreRecet.setText(Integer.toString(tiempoPrep));
+   }
+    
+    public int getTxtTiempcoccion (){
+        if (txtTiempcoccion.getText().equals("")){
+            return -1;
+        }else{
+            return Integer.parseInt(txtTiempcoccion.getText());
+        }
+    }
+    
+    public void setTxtTiempcoccion(int tiempococcion){
+        this.txtTiempcoccion.setText(Integer.toString(tiempococcion));
+   }
+    
+    public String getTxtImagen (){
+        if (txtImagen.getText().equals("")){
+            return "invalido";
+        }else{
+            return txtImagen.getText();
+        }
+    }
+    
+    public void setTxtImagen(String ruta){
+        this.txtImagen.setText(ruta);
+   }
+    
+    public int getjSpinnerPorciones() {
+        return Integer.parseInt(jSpinnerPorciones.getValue().toString());
+    }
+    
+    public String getjCBoxCategoria() {
+        return jCBoxCategoria.getSelectedItem().toString();
+    }
+
+    public void setjCBoxCategoria(String categoria) {
+        this.jCBoxCategoria.setSelectedItem(categoria);
+    }
+    
+    public String getjCBoxOcasion() {
+        return jCBoxOcasion.getSelectedItem().toString();
+    }
+
+    public void setjCBoxOcasion(String ocasion) {
+        this.jCBoxOcasion.setSelectedItem(ocasion);
+    }
+    
+    public String getAreaDescripcion(){
+        if (jTextAreaDescripcion.getText().equals("")){
+            return "invalido";
+        }else{
+            return jTextAreaDescripcion.getText();
+        }
+    }
+    
+    public void setAreaDescripcion(String descripcion){
+        this.jTextAreaDescripcion.setText(descripcion);
+   }
+    
+    public String getAreaInstrucciones(){
+        if (jTextAreaInstrucciones.getText().equals("")){
+            return "invalido";
+        }else{
+            return jTextAreaInstrucciones.getText();
+        }
+    }
+    
+    public void setAreaInstrucciones(String instrucciones){
+        this.jTextAreaInstrucciones.setText(instrucciones);
+   }
+    
+    public String getAreaIngredintes(){
+        if (jTextAreaIngredientes.getText().equals("")){
+            return "invalido";
+        }else{
+            return jTextAreaIngredientes.getText();
+        }
+    }
+    
+    public void setAreaIngredientes(String ingredientes){
+        this.jTextAreaIngredientes.setText(ingredientes);
+   }
+    
+    public void limpiar(){
+       txtNombreRecet.setText("");
+       txtDescripIngre.setText("");
+       txtImagen.setText("");
+       txtTiempPrep.setText("");
+       txtTiempcoccion.setText("");
+       jTextAreaDescripcion.setText("");
+       jTextAreaIngredientes.setText("");
+       jTextAreaInstrucciones.setText("");
     }
     
     
@@ -117,7 +230,7 @@ public class PanelAdmin extends javax.swing.JPanel {
         txtNombreRecet = new javax.swing.JTextField();
         txtTiempPrep = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        jTextAreaIngredientes = new javax.swing.JTextArea();
         jPanelIngredientes = new javax.swing.JPanel();
         lblNombreIngr = new javax.swing.JLabel();
         lblDescrIngr = new javax.swing.JLabel();
@@ -171,9 +284,13 @@ public class PanelAdmin extends javax.swing.JPanel {
 
         jLabel27.setText("Porciones:");
 
+        jCBoxCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Postre", "Sopa" }));
+
         jLabel28.setText("Categoría:");
 
         jLabel29.setText("Ocasión:");
+
+        jCBoxOcasion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Desayuno", "Almuerzo", "Cena" }));
 
         jLabel30.setText("Lista de Ingredientes:");
 
@@ -203,9 +320,9 @@ public class PanelAdmin extends javax.swing.JPanel {
         btnEliminRecet.setText("Eliminar");
         btnEliminRecet.setActionCommand("EliminarRece");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane2.setViewportView(jTextArea1);
+        jTextAreaIngredientes.setColumns(20);
+        jTextAreaIngredientes.setRows(5);
+        jScrollPane2.setViewportView(jTextAreaIngredientes);
 
         javax.swing.GroupLayout jPnlRecetasLayout = new javax.swing.GroupLayout(jPnlRecetas);
         jPnlRecetas.setLayout(jPnlRecetasLayout);
@@ -214,85 +331,83 @@ public class PanelAdmin extends javax.swing.JPanel {
             .addGroup(jPnlRecetasLayout.createSequentialGroup()
                 .addGroup(jPnlRecetasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPnlRecetasLayout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addGroup(jPnlRecetasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblIdRecet)
+                            .addComponent(lblNombreRecet))
+                        .addGap(29, 29, 29)
+                        .addGroup(jPnlRecetasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtNombreRecet, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPnlRecetasLayout.createSequentialGroup()
+                                .addComponent(txtIdRecet, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnBuscarIdRecet)))
+                        .addGap(254, 254, 254)
+                        .addGroup(jPnlRecetasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel30)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPnlRecetasLayout.createSequentialGroup()
+                        .addGap(16, 16, 16)
                         .addGroup(jPnlRecetasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPnlRecetasLayout.createSequentialGroup()
-                                .addGap(24, 24, 24)
-                                .addGroup(jPnlRecetasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblIdRecet)
-                                    .addComponent(lblNombreRecet))
-                                .addGap(29, 29, 29)
-                                .addGroup(jPnlRecetasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtNombreRecet, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPnlRecetasLayout.createSequentialGroup()
-                                        .addComponent(txtIdRecet, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(btnBuscarIdRecet)))
-                                .addGap(254, 254, 254)
-                                .addGroup(jPnlRecetasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel30)
-                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jLabel25)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnBuscarImagen))
                             .addGroup(jPnlRecetasLayout.createSequentialGroup()
-                                .addGap(16, 16, 16)
                                 .addGroup(jPnlRecetasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPnlRecetasLayout.createSequentialGroup()
-                                        .addComponent(jLabel25)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(txtImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(btnBuscarImagen))
                                     .addGroup(jPnlRecetasLayout.createSequentialGroup()
                                         .addGroup(jPnlRecetasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(jPnlRecetasLayout.createSequentialGroup()
-                                                .addGroup(jPnlRecetasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(jLabel21)
-                                                    .addComponent(jLabel23, javax.swing.GroupLayout.Alignment.TRAILING))
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addGroup(jPnlRecetasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                    .addComponent(txtTiempPrep, javax.swing.GroupLayout.DEFAULT_SIZE, 73, Short.MAX_VALUE)
-                                                    .addComponent(txtTiempcoccion))
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addGroup(jPnlRecetasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(jLabel24)
-                                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPnlRecetasLayout.createSequentialGroup()
-                                                        .addGap(3, 3, 3)
-                                                        .addComponent(jLabel22))))
-                                            .addGroup(jPnlRecetasLayout.createSequentialGroup()
-                                                .addComponent(jLabel27)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jSpinnerPorciones, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(jLabel28)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jCBoxCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            .addComponent(jLabel21)
+                                            .addComponent(jLabel23, javax.swing.GroupLayout.Alignment.TRAILING))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jLabel29)
+                                        .addGroup(jPnlRecetasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(txtTiempPrep, javax.swing.GroupLayout.DEFAULT_SIZE, 73, Short.MAX_VALUE)
+                                            .addComponent(txtTiempcoccion))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addGroup(jPnlRecetasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel24)
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPnlRecetasLayout.createSequentialGroup()
+                                                .addGap(3, 3, 3)
+                                                .addComponent(jLabel22))))
+                                    .addGroup(jPnlRecetasLayout.createSequentialGroup()
+                                        .addComponent(jLabel27)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jCBoxOcasion, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                                        .addComponent(jSpinnerPorciones, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jLabel28)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jCBoxCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel29)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jCBoxOcasion, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPnlRecetasLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPnlRecetasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPnlRecetasLayout.createSequentialGroup()
-                        .addContainerGap()
+                        .addGroup(jPnlRecetasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel33)
+                            .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(jPnlRecetasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPnlRecetasLayout.createSequentialGroup()
-                                .addGroup(jPnlRecetasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel33)
-                                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(12, 12, 12)
-                                .addGroup(jPnlRecetasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPnlRecetasLayout.createSequentialGroup()
-                                        .addComponent(jLabel34)
-                                        .addGap(822, 822, 822))
-                                    .addGroup(jPnlRecetasLayout.createSequentialGroup()
-                                        .addGap(6, 6, 6)
-                                        .addComponent(jScrollPane7))))
-                            .addGroup(jPnlRecetasLayout.createSequentialGroup()
-                                .addGap(140, 140, 140)
-                                .addComponent(btnAgregarRecet)
-                                .addGap(174, 174, 174)
-                                .addComponent(btnModifRecet)
-                                .addGap(194, 194, 194)
-                                .addComponent(btnEliminRecet)
-                                .addGap(0, 0, Short.MAX_VALUE)))))
-                .addContainerGap())
+                                .addComponent(jLabel34)
+                                .addGap(828, 828, 828))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPnlRecetasLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jScrollPane7)
+                                .addContainerGap())))
+                    .addGroup(jPnlRecetasLayout.createSequentialGroup()
+                        .addGap(140, 140, 140)
+                        .addComponent(btnAgregarRecet)
+                        .addGap(174, 174, 174)
+                        .addComponent(btnModifRecet)
+                        .addGap(194, 194, 194)
+                        .addComponent(btnEliminRecet)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPnlRecetasLayout.setVerticalGroup(
             jPnlRecetasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -568,8 +683,8 @@ public class PanelAdmin extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JSpinner jSpinnerPorciones;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextAreaDescripcion;
+    private javax.swing.JTextArea jTextAreaIngredientes;
     private javax.swing.JTextArea jTextAreaInstrucciones;
     private javax.swing.JLabel lblDescrIngr;
     private javax.swing.JLabel lblIdRecet;
