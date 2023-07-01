@@ -91,6 +91,7 @@ public class ControladorPrincipal implements ActionListener{
          panelRecetario.setjLabelPorciones(obj.getPorciones()+"");
          panelRecetario.setjLabelTiempoPrepa(obj.getMinutosPreparacion()+"");
          panelRecetario.setjLabelCoccion(obj.getMinutosCoccion()+"");
+         panelRecetario.setjLabelTotal(obj.getMinutosPreparacion()+obj.getMinutosCoccion()+"");
         
     }
 
@@ -286,6 +287,10 @@ public class ControladorPrincipal implements ActionListener{
             case "AgregarRece":
                 
                 System.out.println("Conexion Exitosa");
+                if(panelAdmin.getTxtNombreRecet().equals("invalido")||panelAdmin.getTxtImagen().equals("invalido")||panelAdmin.getTxtTiempPrep()==-1||panelAdmin.getTxtTiempcoccion()==-1||panelAdmin.getAreaDescripcion().equals("invalido")||panelAdmin.getAreaIngredintes().equals("invalido")||panelAdmin.getAreaInstrucciones().equals("invalido")||panelAdmin.getjSpinnerPorciones()==0){
+                
+                    JOptionPane.showMessageDialog(null, "Debe rellenar todos los espacios para poder registrar un usuario");
+                }else{
                 recetaTb = new RecetaTb(panelAdmin.getTxtNombreRecet(),
                         panelAdmin.getAreaDescripcion(),
                         panelAdmin.getTxtImagen(),
@@ -296,7 +301,7 @@ public class ControladorPrincipal implements ActionListener{
                 recetaTbControlador.create(recetaTb);
                 JOptionPane.showMessageDialog(null, "Receta agregada con exito :)");
                 panelAdmin.limpiar();
-                
+                }
                 break;
                 
             case "BuscarImagen":

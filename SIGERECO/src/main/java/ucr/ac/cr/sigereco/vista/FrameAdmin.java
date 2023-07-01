@@ -4,6 +4,7 @@
  */
 package ucr.ac.cr.sigereco.vista;
 
+import javax.swing.JPanel;
 import ucr.ac.cr.sigereco.controlador.ControladorPrincipal;
 import ucr.ac.cr.sigereco.modelo.Usuario;
 
@@ -45,6 +46,7 @@ public class FrameAdmin extends javax.swing.JFrame {
     public PanelAdmin getPanelAdmin(){
         return panelAdmin1;
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
