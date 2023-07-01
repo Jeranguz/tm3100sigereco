@@ -35,7 +35,7 @@ public class PanelRecetario extends javax.swing.JPanel {
     }
 
     public void setjLabelDescripcion(String descripcion) {
-        jLabelComple.setText(descripcion);
+        jLabelDescripcion1.setText(descripcion);
     }
 
     public void setjLabelImagen(String imagen) {
@@ -43,36 +43,38 @@ public class PanelRecetario extends javax.swing.JPanel {
     }
 
     public void setjLabelIngredientes(String Ingredientes) {
-        jLabelComple.setText(Ingredientes);
+        jLabelIngredientes.setText(Ingredientes);
     }
 
     public void setjLabelNombre(String nombre) {
-        jLabelComple.setText(nombre);
+        jLabelNombre.setText(nombre);
     }
 
     public void setjLabelOcasion(String ocasion) {
-        jLabelComple.setText(ocasion);
+        jLabelOcasion.setText(ocasion);
     }
 
     public void setjLabelPorciones(String porciones) {
-        jLabelComple.setText(porciones);
+        jLabelPorciones.setText(porciones);
     }
 
     public void setjLabelTiempoPrepa(String tiempoPreparacion) {
-        jLabelComple.setText(tiempoPreparacion);
+        jLabelTiempoPrepa.setText(tiempoPreparacion);
     }
 
     public void setjLabelPreparacion(String preparacion) {
-        jLabelComple.setText(preparacion);
+        jLabelPreparacion.setText(preparacion);
     }
 
     public void setjLabelTotal(String total) {
-        jLabelComple.setText(total);
+        jLabelTotal.setText(total);
     }
     
     public void escuchar(ControladorPrincipal controladorPrincipal){
         btnAtras.addActionListener(controladorPrincipal);
         btnMeGusta.addActionListener(controladorPrincipal);
+        btnAnterior.addActionListener(controladorPrincipal);
+        btnSiguiente.addActionListener(controladorPrincipal);
     }
     
     
@@ -106,6 +108,8 @@ public class PanelRecetario extends javax.swing.JPanel {
         jLabel9 = new javax.swing.JLabel();
         jLabelPreparacion = new javax.swing.JLabel();
         jLabelImagen = new javax.swing.JLabel();
+        btnAnterior = new javax.swing.JButton();
+        btnSiguiente = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
@@ -182,51 +186,62 @@ public class PanelRecetario extends javax.swing.JPanel {
 
         jLabelImagen.setText("imagen");
 
+        btnAnterior.setText("Anterior");
+
+        btnSiguiente.setText("Siguiente");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
+                .addContainerGap(9, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel8)
-                        .addGap(10, 10, 10)
-                        .addComponent(jLabelIngredientes, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel8)
+                                .addGap(10, 10, 10)
+                                .addComponent(jLabelIngredientes, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addGap(8, 8, 8)
+                                .addComponent(jLabelNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 388, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addGap(6, 6, 6)
+                                .addComponent(jLabelTiempoPrepa, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(9, 9, 9)
+                                .addComponent(jLabel4)
+                                .addGap(7, 7, 7)
+                                .addComponent(jLabelCoccion, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(9, 9, 9)
+                                .addComponent(jLabel5)
+                                .addGap(10, 10, 10)
+                                .addComponent(jLabelTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel6)
+                                        .addGap(7, 7, 7)
+                                        .addComponent(jLabelPorciones, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel7)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jLabelDescripcion1, javax.swing.GroupLayout.PREFERRED_SIZE, 506, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(14, 14, 14)
+                                .addComponent(jLabelImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap())
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel9)
                         .addGap(4, 4, 4)
-                        .addComponent(jLabelPreparacion, javax.swing.GroupLayout.PREFERRED_SIZE, 506, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(8, 8, 8)
-                        .addComponent(jLabelNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(6, 6, 6)
-                        .addComponent(jLabelTiempoPrepa, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(9, 9, 9)
-                        .addComponent(jLabel4)
-                        .addGap(7, 7, 7)
-                        .addComponent(jLabelCoccion, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(9, 9, 9)
-                        .addComponent(jLabel5)
-                        .addGap(10, 10, 10)
-                        .addComponent(jLabelTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel6)
-                                .addGap(7, 7, 7)
-                                .addComponent(jLabelPorciones, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel7)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabelDescripcion1, javax.swing.GroupLayout.PREFERRED_SIZE, 506, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(14, 14, 14)
-                        .addComponent(jLabelImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+                        .addComponent(jLabelPreparacion, javax.swing.GroupLayout.PREFERRED_SIZE, 506, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnAnterior)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnSiguiente)
+                        .addGap(22, 22, 22))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -265,7 +280,10 @@ public class PanelRecetario extends javax.swing.JPanel {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(40, 40, 40)
                         .addComponent(jLabel9))
-                    .addComponent(jLabelPreparacion, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabelPreparacion, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnAnterior)
+                        .addComponent(btnSiguiente)))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -318,10 +336,12 @@ public class PanelRecetario extends javax.swing.JPanel {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(40, 40, 40)
                         .addComponent(jLabel13)
+                        .addGap(0, 0, 0)
                         .addComponent(jLabelOcasion, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(40, 40, 40)
                         .addComponent(jLabel12)
+                        .addGap(0, 0, 0)
                         .addComponent(jLabelCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(140, 140, 140)
@@ -363,8 +383,10 @@ public class PanelRecetario extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAnterior;
     private javax.swing.JButton btnAtras;
     private javax.swing.JButton btnMeGusta;
+    private javax.swing.JButton btnSiguiente;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

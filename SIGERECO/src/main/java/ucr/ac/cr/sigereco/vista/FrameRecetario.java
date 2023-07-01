@@ -18,6 +18,10 @@ public class FrameRecetario extends javax.swing.JFrame {
     public FrameRecetario() {
         initComponents();
     }
+    
+    public PanelRecetario getPanelRecetario(){
+        return panelRecetario1;
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.

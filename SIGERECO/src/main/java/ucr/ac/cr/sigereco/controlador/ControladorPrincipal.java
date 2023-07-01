@@ -9,8 +9,13 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.persistence.Persistence;
 import javax.swing.JOptionPane;
+import ucr.ac.cr.sigereco.controlador.exceptions.IllegalOrphanException;
+import ucr.ac.cr.sigereco.controlador.exceptions.NonexistentEntityException;
 import ucr.ac.cr.sigereco.modelo.Consultas;
 import ucr.ac.cr.sigereco.modelo.RecetaTb;
 import ucr.ac.cr.sigereco.modelo.Usuario;
@@ -22,6 +27,7 @@ import ucr.ac.cr.sigereco.vista.FrameRegistro;
 import ucr.ac.cr.sigereco.vista.FrameUsuario;
 import ucr.ac.cr.sigereco.vista.PanelAdmin;
 import ucr.ac.cr.sigereco.vista.PanelConsulta;
+import ucr.ac.cr.sigereco.vista.PanelRecetario;
 import ucr.ac.cr.sigereco.vista.PanelTop10;
 
 /**
@@ -43,7 +49,8 @@ public class ControladorPrincipal implements ActionListener{
     private FrameInicioSesion frameInicioSesion;
     private FrameRegistro frameRegistro;
     private String usuarioActual="";
-    
+    private PanelRecetario panelRecetario;
+    private int posicion = 0;
     
     private PanelAdmin panelAdmin;
 
@@ -60,6 +67,7 @@ public class ControladorPrincipal implements ActionListener{
         panelConsulta = new PanelConsulta();
         panelTop10 = new PanelTop10();
         panelAdmin = frameAdmin.getPanelAdmin();
+        panelRecetario = frameRecetario.getPanelRecetario();
         
         
         
@@ -74,6 +82,16 @@ public class ControladorPrincipal implements ActionListener{
         framePrincipal.escuchar(this);
         frameInicioSesion.escuchar(this);
         frameAdmin.escuchar(this);
+    }
+    
+    public void AsignarRecetario(int posicion){
+         List  lista=recetaTbControlador.findRecetaTbEntities();
+         RecetaTb obj = (RecetaTb) lista.get(posicion);
+         panelRecetario.setjLabelNombre(obj.getNombre());
+         panelRecetario.setjLabelPorciones(obj.getPorciones()+"");
+         panelRecetario.setjLabelTiempoPrepa(obj.getMinutosPreparacion()+"");
+         panelRecetario.setjLabelCoccion(obj.getMinutosCoccion()+"");
+        
     }
 
     @Override
@@ -97,10 +115,31 @@ public class ControladorPrincipal implements ActionListener{
                 break;
                 
             case "Recetario":
+                
                 frameRecetario.setVisible(true);
                 frameRecetario.setLocationRelativeTo(null);
+                AsignarRecetario(posicion);
+                
                 
                 break;
+                case "Anterior":
+                        System.out.println("se preciono");
+                        if (posicion ==0){
+                            
+                        }else{
+                            posicion--;
+                            AsignarRecetario(posicion);
+                        }
+                        break;
+                    case "Siguiente":
+                        if (posicion<recetaTbControlador.getRecetaTbCount()-1){
+                            posicion++;
+                            AsignarRecetario(posicion);
+                    }else{
+                            
+                        }
+                        break;
+                
                 
             case "Favoritas":
                 System.out.println("Favoritos");
@@ -223,6 +262,17 @@ public class ControladorPrincipal implements ActionListener{
                 
             case "BuscarRece":
                 
+                List  lista=recetaTbControlador.findRecetaTbEntities();
+                for (int i = 0; i < lista.size(); i++) {
+                    RecetaTb obj = (RecetaTb) lista.get(i);
+                    if(obj.getNombre().equalsIgnoreCase(panelAdmin.getTxtNombreRecet())){
+                        panelAdmin.setTxtNombre(obj.getNombre());
+                        panelAdmin.setTxtImagen(obj.getImagen());
+                        panelAdmin.setTxtTiempPrep(obj.getMinutosPreparacion());
+                        panelAdmin.setTxtTiempcoccion(obj.getMinutosCoccion());
+                        panelAdmin.setjSpinnerPorciones(obj.getPorciones());
+                    }}
+                
                 System.out.println("Conexion Exitosa");
                 
                 break;
@@ -263,6 +313,20 @@ public class ControladorPrincipal implements ActionListener{
                 
             case "EliminarRece":
                 
+                lista=recetaTbControlador.findRecetaTbEntities();
+                for (int i = 0; i < lista.size(); i++) {
+                    RecetaTb obj = (RecetaTb) lista.get(i);
+                    if(obj.getNombre().equalsIgnoreCase(panelAdmin.getTxtNombreRecet())){
+                        try {
+                            recetaTbControlador.destroy(obj.getId());
+                            JOptionPane.showMessageDialog(null, "Receta eliminada con exito :)");
+                            panelAdmin.limpiar();
+                        } catch (IllegalOrphanException ex) {
+                            Logger.getLogger(ControladorPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+                        } catch (NonexistentEntityException ex) {
+                            Logger.getLogger(ControladorPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                    }}
                 System.out.println("Conexion Exitosa");
                 
                 break;

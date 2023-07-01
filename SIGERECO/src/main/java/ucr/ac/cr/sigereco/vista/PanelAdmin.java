@@ -88,7 +88,7 @@ public class PanelAdmin extends javax.swing.JPanel {
     }
     
     public void setTxtTiempPrep(int tiempoPrep){
-        this.txtNombreRecet.setText(Integer.toString(tiempoPrep));
+        this.txtTiempPrep.setText(Integer.toString(tiempoPrep));
    }
     
     public int getTxtTiempcoccion (){
@@ -118,6 +118,11 @@ public class PanelAdmin extends javax.swing.JPanel {
     public int getjSpinnerPorciones() {
         return Integer.parseInt(jSpinnerPorciones.getValue().toString());
     }
+    
+    public void setjSpinnerPorciones(int porciones) {
+        this.jSpinnerPorciones.setValue(porciones);
+    }
+
     
     public String getjCBoxCategoria() {
         return jCBoxCategoria.getSelectedItem().toString();
