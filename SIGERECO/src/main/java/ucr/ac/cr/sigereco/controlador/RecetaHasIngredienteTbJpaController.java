@@ -71,7 +71,7 @@ public class RecetaHasIngredienteTbJpaController implements Serializable {
                 ingredienteTb = em.merge(ingredienteTb);
             }
             if (recetaTb != null) {
-                recetaTb.getRecetaHasIngredienteTbList().add(recetaHasIngredienteTb);
+                //recetaTb.getRecetaHasIngredienteTbList().add(recetaHasIngredienteTb);
                 recetaTb = em.merge(recetaTb);
             }
             for (UnidadMedidaTb unidadMedidaTbListUnidadMedidaTb : recetaHasIngredienteTb.getUnidadMedidaTbList()) {
@@ -130,11 +130,11 @@ public class RecetaHasIngredienteTbJpaController implements Serializable {
                 ingredienteTbNew = em.merge(ingredienteTbNew);
             }
             if (recetaTbOld != null && !recetaTbOld.equals(recetaTbNew)) {
-                recetaTbOld.getRecetaHasIngredienteTbList().remove(recetaHasIngredienteTb);
+                //recetaTbOld.getRecetaHasIngredienteTbList().remove(recetaHasIngredienteTb);
                 recetaTbOld = em.merge(recetaTbOld);
             }
             if (recetaTbNew != null && !recetaTbNew.equals(recetaTbOld)) {
-                recetaTbNew.getRecetaHasIngredienteTbList().add(recetaHasIngredienteTb);
+                //recetaTbNew.getRecetaHasIngredienteTbList().add(recetaHasIngredienteTb);
                 recetaTbNew = em.merge(recetaTbNew);
             }
             for (UnidadMedidaTb unidadMedidaTbListOldUnidadMedidaTb : unidadMedidaTbListOld) {
@@ -185,7 +185,7 @@ public class RecetaHasIngredienteTbJpaController implements Serializable {
             }
             RecetaTb recetaTb = recetaHasIngredienteTb.getRecetaTb();
             if (recetaTb != null) {
-                recetaTb.getRecetaHasIngredienteTbList().remove(recetaHasIngredienteTb);
+                //recetaTb.getRecetaHasIngredienteTbList().remove(recetaHasIngredienteTb);
                 recetaTb = em.merge(recetaTb);
             }
             List<UnidadMedidaTb> unidadMedidaTbList = recetaHasIngredienteTb.getUnidadMedidaTbList();

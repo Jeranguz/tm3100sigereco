@@ -48,7 +48,7 @@ public class CategoriaTbJpaController implements Serializable {
             categoriaTb.setRecetaTbList(attachedRecetaTbList);
             em.persist(categoriaTb);
             for (RecetaTb recetaTbListRecetaTb : categoriaTb.getRecetaTbList()) {
-                recetaTbListRecetaTb.getCategoriaTbList().add(categoriaTb);
+                //recetaTbListRecetaTb.getCategoriaTbList().add(categoriaTb);
                 recetaTbListRecetaTb = em.merge(recetaTbListRecetaTb);
             }
             em.getTransaction().commit();
@@ -77,13 +77,13 @@ public class CategoriaTbJpaController implements Serializable {
             categoriaTb = em.merge(categoriaTb);
             for (RecetaTb recetaTbListOldRecetaTb : recetaTbListOld) {
                 if (!recetaTbListNew.contains(recetaTbListOldRecetaTb)) {
-                    recetaTbListOldRecetaTb.getCategoriaTbList().remove(categoriaTb);
+                    //recetaTbListOldRecetaTb.getCategoriaTbList().remove(categoriaTb);
                     recetaTbListOldRecetaTb = em.merge(recetaTbListOldRecetaTb);
                 }
             }
             for (RecetaTb recetaTbListNewRecetaTb : recetaTbListNew) {
                 if (!recetaTbListOld.contains(recetaTbListNewRecetaTb)) {
-                    recetaTbListNewRecetaTb.getCategoriaTbList().add(categoriaTb);
+                    //recetaTbListNewRecetaTb.getCategoriaTbList().add(categoriaTb);
                     recetaTbListNewRecetaTb = em.merge(recetaTbListNewRecetaTb);
                 }
             }
@@ -118,7 +118,7 @@ public class CategoriaTbJpaController implements Serializable {
             }
             List<RecetaTb> recetaTbList = categoriaTb.getRecetaTbList();
             for (RecetaTb recetaTbListRecetaTb : recetaTbList) {
-                recetaTbListRecetaTb.getCategoriaTbList().remove(categoriaTb);
+                //recetaTbListRecetaTb.getCategoriaTbList().remove(categoriaTb);
                 recetaTbListRecetaTb = em.merge(recetaTbListRecetaTb);
             }
             em.remove(categoriaTb);

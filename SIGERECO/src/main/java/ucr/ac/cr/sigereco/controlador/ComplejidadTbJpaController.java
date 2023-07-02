@@ -49,7 +49,7 @@ public class ComplejidadTbJpaController implements Serializable {
             complejidadTb.setRecetaTbList(attachedRecetaTbList);
             em.persist(complejidadTb);
             for (RecetaTb recetaTbListRecetaTb : complejidadTb.getRecetaTbList()) {
-                recetaTbListRecetaTb.getComplejidadTbList().add(complejidadTb);
+                //recetaTbListRecetaTb.getComplejidadTbList().add(complejidadTb);
                 recetaTbListRecetaTb = em.merge(recetaTbListRecetaTb);
             }
             em.getTransaction().commit();
@@ -83,13 +83,13 @@ public class ComplejidadTbJpaController implements Serializable {
             complejidadTb = em.merge(complejidadTb);
             for (RecetaTb recetaTbListOldRecetaTb : recetaTbListOld) {
                 if (!recetaTbListNew.contains(recetaTbListOldRecetaTb)) {
-                    recetaTbListOldRecetaTb.getComplejidadTbList().remove(complejidadTb);
+                    //recetaTbListOldRecetaTb.getComplejidadTbList().remove(complejidadTb);
                     recetaTbListOldRecetaTb = em.merge(recetaTbListOldRecetaTb);
                 }
             }
             for (RecetaTb recetaTbListNewRecetaTb : recetaTbListNew) {
                 if (!recetaTbListOld.contains(recetaTbListNewRecetaTb)) {
-                    recetaTbListNewRecetaTb.getComplejidadTbList().add(complejidadTb);
+                    //recetaTbListNewRecetaTb.getComplejidadTbList().add(complejidadTb);
                     recetaTbListNewRecetaTb = em.merge(recetaTbListNewRecetaTb);
                 }
             }
@@ -124,7 +124,7 @@ public class ComplejidadTbJpaController implements Serializable {
             }
             List<RecetaTb> recetaTbList = complejidadTb.getRecetaTbList();
             for (RecetaTb recetaTbListRecetaTb : recetaTbList) {
-                recetaTbListRecetaTb.getComplejidadTbList().remove(complejidadTb);
+                //recetaTbListRecetaTb.getComplejidadTbList().remove(complejidadTb);
                 recetaTbListRecetaTb = em.merge(recetaTbListRecetaTb);
             }
             em.remove(complejidadTb);

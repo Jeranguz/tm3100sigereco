@@ -6,7 +6,7 @@ import javax.persistence.metamodel.SingularAttribute;
 import javax.persistence.metamodel.StaticMetamodel;
 import ucr.ac.cr.sigereco.modelo.RecetaHasIngredienteTb;
 
-@Generated(value="org.eclipse.persistence.internal.jpa.modelgen.CanonicalModelProcessor", date="2023-06-24T12:34:47", comments="EclipseLink-2.7.10.v20211216-rNA")
+@Generated(value="org.eclipse.persistence.internal.jpa.modelgen.CanonicalModelProcessor", date="2023-07-01T22:42:38", comments="EclipseLink-2.7.10.v20211216-rNA")
 @StaticMetamodel(UnidadMedidaTb.class)
 public class UnidadMedidaTb_ { 
 

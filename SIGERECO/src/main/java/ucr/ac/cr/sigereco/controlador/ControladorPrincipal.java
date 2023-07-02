@@ -92,6 +92,12 @@ public class ControladorPrincipal implements ActionListener{
          panelRecetario.setjLabelTiempoPrepa(obj.getMinutosPreparacion()+"");
          panelRecetario.setjLabelCoccion(obj.getMinutosCoccion()+"");
          panelRecetario.setjLabelTotal(obj.getMinutosPreparacion()+obj.getMinutosCoccion()+"");
+         panelRecetario.setjLabelIngredientes(obj.getIngredientes());
+         panelRecetario.setjLabelOcasion(obj.getOcasion());
+         panelRecetario.setjLabelCategoria(obj.getCategoria());
+         panelRecetario.setjLabelDificultad(obj.getDificultad());
+         panelRecetario.setjLabelDescripcion(obj.getDescripcion());
+         panelRecetario.setjLabelPreparacion(obj.getInstrucciones());
         
     }
 
@@ -294,11 +300,15 @@ public class ControladorPrincipal implements ActionListener{
                 recetaTb = new RecetaTb(panelAdmin.getTxtNombreRecet(),
                         panelAdmin.getAreaDescripcion(),
                         panelAdmin.getTxtImagen(),
-                        panelAdmin.getAreaInstrucciones(),
-                        panelAdmin.getTxtTiempPrep(),
-                        panelAdmin.getTxtTiempcoccion(),
-                        panelAdmin.getjSpinnerPorciones());
-                recetaTbControlador.create(recetaTb);
+                            panelAdmin.getAreaInstrucciones(),
+                            panelAdmin.getTxtTiempPrep(),
+                            panelAdmin.getTxtTiempcoccion(),
+                            panelAdmin.getjSpinnerPorciones(),
+                            panelAdmin.getAreaIngredintes(),
+                            panelAdmin.getjCBoxDificultad(),
+                            panelAdmin.getjCBoxOcasion(),
+                            panelAdmin.getjCBoxCategoria());
+                    recetaTbControlador.create(recetaTb);
                 JOptionPane.showMessageDialog(null, "Receta agregada con exito :)");
                 panelAdmin.limpiar();
                 }
@@ -326,8 +336,6 @@ public class ControladorPrincipal implements ActionListener{
                             recetaTbControlador.destroy(obj.getId());
                             JOptionPane.showMessageDialog(null, "Receta eliminada con exito :)");
                             panelAdmin.limpiar();
-                        } catch (IllegalOrphanException ex) {
-                            Logger.getLogger(ControladorPrincipal.class.getName()).log(Level.SEVERE, null, ex);
                         } catch (NonexistentEntityException ex) {
                             Logger.getLogger(ControladorPrincipal.class.getName()).log(Level.SEVERE, null, ex);
                         }

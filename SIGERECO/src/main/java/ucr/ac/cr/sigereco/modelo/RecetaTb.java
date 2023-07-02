@@ -5,21 +5,16 @@
 package ucr.ac.cr.sigereco.modelo;
 
 import java.io.Serializable;
-import java.util.List;
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -37,7 +32,11 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "RecetaTb.findByInstrucciones", query = "SELECT r FROM RecetaTb r WHERE r.instrucciones = :instrucciones"),
     @NamedQuery(name = "RecetaTb.findByMinutosPreparacion", query = "SELECT r FROM RecetaTb r WHERE r.minutosPreparacion = :minutosPreparacion"),
     @NamedQuery(name = "RecetaTb.findByMinutosCoccion", query = "SELECT r FROM RecetaTb r WHERE r.minutosCoccion = :minutosCoccion"),
-    @NamedQuery(name = "RecetaTb.findByPorciones", query = "SELECT r FROM RecetaTb r WHERE r.porciones = :porciones")})
+    @NamedQuery(name = "RecetaTb.findByPorciones", query = "SELECT r FROM RecetaTb r WHERE r.porciones = :porciones"),
+    @NamedQuery(name = "RecetaTb.findByIngredientes", query = "SELECT r FROM RecetaTb r WHERE r.ingredientes = :ingredientes"),
+    @NamedQuery(name = "RecetaTb.findByDificultad", query = "SELECT r FROM RecetaTb r WHERE r.dificultad = :dificultad"),
+    @NamedQuery(name = "RecetaTb.findByOcasion", query = "SELECT r FROM RecetaTb r WHERE r.ocasion = :ocasion"),
+    @NamedQuery(name = "RecetaTb.findByCategoria", query = "SELECT r FROM RecetaTb r WHERE r.categoria = :categoria")})
 public class RecetaTb implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -67,20 +66,18 @@ public class RecetaTb implements Serializable {
     @Basic(optional = false)
     @Column(name = "porciones")
     private int porciones;
-    @ManyToMany(mappedBy = "recetaTbList")
-    private List<OcasionTb> ocasionTbList;
-    @ManyToMany(mappedBy = "recetaTbList")
-    private List<ComplejidadTb> complejidadTbList;
-    @ManyToMany(mappedBy = "recetaTbList")
-    private List<CategoriaTb> categoriaTbList;
-    @ManyToMany(mappedBy = "recetaTbList")
-    private List<ConsultaTb> consultaTbList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "recetaTb")
-    private List<UsuarioHasRecetaTb> usuarioHasRecetaTbList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "recetaTb")
-    private List<UsuarioHasReceta1Tb> usuarioHasReceta1TbList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "recetaTb")
-    private List<RecetaHasIngredienteTb> recetaHasIngredienteTbList;
+    @Basic(optional = false)
+    @Column(name = "ingredientes")
+    private String ingredientes;
+    @Basic(optional = false)
+    @Column(name = "dificultad")
+    private String dificultad;
+    @Basic(optional = false)
+    @Column(name = "ocasion")
+    private String ocasion;
+    @Basic(optional = false)
+    @Column(name = "categoria")
+    private String categoria;
 
     public RecetaTb() {
     }
@@ -89,7 +86,7 @@ public class RecetaTb implements Serializable {
         this.id = id;
     }
 
-    public RecetaTb(String nombre, String descripcion, String imagen, String instrucciones, int minutosPreparacion, int minutosCoccion, int porciones) {
+    public RecetaTb(String nombre, String descripcion, String imagen, String instrucciones, int minutosPreparacion, int minutosCoccion, int porciones, String ingredientes, String dificultad, String ocasion, String categoria) {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.imagen = imagen;
@@ -97,6 +94,10 @@ public class RecetaTb implements Serializable {
         this.minutosPreparacion = minutosPreparacion;
         this.minutosCoccion = minutosCoccion;
         this.porciones = porciones;
+        this.ingredientes = ingredientes;
+        this.dificultad = dificultad;
+        this.ocasion = ocasion;
+        this.categoria = categoria;
     }
 
     public Integer getId() {
@@ -163,67 +164,36 @@ public class RecetaTb implements Serializable {
         this.porciones = porciones;
     }
 
-    @XmlTransient
-    public List<OcasionTb> getOcasionTbList() {
-        return ocasionTbList;
+    public String getIngredientes() {
+        return ingredientes;
     }
 
-    public void setOcasionTbList(List<OcasionTb> ocasionTbList) {
-        this.ocasionTbList = ocasionTbList;
+    public void setIngredientes(String ingredientes) {
+        this.ingredientes = ingredientes;
     }
 
-    @XmlTransient
-    public List<ComplejidadTb> getComplejidadTbList() {
-        return complejidadTbList;
+    public String getDificultad() {
+        return dificultad;
     }
 
-    public void setComplejidadTbList(List<ComplejidadTb> complejidadTbList) {
-        this.complejidadTbList = complejidadTbList;
+    public void setDificultad(String dificultad) {
+        this.dificultad = dificultad;
     }
 
-    @XmlTransient
-    public List<CategoriaTb> getCategoriaTbList() {
-        return categoriaTbList;
+    public String getOcasion() {
+        return ocasion;
     }
 
-    public void setCategoriaTbList(List<CategoriaTb> categoriaTbList) {
-        this.categoriaTbList = categoriaTbList;
+    public void setOcasion(String ocasion) {
+        this.ocasion = ocasion;
     }
 
-    @XmlTransient
-    public List<ConsultaTb> getConsultaTbList() {
-        return consultaTbList;
+    public String getCategoria() {
+        return categoria;
     }
 
-    public void setConsultaTbList(List<ConsultaTb> consultaTbList) {
-        this.consultaTbList = consultaTbList;
-    }
-
-    @XmlTransient
-    public List<UsuarioHasRecetaTb> getUsuarioHasRecetaTbList() {
-        return usuarioHasRecetaTbList;
-    }
-
-    public void setUsuarioHasRecetaTbList(List<UsuarioHasRecetaTb> usuarioHasRecetaTbList) {
-        this.usuarioHasRecetaTbList = usuarioHasRecetaTbList;
-    }
-
-    @XmlTransient
-    public List<UsuarioHasReceta1Tb> getUsuarioHasReceta1TbList() {
-        return usuarioHasReceta1TbList;
-    }
-
-    public void setUsuarioHasReceta1TbList(List<UsuarioHasReceta1Tb> usuarioHasReceta1TbList) {
-        this.usuarioHasReceta1TbList = usuarioHasReceta1TbList;
-    }
-
-    @XmlTransient
-    public List<RecetaHasIngredienteTb> getRecetaHasIngredienteTbList() {
-        return recetaHasIngredienteTbList;
-    }
-
-    public void setRecetaHasIngredienteTbList(List<RecetaHasIngredienteTb> recetaHasIngredienteTbList) {
-        this.recetaHasIngredienteTbList = recetaHasIngredienteTbList;
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
     }
 
     @Override

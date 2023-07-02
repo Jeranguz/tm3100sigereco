@@ -70,6 +70,12 @@ public class PanelRecetario extends javax.swing.JPanel {
         jLabelTotal.setText(total);
     }
     
+    public void setjLabelDificultad(String dificultad){
+    
+        jLabelComple.setText(dificultad);
+    
+    }
+    
     public void escuchar(ControladorPrincipal controladorPrincipal){
         btnAtras.addActionListener(controladorPrincipal);
         btnMeGusta.addActionListener(controladorPrincipal);
@@ -301,7 +307,7 @@ public class PanelRecetario extends javax.swing.JPanel {
         jLabelComple.setText("0");
 
         jLabel13.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
-        jLabel13.setText("Categoria:");
+        jLabel13.setText("Ocasión:");
 
         jLabelOcasion.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         jLabelOcasion.setText("0");
@@ -365,7 +371,7 @@ public class PanelRecetario extends javax.swing.JPanel {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel12)
                     .addComponent(jLabelCategoria))
-                .addGap(68, 68, 68)
+                .addGap(65, 65, 65)
                 .addComponent(btnMeGusta)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );

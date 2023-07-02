@@ -395,7 +395,7 @@
                       <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabelCategoria" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="68" pref="68" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
                   <Component id="btnMeGusta" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
@@ -432,7 +432,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="24" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Categoria:"/>
+            <Property name="text" type="java.lang.String" value="Ocasi&#xf3;n:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabelOcasion">

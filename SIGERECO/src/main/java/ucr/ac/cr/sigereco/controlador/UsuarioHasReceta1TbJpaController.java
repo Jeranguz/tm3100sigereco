@@ -49,7 +49,7 @@ public class UsuarioHasReceta1TbJpaController implements Serializable {
             }
             em.persist(usuarioHasReceta1Tb);
             if (recetaTb != null) {
-                recetaTb.getUsuarioHasReceta1TbList().add(usuarioHasReceta1Tb);
+                //recetaTb.getUsuarioHasReceta1TbList().add(usuarioHasReceta1Tb);
                 recetaTb = em.merge(recetaTb);
             }
             em.getTransaction().commit();
@@ -80,11 +80,11 @@ public class UsuarioHasReceta1TbJpaController implements Serializable {
             }
             usuarioHasReceta1Tb = em.merge(usuarioHasReceta1Tb);
             if (recetaTbOld != null && !recetaTbOld.equals(recetaTbNew)) {
-                recetaTbOld.getUsuarioHasReceta1TbList().remove(usuarioHasReceta1Tb);
+                //recetaTbOld.getUsuarioHasReceta1TbList().remove(usuarioHasReceta1Tb);
                 recetaTbOld = em.merge(recetaTbOld);
             }
             if (recetaTbNew != null && !recetaTbNew.equals(recetaTbOld)) {
-                recetaTbNew.getUsuarioHasReceta1TbList().add(usuarioHasReceta1Tb);
+                //recetaTbNew.getUsuarioHasReceta1TbList().add(usuarioHasReceta1Tb);
                 recetaTbNew = em.merge(recetaTbNew);
             }
             em.getTransaction().commit();
@@ -118,7 +118,7 @@ public class UsuarioHasReceta1TbJpaController implements Serializable {
             }
             RecetaTb recetaTb = usuarioHasReceta1Tb.getRecetaTb();
             if (recetaTb != null) {
-                recetaTb.getUsuarioHasReceta1TbList().remove(usuarioHasReceta1Tb);
+                //recetaTb.getUsuarioHasReceta1TbList().remove(usuarioHasReceta1Tb);
                 recetaTb = em.merge(recetaTb);
             }
             em.remove(usuarioHasReceta1Tb);

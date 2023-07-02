@@ -48,7 +48,7 @@ public class OcasionTbJpaController implements Serializable {
             ocasionTb.setRecetaTbList(attachedRecetaTbList);
             em.persist(ocasionTb);
             for (RecetaTb recetaTbListRecetaTb : ocasionTb.getRecetaTbList()) {
-                recetaTbListRecetaTb.getOcasionTbList().add(ocasionTb);
+                //recetaTbListRecetaTb.getOcasionTbList().add(ocasionTb);
                 recetaTbListRecetaTb = em.merge(recetaTbListRecetaTb);
             }
             em.getTransaction().commit();
@@ -77,13 +77,13 @@ public class OcasionTbJpaController implements Serializable {
             ocasionTb = em.merge(ocasionTb);
             for (RecetaTb recetaTbListOldRecetaTb : recetaTbListOld) {
                 if (!recetaTbListNew.contains(recetaTbListOldRecetaTb)) {
-                    recetaTbListOldRecetaTb.getOcasionTbList().remove(ocasionTb);
+                    //recetaTbListOldRecetaTb.getOcasionTbList().remove(ocasionTb);
                     recetaTbListOldRecetaTb = em.merge(recetaTbListOldRecetaTb);
                 }
             }
             for (RecetaTb recetaTbListNewRecetaTb : recetaTbListNew) {
                 if (!recetaTbListOld.contains(recetaTbListNewRecetaTb)) {
-                    recetaTbListNewRecetaTb.getOcasionTbList().add(ocasionTb);
+                    //recetaTbListNewRecetaTb.getOcasionTbList().add(ocasionTb);
                     recetaTbListNewRecetaTb = em.merge(recetaTbListNewRecetaTb);
                 }
             }
@@ -118,7 +118,7 @@ public class OcasionTbJpaController implements Serializable {
             }
             List<RecetaTb> recetaTbList = ocasionTb.getRecetaTbList();
             for (RecetaTb recetaTbListRecetaTb : recetaTbList) {
-                recetaTbListRecetaTb.getOcasionTbList().remove(ocasionTb);
+                //recetaTbListRecetaTb.getOcasionTbList().remove(ocasionTb);
                 recetaTbListRecetaTb = em.merge(recetaTbListRecetaTb);
             }
             em.remove(ocasionTb);

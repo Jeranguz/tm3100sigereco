@@ -48,7 +48,7 @@ public class ConsultaTbJpaController implements Serializable {
             consultaTb.setRecetaTbList(attachedRecetaTbList);
             em.persist(consultaTb);
             for (RecetaTb recetaTbListRecetaTb : consultaTb.getRecetaTbList()) {
-                recetaTbListRecetaTb.getConsultaTbList().add(consultaTb);
+                //recetaTbListRecetaTb.getConsultaTbList().add(consultaTb);
                 recetaTbListRecetaTb = em.merge(recetaTbListRecetaTb);
             }
             em.getTransaction().commit();
@@ -77,13 +77,13 @@ public class ConsultaTbJpaController implements Serializable {
             consultaTb = em.merge(consultaTb);
             for (RecetaTb recetaTbListOldRecetaTb : recetaTbListOld) {
                 if (!recetaTbListNew.contains(recetaTbListOldRecetaTb)) {
-                    recetaTbListOldRecetaTb.getConsultaTbList().remove(consultaTb);
+                    //recetaTbListOldRecetaTb.getConsultaTbList().remove(consultaTb);
                     recetaTbListOldRecetaTb = em.merge(recetaTbListOldRecetaTb);
                 }
             }
             for (RecetaTb recetaTbListNewRecetaTb : recetaTbListNew) {
                 if (!recetaTbListOld.contains(recetaTbListNewRecetaTb)) {
-                    recetaTbListNewRecetaTb.getConsultaTbList().add(consultaTb);
+                    //recetaTbListNewRecetaTb.getConsultaTbList().add(consultaTb);
                     recetaTbListNewRecetaTb = em.merge(recetaTbListNewRecetaTb);
                 }
             }
@@ -118,7 +118,7 @@ public class ConsultaTbJpaController implements Serializable {
             }
             List<RecetaTb> recetaTbList = consultaTb.getRecetaTbList();
             for (RecetaTb recetaTbListRecetaTb : recetaTbList) {
-                recetaTbListRecetaTb.getConsultaTbList().remove(consultaTb);
+                //recetaTbListRecetaTb.getConsultaTbList().remove(consultaTb);
                 recetaTbListRecetaTb = em.merge(recetaTbListRecetaTb);
             }
             em.remove(consultaTb);
