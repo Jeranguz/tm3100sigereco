@@ -8,11 +8,16 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.persistence.Persistence;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import ucr.ac.cr.sigereco.controlador.exceptions.IllegalOrphanException;
 import ucr.ac.cr.sigereco.controlador.exceptions.NonexistentEntityException;
@@ -278,6 +283,13 @@ public class ControladorPrincipal implements ActionListener{
                         panelAdmin.setTxtTiempPrep(obj.getMinutosPreparacion());
                         panelAdmin.setTxtTiempcoccion(obj.getMinutosCoccion());
                         panelAdmin.setjSpinnerPorciones(obj.getPorciones());
+                        panelAdmin.setAreaDescripcion(obj.getDescripcion());
+                        panelAdmin.setAreaInstrucciones(obj.getInstrucciones());
+                        panelAdmin.setAreaIngredientes(obj.getIngredientes());
+                        panelAdmin.setjCBoxDificultad(obj.getDificultad());
+                        panelAdmin.setjCBoxOcasion(obj.getOcasion());
+                        panelAdmin.setjCBoxCategoria(obj.getCategoria());
+                        
                     }}
                 
                 System.out.println("Conexion Exitosa");
@@ -316,6 +328,37 @@ public class ControladorPrincipal implements ActionListener{
                 
             case "BuscarImagen":
                 
+                JFileChooser archivo=new JFileChooser();
+                int resultado=archivo.showOpenDialog(null);
+                
+                if(resultado==JFileChooser.APPROVE_OPTION){
+                
+                    File archivoSeleccionado=archivo.getSelectedFile();
+                    
+                    String extension=archivoSeleccionado.getName().substring(archivoSeleccionado.getName().lastIndexOf(".")+1).toLowerCase();
+                    if(extension.equals("jpg")||extension.equals("jpeg")||extension.equals("png")){
+                    
+                        String destino="./src/main/resources/images";
+                        
+                        
+                        try {
+                            File archivoDestino=new File(destino,archivoSeleccionado.getName());
+                            Files.copy(archivoSeleccionado.toPath(), archivoDestino.toPath(),StandardCopyOption.REPLACE_EXISTING);
+                            
+                            panelAdmin.setTxtImagen(destino+"/"+archivoDestino.getName());
+                            
+                        } catch (IOException ex) {
+                            Logger.getLogger(ControladorPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                    
+                    }else{
+                    
+                        JOptionPane.showMessageDialog(null, "Selecciona una imagen valida (JPG, JPEG o PNG","Error",JOptionPane.ERROR_MESSAGE);
+                    
+                    }
+                
+                }
+                
                 System.out.println("Conexion Exitosa");
                 
                 break;
@@ -333,6 +376,17 @@ public class ControladorPrincipal implements ActionListener{
                     RecetaTb obj = (RecetaTb) lista.get(i);
                     if(obj.getNombre().equalsIgnoreCase(panelAdmin.getTxtNombreRecet())){
                         try {
+                            //eliminar la imagen de la carpeta images, aun sin probar
+                            String rutaImagen = obj.getImagen();
+                            File archivoImagen = new File(rutaImagen);
+                            if (archivoImagen.exists()) {
+                                if (archivoImagen.delete()) {
+                                    System.out.println("Imagen borrada");
+                                } else {
+                                    System.out.println("Error al borrar la imagen");
+                                }
+                            }
+                            
                             recetaTbControlador.destroy(obj.getId());
                             JOptionPane.showMessageDialog(null, "Receta eliminada con exito :)");
                             panelAdmin.limpiar();

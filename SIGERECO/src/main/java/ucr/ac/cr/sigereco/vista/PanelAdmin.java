@@ -292,6 +292,8 @@ public class PanelAdmin extends javax.swing.JPanel {
 
         jLabel25.setText("Imagen:");
 
+        txtImagen.setEditable(false);
+
         btnBuscarImagen.setText("Buscar");
         btnBuscarImagen.setActionCommand("BuscarImagen");
 
@@ -462,11 +464,11 @@ public class PanelAdmin extends javax.swing.JPanel {
                                 .addComponent(jCBoxCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel28))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPnlRecetasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jCBoxDificultad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel31))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPnlRecetasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(jCBoxOcasion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel29)
-                                .addGroup(jPnlRecetasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jCBoxDificultad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel31)))))
+                                .addComponent(jLabel29))))
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(39, 39, 39)
                 .addGroup(jPnlRecetasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
