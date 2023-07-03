@@ -31,7 +31,6 @@ public class FramePrincipal extends javax.swing.JFrame {
         jMenuIIRegistrarse = new javax.swing.JMenuItem();
         jMenuIIniciarSesion = new javax.swing.JMenuItem();
         panelConsulta1 = new ucr.ac.cr.sigereco.vista.PanelConsulta();
-        panelTop101 = new ucr.ac.cr.sigereco.vista.PanelTop10();
         jLabel1 = new javax.swing.JLabel();
         jMenuBar2 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
@@ -56,9 +55,6 @@ public class FramePrincipal extends javax.swing.JFrame {
 
         panelConsulta1.setOpaque(false);
         getContentPane().add(panelConsulta1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 455, -1));
-
-        panelTop101.setOpaque(false);
-        getContentPane().add(panelTop101, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 130, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/principal.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -92,7 +88,6 @@ public class FramePrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuIIniciarSesion;
     private javax.swing.JMenuItem jMenuIRecetario;
     private ucr.ac.cr.sigereco.vista.PanelConsulta panelConsulta1;
-    private ucr.ac.cr.sigereco.vista.PanelTop10 panelTop101;
     // End of variables declaration//GEN-END:variables
 
     public void escuchar(ControladorPrincipal controladorPrincipal) {
