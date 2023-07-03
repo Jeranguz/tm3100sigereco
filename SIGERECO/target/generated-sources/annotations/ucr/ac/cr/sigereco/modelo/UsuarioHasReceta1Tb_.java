@@ -7,7 +7,7 @@ import javax.persistence.metamodel.StaticMetamodel;
 import ucr.ac.cr.sigereco.modelo.RecetaTb;
 import ucr.ac.cr.sigereco.modelo.UsuarioHasReceta1TbPK;
 
-@Generated(value="org.eclipse.persistence.internal.jpa.modelgen.CanonicalModelProcessor", date="2023-07-01T22:42:38", comments="EclipseLink-2.7.10.v20211216-rNA")
+@Generated(value="org.eclipse.persistence.internal.jpa.modelgen.CanonicalModelProcessor", date="2023-07-02T23:36:38", comments="EclipseLink-2.7.10.v20211216-rNA")
 @StaticMetamodel(UsuarioHasReceta1Tb.class)
 public class UsuarioHasReceta1Tb_ { 
 

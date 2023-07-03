@@ -4,7 +4,9 @@
  */
 package ucr.ac.cr.sigereco.vista;
 
+import java.awt.Graphics;
 import java.awt.event.ActionListener;
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import ucr.ac.cr.sigereco.controlador.ControladorPrincipal;
 
@@ -18,8 +20,16 @@ public class PanelRecetario extends javax.swing.JPanel {
     /**
      * Creates new form PanelRecetario
      */
+    private ImageIcon imagenComida;
     public PanelRecetario( ) {
         initComponents();
+    }
+    
+    public void paint (Graphics g){
+    
+        super.paint(g);
+        imagenComida.paintIcon(null, g, 500, 350);
+    
     }
 
     public void setjLabelCategoria(String categoria) {
@@ -39,7 +49,8 @@ public class PanelRecetario extends javax.swing.JPanel {
     }
 
     public void setjLabelImagen(String imagen) {
-        jLabelImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource(imagen)));
+        imagenComida=new ImageIcon(imagen);
+        //jLabelImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource(imagen)));
     }
 
     public void setjLabelIngredientes(String Ingredientes) {

@@ -103,6 +103,8 @@ public class ControladorPrincipal implements ActionListener{
          panelRecetario.setjLabelDificultad(obj.getDificultad());
          panelRecetario.setjLabelDescripcion(obj.getDescripcion());
          panelRecetario.setjLabelPreparacion(obj.getInstrucciones());
+         panelRecetario.setjLabelImagen(obj.getImagen());
+         panelRecetario.repaint();
         
     }
 
