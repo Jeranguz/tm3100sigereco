@@ -400,6 +400,39 @@ public class ControladorPrincipal implements ActionListener {
             case "ModificarRece":
 
                 System.out.println("Conexion Exitosa");
+                 lista = recetaTbControlador.findRecetaTbEntities();
+                 
+                for (int i = 0; i < lista.size(); i++) {
+                    RecetaTb obj = (RecetaTb) lista.get(i);
+                    if (obj.getNombre().equalsIgnoreCase(panelAdmin.getTxtNombreRecet())) {
+                        RecetaTb recetaModificada = obj;
+                        obj.setNombre(panelAdmin.getTxtNombreRecet());
+                        obj.setDescripcion(panelAdmin.getAreaDescripcion());
+                        obj.setImagen(panelAdmin.getTxtImagen());
+                        obj.setInstrucciones(panelAdmin.getAreaInstrucciones());
+                        obj.setMinutosPreparacion(panelAdmin.getTxtTiempPrep());
+                        obj.setMinutosCoccion(panelAdmin.getTxtTiempcoccion());
+                        obj.setPorciones(panelAdmin.getjSpinnerPorciones());
+                        obj.setIngredientes(panelAdmin.getAreaIngredintes());
+                        obj.setDificultad(panelAdmin.getjCBoxDificultad());
+                        obj.setOcasion(panelAdmin.getjCBoxOcasion());
+                        obj.setCategoria(panelAdmin.getjCBoxCategoria());
+                        
+                        
+                        System.out.println(obj.getId());
+                        try {
+                            recetaTbControlador.edit(obj);
+                            escribirJson();
+                            JOptionPane.showMessageDialog(null, "La receta se ha modificado con exito");
+                        } catch (Exception ex) {
+                            Logger.getLogger(ControladorPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                    }
+                    
+                }
+                
+            
+            JOptionPane.showMessageDialog(null, "La receta ha sido modificada exitosamente");
 
                 break;
 
