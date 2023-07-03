@@ -157,11 +157,22 @@ public class ControladorUsuarios implements ActionListener{
 
             case "ModificarPanReg":
                 System.out.println("ModificarPanReg");
-                UsuarioTb usuarioModificar= new UsuarioTb(frameRegistro.getTxtNombre(), frameRegistro.getTxtApellido(), frameRegistro.getTxtCorreo(), frameRegistro.getTxtPais(), frameRegistro.getTxtNombreUsuario(), frameRegistro.getCboxTipo(), frameRegistro.getTxtContrasena());
+                
+                UsuarioTb usuarioB=usuarioTbControlador.findUsuarioTb(Integer.parseInt(frameRegistro.getTxtID()));
+                
+                usuarioB.setNombre(frameRegistro.getTxtNombre());
+                usuarioB.setApellido(frameRegistro.getTxtApellido());
+                usuarioB.setCorreo(frameRegistro.getTxtCorreo());
+                usuarioB.setPais(frameRegistro.getTxtPais());
+                usuarioB.setNombreUsuario(frameRegistro.getTxtNombreUsuario());
+                usuarioB.setTipoUsuario(frameRegistro.getCboxTipo());
+                usuarioB.setContrasena(frameRegistro.getTxtContrasena());
+                
+                //UsuarioTb usuarioModificar= new UsuarioTb(frameRegistro.getTxtNombre(), frameRegistro.getTxtApellido(), frameRegistro.getTxtCorreo(), frameRegistro.getTxtPais(), frameRegistro.getTxtNombreUsuario(), frameRegistro.getCboxTipo(), frameRegistro.getTxtContrasena());
                 
             {
                 try {
-                    usuarioTbControlador.edit(usuarioModificar);
+                    usuarioTbControlador.edit(usuarioB);
                     frameRegistro.limpiar();
                     frameRegistro.habilitarID();
                 } catch (Exception ex) {
