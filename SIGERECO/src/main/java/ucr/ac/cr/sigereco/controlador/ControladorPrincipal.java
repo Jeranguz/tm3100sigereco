@@ -60,6 +60,7 @@ public class ControladorPrincipal implements ActionListener {
     private String usuarioActual = "";
     private PanelRecetario panelRecetario;
     private int posicion = 0;
+    private int desicion=0;
     private JSONObject objetoBase;
     private PanelAdmin panelAdmin;
     private File archivo;
@@ -75,6 +76,7 @@ public class ControladorPrincipal implements ActionListener {
         controladorUsuarios = new ControladorUsuarios();
         frameUsuario = new FrameUsuario();
         panelConsulta = new PanelConsulta();
+        framePrincipal.escucharPanelConsulta(this);
         panelTop10 = new PanelTop10();
         panelAdmin = frameAdmin.getPanelAdmin();
         panelRecetario = frameRecetario.getPanelRecetario();
@@ -126,6 +128,7 @@ public class ControladorPrincipal implements ActionListener {
 
     public void AsignarRecetario(int posicion) {
         List lista = recetaTbControlador.findRecetaTbEntities();
+        
         RecetaTb obj = (RecetaTb) lista.get(posicion);
         panelRecetario.setjLabelNombre(obj.getNombre());
         panelRecetario.setjLabelPorciones(obj.getPorciones() + "");
@@ -141,6 +144,50 @@ public class ControladorPrincipal implements ActionListener {
         panelRecetario.setjLabelImagen(obj.getImagen());
         panelRecetario.repaint();
 
+    }
+    
+    public void AsignarRecetarioFiltrado(int posicion, int desicion){
+        
+        switch (desicion) {
+            case 1:
+                //por categoria
+                System.out.println(framePrincipal.getTxtCboxCategoria());
+                List listaCategoria = recetaTbControlador.buscarCategoria(framePrincipal.getTxtCboxCategoria());
+                System.out.println(listaCategoria);
+                RecetaTb obj = (RecetaTb) listaCategoria.get(posicion);
+                panelRecetario.setjLabelNombre(obj.getNombre());
+                panelRecetario.setjLabelPorciones(obj.getPorciones() + "");
+                panelRecetario.setjLabelTiempoPrepa(obj.getMinutosPreparacion() + "");
+                panelRecetario.setjLabelCoccion(obj.getMinutosCoccion() + "");
+                panelRecetario.setjLabelTotal(obj.getMinutosPreparacion() + obj.getMinutosCoccion() + "");
+                panelRecetario.setjLabelIngredientes(obj.getIngredientes());
+                panelRecetario.setjLabelOcasion(obj.getOcasion());
+                panelRecetario.setjLabelCategoria(obj.getCategoria());
+                panelRecetario.setjLabelDificultad(obj.getDificultad());
+                panelRecetario.setjLabelDescripcion(obj.getDescripcion());
+                panelRecetario.setjLabelPreparacion(obj.getInstrucciones());
+                panelRecetario.setjLabelImagen(obj.getImagen());
+                panelRecetario.repaint();
+
+                
+                break;
+                
+            case 2:
+                //por ocasion
+                
+                
+                
+                break;
+                
+            case 3:
+                //por dificultad
+                
+                
+                
+                break;
+        }
+    
+    
     }
 
     @Override
@@ -172,20 +219,44 @@ public class ControladorPrincipal implements ActionListener {
                 break;
             case "Anterior":
                 System.out.println("se preciono");
-                if (posicion == 0) {
+                if(desicion!=0){
+                    
+                    if (posicion == 0) {
 
                 } else {
                     posicion--;
                     AsignarRecetario(posicion);
+                }}else{
+                
+                    if (posicion == 0) {
+
+                } else {
+                    posicion--;
+                    AsignarRecetarioFiltrado(posicion,1);
                 }
+                
+                }
+                
                 break;
             case "Siguiente":
-                if (posicion < recetaTbControlador.getRecetaTbCount() - 1) {
+                if(desicion!=0){
+                    
+                    if (posicion < recetaTbControlador.getRecetaTbCount() - 1) {
                     posicion++;
                     AsignarRecetario(posicion);
                 } else {
 
+                }}else{
+                    System.out.println("entre al siguiente");
+                    if (posicion < recetaTbControlador.getRecetaTbCount() - 1) {
+                    posicion++;
+                    AsignarRecetarioFiltrado(posicion,posicion);
+                } else {
+
                 }
+                
+                }
+                
                 break;
 
             case "Favoritas":
@@ -199,7 +270,29 @@ public class ControladorPrincipal implements ActionListener {
                 break;
 
             case "Atras":
+                desicion=0;
                 frameRecetario.dispose();
+
+                break;
+
+            case "MostrarConsulta":
+                
+                if (panelConsulta.getCboxCategoria().equals("Sopa")&&panelConsulta.getCboxDificultad().equals("Todas")&&panelConsulta.getCboxOcasion().equals("Todas")){
+                
+                    desicion=1;
+                    
+                    frameRecetario.setVisible(true);
+                    frameRecetario.setLocationRelativeTo(null);
+                    AsignarRecetarioFiltrado(posicion, desicion);
+                    System.out.println("ucr.ac.cr.sigereco.controlador.ControladorPrincipal.actionPerformed()");
+                    //metodo con consulta
+                }else{
+                    
+                    frameRecetario.setVisible(true);
+                    frameRecetario.setLocationRelativeTo(null);
+                    AsignarRecetario(posicion);
+
+                }
 
                 break;
 

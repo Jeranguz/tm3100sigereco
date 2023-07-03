@@ -11,9 +11,11 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
+import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import ucr.ac.cr.sigereco.controlador.exceptions.NonexistentEntityException;
+import ucr.ac.cr.sigereco.modelo.RecetaTb;
 import ucr.ac.cr.sigereco.modelo.UsuarioTb;
 
 /**
@@ -92,14 +94,11 @@ public class UsuarioTbJpaController implements Serializable {
     public List<UsuarioTb> findUsuarioTbEntities() {
         return findUsuarioTbEntities(true, -1, -1);
     }
-    public ArrayList<UsuarioTb> findUsuarioTbEntities2() {
-        return (ArrayList<UsuarioTb>) findUsuarioTbEntities(true, -1, -1);
-    }
     
-
     public List<UsuarioTb> findUsuarioTbEntities(int maxResults, int firstResult) {
         return findUsuarioTbEntities(false, maxResults, firstResult);
     }
+
 
     private List<UsuarioTb> findUsuarioTbEntities(boolean all, int maxResults, int firstResult) {
         EntityManager em = getEntityManager();
@@ -116,6 +115,31 @@ public class UsuarioTbJpaController implements Serializable {
             em.close();
         }
     }
+    
+    public List<RecetaTb> findRecetaTbEntities2(boolean all,int maxResults, int firstResult, String valorEspecifico) {
+    EntityManager em = getEntityManager();
+    try {
+        CriteriaBuilder cb = em.getCriteriaBuilder();
+        CriteriaQuery<RecetaTb> cq = cb.createQuery(RecetaTb.class);
+        Root<RecetaTb> root = cq.from(RecetaTb.class);
+        cq.select(root);
+
+        if (valorEspecifico != null) {
+            cq.where(cb.equal(root.get("Categoría"), valorEspecifico)); // Reemplaza "campoEspecifico" con el nombre del campo que deseas consultar
+        }
+
+        Query q = em.createQuery(cq);
+        if (!all) {
+            q.setMaxResults(maxResults);
+            q.setFirstResult(firstResult);
+        }
+
+        return q.getResultList();
+    } finally {
+        em.close();
+    }
+}
+
 
     public UsuarioTb findUsuarioTb(Integer id) {
         EntityManager em = getEntityManager();

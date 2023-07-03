@@ -21,6 +21,12 @@ public class FramePrincipal extends javax.swing.JFrame {
         jMenuBar2.add(jMenuIIniciarSesion);
         jMenuBar2.add(jMenuIAyuda);
     }
+    
+    public String getTxtCboxCategoria(){
+    
+        return panelConsulta1.getCboxCategoria();
+    
+    }
 
     
     @SuppressWarnings("unchecked")
@@ -97,6 +103,11 @@ public class FramePrincipal extends javax.swing.JFrame {
         jMenuIRecetario.addActionListener(controladorPrincipal);
         jMenuIFavoritas.addActionListener(controladorPrincipal);
         jMenuIFavoritas.setEnabled(false);
-        
+    }
+    
+    public void escucharPanelConsulta(ControladorPrincipal controladorPrincipal){
+    
+        panelConsulta1.escuchar(controladorPrincipal);
+    
     }
 }
