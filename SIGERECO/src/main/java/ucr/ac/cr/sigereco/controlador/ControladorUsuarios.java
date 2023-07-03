@@ -6,12 +6,17 @@ package ucr.ac.cr.sigereco.controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.persistence.Persistence;
 import javax.swing.JOptionPane;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 import ucr.ac.cr.sigereco.controlador.exceptions.NonexistentEntityException;
 import ucr.ac.cr.sigereco.modelo.UsuarioTb;
 import ucr.ac.cr.sigereco.modelo.Usuario;
@@ -28,6 +33,8 @@ public class ControladorUsuarios implements ActionListener{
     private ArrayList <UsuarioTb> usuarios;
     private FrameRegistro frameRegistro;
     private UsuarioTbJpaController usuarioTbControlador;
+    private JSONObject objetoBase;
+    private File archivo;
 
     public ControladorUsuarios() {
 
@@ -35,10 +42,34 @@ public class ControladorUsuarios implements ActionListener{
         frameRegistro=new FrameRegistro();
         usuarioTbControlador=new UsuarioTbJpaController(Persistence.createEntityManagerFactory("SIGERECOPersistence"));
         frameRegistro.escuchar(this);
+        archivo = new File ("Usuarios.json");
 //        id=usuarioTbControlador.getUsuarioTbCount();
         //usuarios.add(new Usuario ("Adim", "admin@sigereco.com", "Costa Rica", "Administrador", "Admin", "Admin", "Admin"));
         //usuarios.add(new Usuario ("user", "user@sigereco.com", "Costa Rica", "Consultor", "user", "user", "user"));
     }
+    
+//    public void escribirJson() {
+//        JSONArray listaUsuariosJson = new JSONArray();
+//        List lista=usuarioTbControlador.findUsuarioTbEntities();
+//        objetoBase = new JSONObject();
+//        for (int i = 0; i < lista.size(); i++) {
+//            UsuarioTb obj = (UsuarioTb) lista.get(i);
+//            JSONObject objJSONReceta = new JSONObject();
+//            objJSONReceta.put("id", obj.getId());
+////            objJSONReceta.put("edad", listaPersonas.get(i).getEdad());
+////            objJSONReceta.put("cedula", listaPersonas.get(i).getCedula());;
+//            listaUsuariosJson.add(objJSONReceta);
+//        }
+//        objetoBase.put("Personas", listaUsuariosJson);
+//        try {
+//            FileWriter escribir = new FileWriter(archivo);
+//            escribir.write(objetoBase.toJSONString());
+//            escribir.flush();
+//            escribir.close();
+//        } catch (IOException ex) {
+//            System.err.println("Error al escribir el archivo");
+//        }
+//    }
     
     public void mostrarRegistroUsuario(){
     
