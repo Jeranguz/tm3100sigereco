@@ -87,9 +87,10 @@ public class ControladorPrincipal implements ActionListener {
         frameReporte = new FrameReporte();
         frameReporte.escuchar(this);
 
-//        frameAdmin.escuchar(this);
+        //frameAdmin.escuchar(this);
         frameRecetario.escuchar(this);
         frameUsuario.escuchar(this);
+        frameUsuario.escucharConsulta(this);
         panelConsulta.escuchar(this);
 
         framePrincipal.setVisible(true);
@@ -163,6 +164,113 @@ public class ControladorPrincipal implements ActionListener {
 
     public void AsignarRecetarioFiltrado(int posicion, int desicion) {
 
+        if(frameUsuario.isActive()){
+        
+            switch (desicion) {
+            case 1:
+                //por categoria
+                System.out.println(frameUsuario.getTxtCboxCategoria());
+                List listaCategoria = recetaTbControlador.buscarCategoria(frameUsuario.getTxtCboxCategoria());
+
+                if (!listaCategoria.isEmpty()) {
+                    agregarListaRecetario(listaCategoria, posicion);
+                } else {
+                    frameRecetario.dispose();
+                    JOptionPane.showMessageDialog(null, "No existe una receta con las opciones filtradas");
+
+                }
+
+                break;
+
+            case 2:
+                //por ocasion
+                System.out.println(frameUsuario.getTxtcBoxOcasion());
+                List listaOcasion = recetaTbControlador.buscarOcasion(frameUsuario.getTxtcBoxOcasion());
+                if (!listaOcasion.isEmpty()) {
+                    agregarListaRecetario(listaOcasion, posicion);
+                } else {
+                    frameRecetario.dispose();
+                    JOptionPane.showMessageDialog(null, "No existe una receta con las opciones filtradas");
+
+                }
+
+                break;
+
+            case 3:
+                //por dificultad
+
+                System.out.println(frameUsuario.getTxtcBoxDificultad());
+                List listaDificultad = recetaTbControlador.buscarComplejidad(frameUsuario.getTxtcBoxDificultad());
+                if (!listaDificultad.isEmpty()) {
+                    agregarListaRecetario(listaDificultad, posicion);
+                } else {
+                    frameRecetario.dispose();
+                    JOptionPane.showMessageDialog(null, "No existe una receta con las opciones filtradas");
+                }
+
+                break;
+
+            case 4:
+                //por dificultad y ocasion
+
+                System.out.println(frameUsuario.getTxtcBoxDificultad());
+                List listaDificultadOcasion = recetaTbControlador.buscarComplejidadOcasion(frameUsuario.getTxtcBoxDificultad(), frameUsuario.getTxtcBoxOcasion());
+                if (!listaDificultadOcasion.isEmpty()) {
+                    agregarListaRecetario(listaDificultadOcasion, posicion);
+                } else {
+                    frameRecetario.dispose();
+                    JOptionPane.showMessageDialog(null, "No existe una receta con las opciones filtradas");
+
+                }
+
+                break;
+
+            case 5:
+                //por dificultad y categoria
+                
+                System.out.println(frameUsuario.getTxtcBoxDificultad());
+                List listaDificultadCategoria = recetaTbControlador.buscarComplejidadCategoria(frameUsuario.getTxtcBoxDificultad(), frameUsuario.getTxtCboxCategoria());
+                if (!listaDificultadCategoria.isEmpty()) {
+                    agregarListaRecetario(listaDificultadCategoria, posicion);
+                } else {
+                    frameRecetario.dispose();
+                    JOptionPane.showMessageDialog(null, "No existe una receta con las opciones filtradas");
+
+                }
+
+                break;
+
+            case 6:
+                //por categoria y ocasion
+
+                System.out.println(frameUsuario.getTxtcBoxDificultad());
+                List listaCategoriaOcasion = recetaTbControlador.buscarOcasionCategoria(frameUsuario.getTxtCboxCategoria(), frameUsuario.getTxtcBoxOcasion());
+                if (!listaCategoriaOcasion.isEmpty()) {
+                    agregarListaRecetario(listaCategoriaOcasion, posicion);
+                } else {
+                    frameRecetario.dispose();
+                    JOptionPane.showMessageDialog(null, "No existe una receta con las opciones filtradas");
+
+                }
+
+                break;
+
+            case 7:
+                //por todas
+
+                System.out.println(frameUsuario.getTxtcBoxDificultad());
+                List listaTodas = recetaTbControlador.buscarOcasionCategoriaComplejidad(frameUsuario.getTxtCboxCategoria(), frameUsuario.getTxtcBoxOcasion(), frameUsuario.getTxtcBoxDificultad());
+                if (!listaTodas.isEmpty()) {
+                    agregarListaRecetario(listaTodas, posicion);
+                } else {
+                    frameRecetario.dispose();
+                    JOptionPane.showMessageDialog(null, "No existe una receta con las opciones filtradas");
+
+                }
+
+                break;
+        }
+        }else{
         switch (desicion) {
             case 1:
                 //por categoria
@@ -172,8 +280,8 @@ public class ControladorPrincipal implements ActionListener {
                 if (!listaCategoria.isEmpty()) {
                     agregarListaRecetario(listaCategoria, posicion);
                 } else {
-
-                    JOptionPane.showMessageDialog(null, "No existe una receta con las opciones filtadas");
+                    frameRecetario.dispose();
+                    JOptionPane.showMessageDialog(null, "No existe una receta con las opciones filtradas");
 
                 }
 
@@ -186,8 +294,8 @@ public class ControladorPrincipal implements ActionListener {
                 if (!listaOcasion.isEmpty()) {
                     agregarListaRecetario(listaOcasion, posicion);
                 } else {
-
-                    JOptionPane.showMessageDialog(null, "No existe una receta con las opciones filtadas");
+                    frameRecetario.dispose();
+                    JOptionPane.showMessageDialog(null, "No existe una receta con las opciones filtradas");
 
                 }
 
@@ -201,8 +309,8 @@ public class ControladorPrincipal implements ActionListener {
                 if (!listaDificultad.isEmpty()) {
                     agregarListaRecetario(listaDificultad, posicion);
                 } else {
-
-                    JOptionPane.showMessageDialog(null, "No existe una receta con las opciones filtadas");
+                    frameRecetario.dispose();
+                    JOptionPane.showMessageDialog(null, "No existe una receta con las opciones filtradas");
                 }
 
                 break;
@@ -215,8 +323,8 @@ public class ControladorPrincipal implements ActionListener {
                 if (!listaDificultadOcasion.isEmpty()) {
                     agregarListaRecetario(listaDificultadOcasion, posicion);
                 } else {
-
-                    JOptionPane.showMessageDialog(null, "No existe una receta con las opciones filtadas");
+                    frameRecetario.dispose();
+                    JOptionPane.showMessageDialog(null, "No existe una receta con las opciones filtradas");
 
                 }
 
@@ -224,14 +332,14 @@ public class ControladorPrincipal implements ActionListener {
 
             case 5:
                 //por dificultad y categoria
-
+                
                 System.out.println(framePrincipal.getTxtcBoxDificultad());
                 List listaDificultadCategoria = recetaTbControlador.buscarComplejidadCategoria(framePrincipal.getTxtcBoxDificultad(), framePrincipal.getTxtCboxCategoria());
                 if (!listaDificultadCategoria.isEmpty()) {
                     agregarListaRecetario(listaDificultadCategoria, posicion);
                 } else {
-
-                    JOptionPane.showMessageDialog(null, "No existe una receta con las opciones filtadas");
+                    frameRecetario.dispose();
+                    JOptionPane.showMessageDialog(null, "No existe una receta con las opciones filtradas");
 
                 }
 
@@ -245,27 +353,28 @@ public class ControladorPrincipal implements ActionListener {
                 if (!listaCategoriaOcasion.isEmpty()) {
                     agregarListaRecetario(listaCategoriaOcasion, posicion);
                 } else {
-
-                    JOptionPane.showMessageDialog(null, "No existe una receta con las opciones filtadas");
+                    frameRecetario.dispose();
+                    JOptionPane.showMessageDialog(null, "No existe una receta con las opciones filtradas");
 
                 }
 
                 break;
 
             case 7:
-                //por dificultad
+                //por todas
 
                 System.out.println(framePrincipal.getTxtcBoxDificultad());
                 List listaTodas = recetaTbControlador.buscarOcasionCategoriaComplejidad(framePrincipal.getTxtCboxCategoria(), framePrincipal.getTxtcBoxOcasion(), framePrincipal.getTxtcBoxDificultad());
                 if (!listaTodas.isEmpty()) {
                     agregarListaRecetario(listaTodas, posicion);
                 } else {
-
-                    JOptionPane.showMessageDialog(null, "No existe una receta con las opciones filtadas");
+                    frameRecetario.dispose();
+                    JOptionPane.showMessageDialog(null, "No existe una receta con las opciones filtradas");
 
                 }
 
                 break;
+        }
         }
     }
 
@@ -332,7 +441,7 @@ public class ControladorPrincipal implements ActionListener {
                     } else {
                         posicion--;
                         System.out.println("se presiono atras en filtrado");
-                        AsignarRecetarioFiltrado(posicion, 1);
+                        AsignarRecetarioFiltrado(posicion, desicion);
                     }
 
                 }
@@ -353,7 +462,7 @@ public class ControladorPrincipal implements ActionListener {
                     if (posicion < recetaTbControlador.getRecetaTbCount() - 1) {
                         posicion++;
                         System.out.println("se presiono adelante en filtrado");
-                        AsignarRecetarioFiltrado(posicion, posicion);
+                        AsignarRecetarioFiltrado(posicion, desicion);
                     } else {
 
                     }
@@ -368,7 +477,14 @@ public class ControladorPrincipal implements ActionListener {
                 break;
 
             case "Ayuda":
-                System.out.println("Ayuda");
+                JOptionPane.showMessageDialog(null, "Bienvenido a SIGERECO\n"+
+                        "\nCompartir nuestras recetas de cocina, se ha convertido en una práctica muy popular. Muchas\n" +
+"personas comparten sus recetas mediante video, texto o una mezcla de ambos. Sin embargo, la\n" +
+"cantidad de recetas puede llegar a ser tanta que se nos hace difícil saber cual receta realmente me\n" +
+"funciona. Así mismo, una vez que hemos probado una receta que nos gusta, cómo hacemos para\n" +
+"guardarla e ir creando nuestro listado de recetas preferidas.\n" +
+"El objetivo del proyecto es analizar, diseñar, desarrollar e implementar una aplicación que nos permita\n" +
+"gestionar, de forma automatizada, recetas de cocina.");
 
                 break;
 
@@ -380,6 +496,92 @@ public class ControladorPrincipal implements ActionListener {
 
             case "MostrarConsulta":
                 posicion = 0;
+                
+                if(frameUsuario.isActive()){
+                    
+                    if (!frameUsuario.getTxtCboxCategoria().equals("Todas") && frameUsuario.getTxtcBoxDificultad().equals("Todas") && frameUsuario.getTxtcBoxOcasion().equals("Todas")) {
+                    System.out.println(panelConsulta.getCboxCategoria());
+                    System.out.println(panelConsulta.getCboxDificultad());
+                    System.out.println(panelConsulta.getCboxOcasion());
+                    desicion = 1;
+                    frameRecetario.setVisible(true);
+                    frameRecetario.setLocationRelativeTo(null);
+                    AsignarRecetarioFiltrado(posicion, desicion);
+
+                } else {
+
+                    if (frameUsuario.getTxtCboxCategoria().equals("Todas") && frameUsuario.getTxtcBoxDificultad().equals("Todas") && !frameUsuario.getTxtcBoxOcasion().equals("Todas")) {
+
+                        desicion = 2;
+                        frameRecetario.setVisible(true);
+                        frameRecetario.setLocationRelativeTo(null);
+                        AsignarRecetarioFiltrado(posicion, desicion);
+
+                    } else {
+
+                        if (frameUsuario.getTxtCboxCategoria().equals("Todas") && !frameUsuario.getTxtcBoxDificultad().equals("Todas") && frameUsuario.getTxtcBoxOcasion().equals("Todas")) {
+
+                            desicion = 3;
+                            frameRecetario.setVisible(true);
+                            frameRecetario.setLocationRelativeTo(null);
+                            AsignarRecetarioFiltrado(posicion, desicion);
+
+                        } else {
+
+                            if (frameUsuario.getTxtCboxCategoria().equals("Todas") && !frameUsuario.getTxtcBoxDificultad().equals("Todas") && !frameUsuario.getTxtcBoxOcasion().equals("Todas")) {
+
+                                desicion = 4;
+                                frameRecetario.setVisible(true);
+                                frameRecetario.setLocationRelativeTo(null);
+                                AsignarRecetarioFiltrado(posicion, desicion);
+
+                            } else {
+
+                                if (!frameUsuario.getTxtCboxCategoria().equals("Todas") && !frameUsuario.getTxtcBoxDificultad().equals("Todas") && frameUsuario.getTxtcBoxOcasion().equals("Todas")) {
+
+                                    desicion = 5;
+                                    System.out.println("entro al 5");
+                                    frameRecetario.setVisible(true);
+                                    frameRecetario.setLocationRelativeTo(null);
+                                    AsignarRecetarioFiltrado(posicion, desicion);
+
+                                } else {
+
+                                    if (!frameUsuario.getTxtCboxCategoria().equals("Todas") && frameUsuario.getTxtcBoxDificultad().equals("Todas") && !frameUsuario.getTxtcBoxOcasion().equals("Todas")) {
+
+                                        desicion = 6;
+                                        frameRecetario.setVisible(true);
+                                        frameRecetario.setLocationRelativeTo(null);
+                                        AsignarRecetarioFiltrado(posicion, desicion);
+
+                                    } else {
+
+                                        if (!frameUsuario.getTxtCboxCategoria().equals("Todas") && !frameUsuario.getTxtcBoxDificultad().equals("Todas") && !frameUsuario.getTxtcBoxOcasion().equals("Todas")) {
+
+                                            desicion = 7;
+                                            frameRecetario.setVisible(true);
+                                            frameRecetario.setLocationRelativeTo(null);
+                                            AsignarRecetarioFiltrado(posicion, desicion);
+
+                                        } else {
+                                            if (frameUsuario.getTxtCboxCategoria().equals("Todas") && frameUsuario.getTxtcBoxDificultad().equals("Todas") && frameUsuario.getTxtcBoxOcasion().equals("Todas")) {
+                                                 System.out.println(panelConsulta.getCboxCategoria());
+                                                System.out.println(panelConsulta.getCboxDificultad());
+                                                System.out.println(panelConsulta.getCboxOcasion());
+                                                frameRecetario.setVisible(true);
+                                                frameRecetario.setLocationRelativeTo(null);
+                                                AsignarRecetario(posicion);
+                                            }
+
+                                        }
+
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                System.out.println(desicion);}else{
                 
                 if (!framePrincipal.getTxtCboxCategoria().equals("Todas") && framePrincipal.getTxtcBoxDificultad().equals("Todas") && framePrincipal.getTxtcBoxOcasion().equals("Todas")) {
                     System.out.println(panelConsulta.getCboxCategoria());
@@ -464,7 +666,7 @@ public class ControladorPrincipal implements ActionListener {
                     }
                 }
                 System.out.println(desicion);
-
+                }
 //                ////////////////////////////////////////////////////////////////////////actulemnte funcionando
 //                if (panelConsulta.getCboxCategoria().equals("Sopa")&&panelConsulta.getCboxDificultad().equals("Todas")&&panelConsulta.getCboxOcasion().equals("Todas")){
 //                
@@ -711,7 +913,7 @@ public class ControladorPrincipal implements ActionListener {
 
                 }
 
-                JOptionPane.showMessageDialog(null, "La receta ha sido modificada exitosamente");
+                panelAdmin.limpiar();
 
                 break;
 
@@ -722,7 +924,6 @@ public class ControladorPrincipal implements ActionListener {
                     RecetaTb obj = (RecetaTb) lista.get(i);
                     if (obj.getNombre().equalsIgnoreCase(panelAdmin.getTxtNombreRecet())) {
                         try {
-                            //eliminar la imagen de la carpeta images, aun sin probar
                             String rutaImagen = obj.getImagen();
                             File archivoImagen = new File(rutaImagen);
                             if (archivoImagen.exists()) {
@@ -742,7 +943,6 @@ public class ControladorPrincipal implements ActionListener {
                         }
                     }
                 }
-                System.out.println("Conexion Exitosa");
 
                 break;
 

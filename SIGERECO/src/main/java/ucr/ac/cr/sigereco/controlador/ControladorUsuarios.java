@@ -46,9 +46,6 @@ public class ControladorUsuarios implements ActionListener {
         archivo = new File("Usuarios.json");
         frameReporte = new FrameReporte();
         frameReporte.escuchar(this);
-//        id=usuarioTbControlador.getUsuarioTbCount();
-        //usuarios.add(new Usuario ("Adim", "admin@sigereco.com", "Costa Rica", "Administrador", "Admin", "Admin", "Admin"));
-        //usuarios.add(new Usuario ("user", "user@sigereco.com", "Costa Rica", "Consultor", "user", "user", "user"));
     }
 
     public void escribirJson() {

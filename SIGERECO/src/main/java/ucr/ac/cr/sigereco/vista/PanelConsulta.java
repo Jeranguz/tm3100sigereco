@@ -46,12 +46,12 @@ public class PanelConsulta extends javax.swing.JPanel {
         jLabel2.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         jLabel2.setText("Categoria:");
 
-        cBoxCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todas", "Sopa", "Almuerzo", "Desayuno", "Postre" }));
+        cBoxCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todas", "Desayuno", "Bebidas", "Entradas", "Almuerzo", "Postre", "Sopa" }));
 
         jLabel3.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         jLabel3.setText("Ocasion:");
 
-        cBoxOcasion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todas", "Cumpleaños" }));
+        cBoxOcasion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todas", "Cumpleaños", "Día del padre", "Día de la madre", "Día del niño", "Navidad", "Semana Santa", "Verano" }));
 
         jLabel4.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         jLabel4.setText("Dificultad");

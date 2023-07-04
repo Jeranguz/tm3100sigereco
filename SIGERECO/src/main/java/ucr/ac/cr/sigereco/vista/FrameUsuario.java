@@ -137,9 +137,33 @@ public class FrameUsuario extends javax.swing.JFrame {
         jMenuIRecetario.addActionListener(controladorPrincipal);
         
     }
+    
+    public void escucharConsulta(ControladorPrincipal controladorPrincipal){
+    
+        panelConsulta1.escuchar(controladorPrincipal);
+    
+    }
 
     public void asignarUsuario(String usuario) {
         jMenuIUsuario.setText(usuario);
+    }
+    
+    public String getTxtCboxCategoria(){
+    
+        return panelConsulta1.getCboxCategoria();
+    
+    }
+    
+    public String getTxtcBoxOcasion(){
+    
+        return panelConsulta1.getCboxOcasion();
+    
+    }
+    
+    public String getTxtcBoxDificultad(){
+    
+        return panelConsulta1.getCboxDificultad();
+    
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

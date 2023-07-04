@@ -103,12 +103,14 @@
     <Component class="javax.swing.JComboBox" name="cBoxCategoria">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="5">
+          <StringArray count="7">
             <StringItem index="0" value="Todas"/>
-            <StringItem index="1" value="Sopa"/>
-            <StringItem index="2" value="Almuerzo"/>
-            <StringItem index="3" value="Desayuno"/>
-            <StringItem index="4" value="Postre"/>
+            <StringItem index="1" value="Desayuno"/>
+            <StringItem index="2" value="Bebidas"/>
+            <StringItem index="3" value="Entradas"/>
+            <StringItem index="4" value="Almuerzo"/>
+            <StringItem index="5" value="Postre"/>
+            <StringItem index="6" value="Sopa"/>
           </StringArray>
         </Property>
       </Properties>
@@ -127,9 +129,15 @@
     <Component class="javax.swing.JComboBox" name="cBoxOcasion">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="2">
+          <StringArray count="8">
             <StringItem index="0" value="Todas"/>
             <StringItem index="1" value="Cumplea&#xf1;os"/>
+            <StringItem index="2" value="D&#xed;a del padre"/>
+            <StringItem index="3" value="D&#xed;a de la madre"/>
+            <StringItem index="4" value="D&#xed;a del ni&#xf1;o"/>
+            <StringItem index="5" value="Navidad"/>
+            <StringItem index="6" value="Semana Santa"/>
+            <StringItem index="7" value="Verano"/>
           </StringArray>
         </Property>
       </Properties>

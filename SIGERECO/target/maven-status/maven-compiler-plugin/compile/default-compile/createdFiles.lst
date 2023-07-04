@@ -39,6 +39,7 @@ ucr\ac\cr\sigereco\controlador\PerfilTbJpaController.class
 ucr\ac\cr\sigereco\modelo\UsuarioTb.class
 ucr\ac\cr\sigereco\modelo\ConsultaTb_.class
 ucr\ac\cr\sigereco\controlador\exceptions\PreexistingEntityException.class
+ucr\ac\cr\sigereco\vista\PanelRegistro$3.class
 ucr\ac\cr\sigereco\vista\FrameAdmin.class
 ucr\ac\cr\sigereco\controlador\CategoriaTbJpaController.class
 ucr\ac\cr\sigereco\modelo\RecetaHasIngredienteTbPK_.class
@@ -55,6 +56,7 @@ ucr\ac\cr\sigereco\modelo\Caracteristicas.class
 ucr\ac\cr\sigereco\modelo\PerfilTb.class
 ucr\ac\cr\sigereco\vista\PanelRecetario$2.class
 ucr\ac\cr\sigereco\controlador\ControladorRecetas.class
+ucr\ac\cr\sigereco\vista\FrameReporte.class
 ucr\ac\cr\sigereco\vista\PanelAdmin.class
 ucr\ac\cr\sigereco\modelo\UsuarioHasReceta1TbPK_.class
 ucr\ac\cr\sigereco\modelo\UnidadMedida.class
