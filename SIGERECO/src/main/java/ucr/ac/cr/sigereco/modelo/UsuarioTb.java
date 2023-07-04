@@ -62,6 +62,7 @@ public class UsuarioTb implements Serializable {
     @Basic(optional = false)
     @Column(name = "contrasena")
     private String contrasena;
+    public static final String[] ETIQUETAS_USUARIO = {"Id","Nombre","Apellido","Correo","Pais","Nombre de usuario","Tipo de usuario", "Contraseña"};
 
     public UsuarioTb() {
     }
@@ -78,6 +79,30 @@ public class UsuarioTb implements Serializable {
         this.nombreUsuario = nombreUsuario;
         this.tipoUsuario = tipoUsuario;
         this.contrasena = contrasena;
+    }
+    
+    public String setDatos(int indice){
+        switch(indice){
+            case 0:
+                return this.getId()+"";
+                
+            case 1:
+                return this.getNombre();
+            case 2:
+                return this.getApellido();
+            case 3: 
+                return this.getCorreo();
+            case 4:
+                return this.getPais();
+            case 5:
+                return this.getNombreUsuario();
+            case 6:
+                return this.getTipoUsuario();
+            case 7:
+                return this.getContrasena();
+            
+        }
+        return "";
     }
 
     public Integer getId() {

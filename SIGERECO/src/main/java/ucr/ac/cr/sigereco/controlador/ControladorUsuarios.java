@@ -22,6 +22,7 @@ import ucr.ac.cr.sigereco.modelo.UsuarioTb;
 import ucr.ac.cr.sigereco.modelo.Usuario;
 import ucr.ac.cr.sigereco.vista.FrameInicioSesion;
 import ucr.ac.cr.sigereco.vista.FrameRegistro;
+import ucr.ac.cr.sigereco.vista.FrameReporte;
 
 
 /**
@@ -35,6 +36,7 @@ public class ControladorUsuarios implements ActionListener{
     private UsuarioTbJpaController usuarioTbControlador;
     private JSONObject objetoBase;
     private File archivo;
+    private FrameReporte frameReporte;
 
     public ControladorUsuarios() {
 
@@ -43,33 +45,52 @@ public class ControladorUsuarios implements ActionListener{
         usuarioTbControlador=new UsuarioTbJpaController(Persistence.createEntityManagerFactory("SIGERECOPersistence"));
         frameRegistro.escuchar(this);
         archivo = new File ("Usuarios.json");
+        frameReporte = new FrameReporte();
+        frameReporte.escuchar(this);
 //        id=usuarioTbControlador.getUsuarioTbCount();
         //usuarios.add(new Usuario ("Adim", "admin@sigereco.com", "Costa Rica", "Administrador", "Admin", "Admin", "Admin"));
         //usuarios.add(new Usuario ("user", "user@sigereco.com", "Costa Rica", "Consultor", "user", "user", "user"));
     }
     
-//    public void escribirJson() {
-//        JSONArray listaUsuariosJson = new JSONArray();
-//        List lista=usuarioTbControlador.findUsuarioTbEntities();
-//        objetoBase = new JSONObject();
-//        for (int i = 0; i < lista.size(); i++) {
-//            UsuarioTb obj = (UsuarioTb) lista.get(i);
-//            JSONObject objJSONReceta = new JSONObject();
-//            objJSONReceta.put("id", obj.getId());
-////            objJSONReceta.put("edad", listaPersonas.get(i).getEdad());
-////            objJSONReceta.put("cedula", listaPersonas.get(i).getCedula());;
-//            listaUsuariosJson.add(objJSONReceta);
-//        }
-//        objetoBase.put("Personas", listaUsuariosJson);
-//        try {
-//            FileWriter escribir = new FileWriter(archivo);
-//            escribir.write(objetoBase.toJSONString());
-//            escribir.flush();
-//            escribir.close();
-//        } catch (IOException ex) {
-//            System.err.println("Error al escribir el archivo");
-//        }
-//    }
+    public void escribirJson() {
+        JSONArray listaUsuariosJson = new JSONArray();
+        List lista=usuarioTbControlador.findUsuarioTbEntities();
+        objetoBase = new JSONObject();
+        for (int i = 0; i < lista.size(); i++) {
+            UsuarioTb obj = (UsuarioTb) lista.get(i);
+            JSONObject objJSONReceta = new JSONObject();
+            objJSONReceta.put("id", obj.getId());
+            objJSONReceta.put("nombre", obj.getNombre());
+            objJSONReceta.put("apellido", obj.getApellido());
+            objJSONReceta.put("correo", obj.getCorreo());
+            objJSONReceta.put("pais", obj.getPais());
+            objJSONReceta.put("nombre de usuario", obj.getNombreUsuario());
+            objJSONReceta.put("tipo de usuario", obj.getTipoUsuario());
+            objJSONReceta.put("contraseña", obj.getContrasena());
+            listaUsuariosJson.add(objJSONReceta);
+        }
+        objetoBase.put("Usuarios", listaUsuariosJson);
+        try {
+            FileWriter escribir = new FileWriter(archivo);
+            escribir.write(objetoBase.toJSONString());
+            escribir.flush();
+            escribir.close();
+        } catch (IOException ex) {
+            System.err.println("Error al escribir el archivo");
+        }
+    }
+    
+    public String[][] getDatosTabla() {
+        List lista = usuarioTbControlador.findUsuarioTbEntities();
+        String[][] matrizDatos = new String[lista.size()][UsuarioTb.ETIQUETAS_USUARIO.length];
+        for (int fila = 0; fila < lista.size(); fila++) {
+            for (int columna = 0; columna < matrizDatos[0].length; columna++) {
+                UsuarioTb obj = (UsuarioTb) lista.get(fila);
+                matrizDatos[fila][columna] = obj.setDatos(columna);
+            }
+        }
+        return matrizDatos;
+    }
     
     public void mostrarRegistroUsuario(){
     
@@ -144,6 +165,7 @@ public class ControladorUsuarios implements ActionListener{
                         if (JOptionPane.showInputDialog("Digite la contraseña de acceso que lo acredite como el Administrador más sexy").equals("root")) {
                             UsuarioTb usuario = new UsuarioTb(frameRegistro.getTxtNombre(), frameRegistro.getTxtApellido(), frameRegistro.getTxtCorreo(), frameRegistro.getTxtPais(), frameRegistro.getTxtNombreUsuario(), frameRegistro.getCboxTipo(), frameRegistro.getTxtContrasena());
                             usuarioTbControlador.create(usuario);
+                            escribirJson();
                             JOptionPane.showMessageDialog(null, "Su ID es el: " + usuario.getId() + "No lo olvides.");
                             frameRegistro.limpiar();
                             
@@ -173,6 +195,7 @@ public class ControladorUsuarios implements ActionListener{
             {
                 try {
                     usuarioTbControlador.edit(usuarioB);
+                    escribirJson();
                     frameRegistro.limpiar();
                     frameRegistro.habilitarID();
                 } catch (Exception ex) {
@@ -188,6 +211,7 @@ public class ControladorUsuarios implements ActionListener{
             {
                 try {
                     usuarioTbControlador.destroy(Integer.parseInt(frameRegistro.getTxtID()));
+                    escribirJson();
                     frameRegistro.limpiar();
                     frameRegistro.habilitarID();
                 } catch (NonexistentEntityException ex) {
@@ -203,6 +227,15 @@ public class ControladorUsuarios implements ActionListener{
                 frameRegistro.limpiar();
                 
                 break;
+                
+            case "Reporte":
+                System.out.println("entro");
+                frameReporte.setDatosTabla(getDatosTabla(), UsuarioTb.ETIQUETAS_USUARIO);
+                frameReporte.setVisible(true);
+                break;
+                
+            case "Regresar":
+                frameReporte.dispose();
         
         
         }

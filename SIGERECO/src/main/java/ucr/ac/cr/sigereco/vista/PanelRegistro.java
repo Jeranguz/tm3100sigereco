@@ -124,6 +124,7 @@ public class PanelRegistro extends javax.swing.JPanel {
           btnSalir.addActionListener(controladorUsuarios);
           btnUsuarios.addActionListener(controladorUsuarios);
           btnAgregar.addActionListener(controladorUsuarios);
+          btnReporte.addActionListener(controladorUsuarios);
     }
 
     @SuppressWarnings("unchecked")
@@ -144,6 +145,7 @@ public class PanelRegistro extends javax.swing.JPanel {
         txtContrasena = new javax.swing.JTextField();
         lblTipoUsuario = new javax.swing.JLabel();
         cBoxTipoUsuario = new javax.swing.JComboBox<>();
+        btnReporte = new javax.swing.JButton();
         btnModificar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
         btnUsuarios = new javax.swing.JButton();
@@ -194,17 +196,20 @@ public class PanelRegistro extends javax.swing.JPanel {
         cBoxTipoUsuario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrador", "Consultor" }));
         add(cBoxTipoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(86, 211, -1, -1));
 
+        btnReporte.setText("Reporte");
+        add(btnReporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 280, -1, -1));
+
         btnModificar.setText("Modificar");
         btnModificar.setActionCommand("ModificarPanReg");
-        add(btnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 308, -1, -1));
+        add(btnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 310, 80, -1));
 
         btnEliminar.setText("Eliminar");
         btnEliminar.setActionCommand("EliminarPanReg");
-        add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(197, 308, 81, -1));
+        add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 310, 80, -1));
 
         btnUsuarios.setText("Buscar");
         btnUsuarios.setActionCommand("BuscarPanReg");
-        add(btnUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 308, 81, -1));
+        add(btnUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, 81, -1));
 
         btnSalir.setText("Salir");
         btnSalir.setActionCommand("SalirPanReg");
@@ -213,7 +218,7 @@ public class PanelRegistro extends javax.swing.JPanel {
                 btnSalirActionPerformed(evt);
             }
         });
-        add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(387, 308, 81, -1));
+        add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 310, 70, -1));
         add(txtID, new org.netbeans.lib.awtextra.AbsoluteConstraints(305, 211, 160, -1));
 
         lblCod.setText("ID:");
@@ -221,13 +226,18 @@ public class PanelRegistro extends javax.swing.JPanel {
 
         btnAgregar.setText("Agregar");
         btnAgregar.setActionCommand("AgregarPanReg");
-        add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(105, 308, -1, -1));
+        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarActionPerformed(evt);
+            }
+        });
+        add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 310, 70, -1));
 
         jLabel3.setText("*");
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 200, 10, -1));
 
         jLabel2.setText("(*) si deseas modificar o eliminar su informacion escriba si ID y presione buscar");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, -1, -1));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Registro.jpg.png"))); // NOI18N
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -241,11 +251,16 @@ public class PanelRegistro extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnSalirActionPerformed
 
+    private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAgregarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregar;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnModificar;
+    private javax.swing.JButton btnReporte;
     private javax.swing.JButton btnSalir;
     private javax.swing.JButton btnUsuarios;
     private javax.swing.JComboBox<String> cBoxTipoUsuario;
