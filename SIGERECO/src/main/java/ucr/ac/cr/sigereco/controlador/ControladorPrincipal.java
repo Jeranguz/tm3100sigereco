@@ -143,9 +143,21 @@ public class ControladorPrincipal implements ActionListener {
     }
 
     public void AsignarRecetario(int posicion) {
-        List lista = recetaTbControlador.findRecetaTbEntities();
-
-        agregarListaRecetario(lista, posicion);
+        List listaReceta = recetaTbControlador.findRecetaTbEntities();
+        RecetaTb lista = (RecetaTb) listaReceta.get(posicion);
+        panelRecetario.setjLabelNombre(lista.getNombre());
+        panelRecetario.setjLabelPorciones(lista.getPorciones() + "");
+        panelRecetario.setjLabelTiempoPrepa(lista.getMinutosPreparacion() + "");
+        panelRecetario.setjLabelCoccion(lista.getMinutosCoccion() + "");
+        panelRecetario.setjLabelTotal(lista.getMinutosPreparacion() + lista.getMinutosCoccion() + "");
+        panelRecetario.setjLabelIngredientes(lista.getIngredientes());
+        panelRecetario.setjLabelOcasion(lista.getOcasion());
+        panelRecetario.setjLabelCategoria(lista.getCategoria());
+        panelRecetario.setjLabelDificultad(lista.getDificultad());
+        panelRecetario.setjLabelDescripcion(lista.getDescripcion());
+        panelRecetario.setjLabelPreparacion(lista.getInstrucciones());
+        panelRecetario.setjLabelImagen(lista.getImagen());
+        panelRecetario.repaint();
 
     }
 
@@ -305,7 +317,7 @@ public class ControladorPrincipal implements ActionListener {
                 break;
             case "Anterior":
                 System.out.println("se preciono");
-                if (desicion != 0) {
+                if (desicion == 0) {
 
                     if (posicion == 0) {
 
@@ -326,7 +338,7 @@ public class ControladorPrincipal implements ActionListener {
 
                 break;
             case "Siguiente":
-                if (desicion != 0) {
+                if (desicion == 0) {
 
                     if (posicion < recetaTbControlador.getRecetaTbCount() - 1) {
                         posicion++;
@@ -335,7 +347,7 @@ public class ControladorPrincipal implements ActionListener {
 
                     }
                 } else {
-                    System.out.println("entre al siguiente");
+                    
                     if (posicion < recetaTbControlador.getRecetaTbCount() - 1) {
                         posicion++;
                         AsignarRecetarioFiltrado(posicion, posicion);
@@ -364,8 +376,12 @@ public class ControladorPrincipal implements ActionListener {
                 break;
 
             case "MostrarConsulta":
+                
+                
                 if (!panelConsulta.getCboxCategoria().equals("Todas") && panelConsulta.getCboxDificultad().equals("Todas") && panelConsulta.getCboxOcasion().equals("Todas")) {
-
+                    System.out.println(panelConsulta.getCboxCategoria());
+                    System.out.println(panelConsulta.getCboxDificultad());
+                    System.out.println(panelConsulta.getCboxOcasion());
                     desicion = 1;
                     frameRecetario.setVisible(true);
                     frameRecetario.setLocationRelativeTo(null);
@@ -427,6 +443,9 @@ public class ControladorPrincipal implements ActionListener {
 
                                         } else {
                                             if (panelConsulta.getCboxCategoria().equals("Todas") && panelConsulta.getCboxDificultad().equals("Todas") && panelConsulta.getCboxOcasion().equals("Todas")) {
+                                                 System.out.println(panelConsulta.getCboxCategoria());
+                                                System.out.println(panelConsulta.getCboxDificultad());
+                                                System.out.println(panelConsulta.getCboxOcasion());
                                                 desicion = 0;
                                                 frameRecetario.setVisible(true);
                                                 frameRecetario.setLocationRelativeTo(null);
@@ -441,6 +460,7 @@ public class ControladorPrincipal implements ActionListener {
                         }
                     }
                 }
+                System.out.println(desicion);
 
 //                ////////////////////////////////////////////////////////////////////////actulemnte funcionando
 //                if (panelConsulta.getCboxCategoria().equals("Sopa")&&panelConsulta.getCboxDificultad().equals("Todas")&&panelConsulta.getCboxOcasion().equals("Todas")){
