@@ -46,17 +46,17 @@ public class PanelConsulta extends javax.swing.JPanel {
         jLabel2.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         jLabel2.setText("Categoria:");
 
-        cBoxCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todas", "Sopa", "Almuerzo", "Desayuno" }));
+        cBoxCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todas", "Sopa", "Almuerzo", "Desayuno", "Postre" }));
 
         jLabel3.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         jLabel3.setText("Ocasion:");
 
-        cBoxOcasion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todas" }));
+        cBoxOcasion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todas", "Cumpleaños" }));
 
         jLabel4.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         jLabel4.setText("Dificultad");
 
-        cBoxDificultad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todas" }));
+        cBoxDificultad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todas", "Fácil", "Intermedio", "Avanzado" }));
 
         btnMostrar.setText("Mostrar");
         btnMostrar.setActionCommand("MostrarConsulta");
@@ -85,7 +85,7 @@ public class PanelConsulta extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 292, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btnMostrar)
                         .addGap(33, 33, 33)))
-                .addContainerGap(58, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

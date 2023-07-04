@@ -331,6 +331,7 @@ public class ControladorPrincipal implements ActionListener {
 
                     } else {
                         posicion--;
+                        System.out.println("se presiono atras en filtrado");
                         AsignarRecetarioFiltrado(posicion, 1);
                     }
 
@@ -341,6 +342,7 @@ public class ControladorPrincipal implements ActionListener {
                 if (desicion == 0) {
 
                     if (posicion < recetaTbControlador.getRecetaTbCount() - 1) {
+                        
                         posicion++;
                         AsignarRecetario(posicion);
                     } else {
@@ -350,6 +352,7 @@ public class ControladorPrincipal implements ActionListener {
                     
                     if (posicion < recetaTbControlador.getRecetaTbCount() - 1) {
                         posicion++;
+                        System.out.println("se presiono adelante en filtrado");
                         AsignarRecetarioFiltrado(posicion, posicion);
                     } else {
 
@@ -376,9 +379,9 @@ public class ControladorPrincipal implements ActionListener {
                 break;
 
             case "MostrarConsulta":
+                posicion = 0;
                 
-                
-                if (!panelConsulta.getCboxCategoria().equals("Todas") && panelConsulta.getCboxDificultad().equals("Todas") && panelConsulta.getCboxOcasion().equals("Todas")) {
+                if (!framePrincipal.getTxtCboxCategoria().equals("Todas") && framePrincipal.getTxtcBoxDificultad().equals("Todas") && framePrincipal.getTxtcBoxOcasion().equals("Todas")) {
                     System.out.println(panelConsulta.getCboxCategoria());
                     System.out.println(panelConsulta.getCboxDificultad());
                     System.out.println(panelConsulta.getCboxOcasion());
@@ -389,7 +392,7 @@ public class ControladorPrincipal implements ActionListener {
 
                 } else {
 
-                    if (panelConsulta.getCboxCategoria().equals("Todas") && panelConsulta.getCboxDificultad().equals("Todas") && !panelConsulta.getCboxOcasion().equals("Todas")) {
+                    if (framePrincipal.getTxtCboxCategoria().equals("Todas") && framePrincipal.getTxtcBoxDificultad().equals("Todas") && !framePrincipal.getTxtcBoxOcasion().equals("Todas")) {
 
                         desicion = 2;
                         frameRecetario.setVisible(true);
@@ -398,7 +401,7 @@ public class ControladorPrincipal implements ActionListener {
 
                     } else {
 
-                        if (panelConsulta.getCboxCategoria().equals("Todas") && !panelConsulta.getCboxDificultad().equals("Todas") && panelConsulta.getCboxOcasion().equals("Todas")) {
+                        if (framePrincipal.getTxtCboxCategoria().equals("Todas") && !framePrincipal.getTxtcBoxDificultad().equals("Todas") && framePrincipal.getTxtcBoxOcasion().equals("Todas")) {
 
                             desicion = 3;
                             frameRecetario.setVisible(true);
@@ -407,7 +410,7 @@ public class ControladorPrincipal implements ActionListener {
 
                         } else {
 
-                            if (panelConsulta.getCboxCategoria().equals("Todas") && !panelConsulta.getCboxDificultad().equals("Todas") && !panelConsulta.getCboxOcasion().equals("Todas")) {
+                            if (framePrincipal.getTxtCboxCategoria().equals("Todas") && !framePrincipal.getTxtcBoxDificultad().equals("Todas") && !framePrincipal.getTxtcBoxOcasion().equals("Todas")) {
 
                                 desicion = 4;
                                 frameRecetario.setVisible(true);
@@ -416,16 +419,17 @@ public class ControladorPrincipal implements ActionListener {
 
                             } else {
 
-                                if (!panelConsulta.getCboxCategoria().equals("Todas") && !panelConsulta.getCboxDificultad().equals("Todas") && panelConsulta.getCboxOcasion().equals("Todas")) {
+                                if (!framePrincipal.getTxtCboxCategoria().equals("Todas") && !framePrincipal.getTxtcBoxDificultad().equals("Todas") && framePrincipal.getTxtcBoxOcasion().equals("Todas")) {
 
                                     desicion = 5;
+                                    System.out.println("entro al 5");
                                     frameRecetario.setVisible(true);
                                     frameRecetario.setLocationRelativeTo(null);
                                     AsignarRecetarioFiltrado(posicion, desicion);
 
                                 } else {
 
-                                    if (!panelConsulta.getCboxCategoria().equals("Todas") && panelConsulta.getCboxDificultad().equals("Todas") && !panelConsulta.getCboxOcasion().equals("Todas")) {
+                                    if (!framePrincipal.getTxtCboxCategoria().equals("Todas") && framePrincipal.getTxtcBoxDificultad().equals("Todas") && !framePrincipal.getTxtcBoxOcasion().equals("Todas")) {
 
                                         desicion = 6;
                                         frameRecetario.setVisible(true);
@@ -434,7 +438,7 @@ public class ControladorPrincipal implements ActionListener {
 
                                     } else {
 
-                                        if (!panelConsulta.getCboxCategoria().equals("Todas") && !panelConsulta.getCboxDificultad().equals("Todas") && !panelConsulta.getCboxOcasion().equals("Todas")) {
+                                        if (!framePrincipal.getTxtCboxCategoria().equals("Todas") && !framePrincipal.getTxtcBoxDificultad().equals("Todas") && !framePrincipal.getTxtcBoxOcasion().equals("Todas")) {
 
                                             desicion = 7;
                                             frameRecetario.setVisible(true);
@@ -442,11 +446,10 @@ public class ControladorPrincipal implements ActionListener {
                                             AsignarRecetarioFiltrado(posicion, desicion);
 
                                         } else {
-                                            if (panelConsulta.getCboxCategoria().equals("Todas") && panelConsulta.getCboxDificultad().equals("Todas") && panelConsulta.getCboxOcasion().equals("Todas")) {
+                                            if (framePrincipal.getTxtCboxCategoria().equals("Todas") && framePrincipal.getTxtcBoxDificultad().equals("Todas") && framePrincipal.getTxtcBoxOcasion().equals("Todas")) {
                                                  System.out.println(panelConsulta.getCboxCategoria());
                                                 System.out.println(panelConsulta.getCboxDificultad());
                                                 System.out.println(panelConsulta.getCboxOcasion());
-                                                desicion = 0;
                                                 frameRecetario.setVisible(true);
                                                 frameRecetario.setLocationRelativeTo(null);
                                                 AsignarRecetario(posicion);
