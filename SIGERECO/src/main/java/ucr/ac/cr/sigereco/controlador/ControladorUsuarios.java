@@ -229,9 +229,14 @@ public class ControladorUsuarios implements ActionListener {
                 break;
 
             case "Reporte":
+                if(JOptionPane.showInputDialog(null, "Digite la contraseña para mostrar la informacion").equals("root")){
                 System.out.println("entro");
                 frameReporte.setDatosTabla(getDatosTabla(), UsuarioTb.ETIQUETAS_USUARIO);
                 frameReporte.setVisible(true);
+                }else {
+                        JOptionPane.showMessageDialog(null, "No tienes los permisos necesarios");
+                        }
+                
                 break;
 
             case "Regresar":
