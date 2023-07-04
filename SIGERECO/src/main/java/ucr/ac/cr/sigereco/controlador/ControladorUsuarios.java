@@ -24,14 +24,13 @@ import ucr.ac.cr.sigereco.vista.FrameInicioSesion;
 import ucr.ac.cr.sigereco.vista.FrameRegistro;
 import ucr.ac.cr.sigereco.vista.FrameReporte;
 
-
 /**
  *
  * @author XPC
  */
-public class ControladorUsuarios implements ActionListener{
-    
-    private ArrayList <UsuarioTb> usuarios;
+public class ControladorUsuarios implements ActionListener {
+
+    private ArrayList<UsuarioTb> usuarios;
     private FrameRegistro frameRegistro;
     private UsuarioTbJpaController usuarioTbControlador;
     private JSONObject objetoBase;
@@ -40,21 +39,21 @@ public class ControladorUsuarios implements ActionListener{
 
     public ControladorUsuarios() {
 
-        usuarios=new ArrayList<>();
-        frameRegistro=new FrameRegistro();
-        usuarioTbControlador=new UsuarioTbJpaController(Persistence.createEntityManagerFactory("SIGERECOPersistence"));
+        usuarios = new ArrayList<>();
+        frameRegistro = new FrameRegistro();
+        usuarioTbControlador = new UsuarioTbJpaController(Persistence.createEntityManagerFactory("SIGERECOPersistence"));
         frameRegistro.escuchar(this);
-        archivo = new File ("Usuarios.json");
+        archivo = new File("Usuarios.json");
         frameReporte = new FrameReporte();
         frameReporte.escuchar(this);
 //        id=usuarioTbControlador.getUsuarioTbCount();
         //usuarios.add(new Usuario ("Adim", "admin@sigereco.com", "Costa Rica", "Administrador", "Admin", "Admin", "Admin"));
         //usuarios.add(new Usuario ("user", "user@sigereco.com", "Costa Rica", "Consultor", "user", "user", "user"));
     }
-    
+
     public void escribirJson() {
         JSONArray listaUsuariosJson = new JSONArray();
-        List lista=usuarioTbControlador.findUsuarioTbEntities();
+        List lista = usuarioTbControlador.findUsuarioTbEntities();
         objetoBase = new JSONObject();
         for (int i = 0; i < lista.size(); i++) {
             UsuarioTb obj = (UsuarioTb) lista.get(i);
@@ -79,7 +78,7 @@ public class ControladorUsuarios implements ActionListener{
             System.err.println("Error al escribir el archivo");
         }
     }
-    
+
     public String[][] getDatosTabla() {
         List lista = usuarioTbControlador.findUsuarioTbEntities();
         String[][] matrizDatos = new String[lista.size()][UsuarioTb.ETIQUETAS_USUARIO.length];
@@ -91,60 +90,59 @@ public class ControladorUsuarios implements ActionListener{
         }
         return matrizDatos;
     }
-    
-    public void mostrarRegistroUsuario(){
-    
+
+    public void mostrarRegistroUsuario() {
+
         frameRegistro.setVisible(true);
         frameRegistro.setLocationRelativeTo(null);
         System.out.println(usuarioTbControlador.getUsuarioTbCount());
-    
-    }
-    
-    public void agregarUsuario(UsuarioTb usuario){
-    
-        usuarios.add(usuario);
-    
+
     }
 
-    
-    public int validacion(String usuario, String contrasena){
-        
-        List lista=usuarioTbControlador.findUsuarioTbEntities();
-                System.out.println(lista);
-                System.out.println("AgregarPanReg");
-                int ultimoId=0;
-                for (int i = 0; i < lista.size(); i++) {
-                    UsuarioTb obj = (UsuarioTb) lista.get(i);
-            if(obj.getId()>ultimoId){
-                ultimoId=obj.getId();
+    public void agregarUsuario(UsuarioTb usuario) {
+
+        usuarios.add(usuario);
+
+    }
+
+    public int validacion(String usuario, String contrasena) {
+
+        List lista = usuarioTbControlador.findUsuarioTbEntities();
+        System.out.println(lista);
+        System.out.println("AgregarPanReg");
+        int ultimoId = 0;
+        for (int i = 0; i < lista.size(); i++) {
+            UsuarioTb obj = (UsuarioTb) lista.get(i);
+            if (obj.getId() > ultimoId) {
+                ultimoId = obj.getId();
             }
         }
-      int validacion = 0;
-      //int ultimoId = usuarioTbControlador.findUsuarioTb(usuarioTbControlador.getUsuarioTbCount()).getId();
+        int validacion = 0;
+        //int ultimoId = usuarioTbControlador.findUsuarioTb(usuarioTbControlador.getUsuarioTbCount()).getId();
 
-                for (int i = 0; i <= ultimoId; i++) {
-                    if(usuarioTbControlador.findUsuarioTb(i)!=null){
-                    if (usuarioTbControlador.findUsuarioTb(i).getNombreUsuario().equals(usuario) && usuarioTbControlador.findUsuarioTb(i).getContrasena().equals(contrasena)) {
+        for (int i = 0; i <= ultimoId; i++) {
+            if (usuarioTbControlador.findUsuarioTb(i) != null) {
+                if (usuarioTbControlador.findUsuarioTb(i).getNombreUsuario().equals(usuario) && usuarioTbControlador.findUsuarioTb(i).getContrasena().equals(contrasena)) {
 
-                        if (usuarioTbControlador.findUsuarioTb(i).getTipoUsuario().equals("Administrador")) {
-                            validacion = 1;
-                        } else {
-                            validacion = 2;
-                        }
+                    if (usuarioTbControlador.findUsuarioTb(i).getTipoUsuario().equals("Administrador")) {
+                        validacion = 1;
+                    } else {
+                        validacion = 2;
                     }
                 }
-                }
-                return validacion;
-                
+            }
+        }
+        return validacion;
+
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         switch (e.getActionCommand()) {
-        
+
             case "BuscarPanReg":
                 System.out.println("BuscarPanReg");
-                UsuarioTb usuarioBuscado=usuarioTbControlador.findUsuarioTb(Integer.parseInt(frameRegistro.getTxtID()));
+                UsuarioTb usuarioBuscado = usuarioTbControlador.findUsuarioTb(Integer.parseInt(frameRegistro.getTxtID()));
                 frameRegistro.bloquearID();
                 frameRegistro.setTxtApellido(usuarioBuscado.getApellido());
                 frameRegistro.setTxtContrasena(usuarioBuscado.getContrasena());
@@ -154,34 +152,42 @@ public class ControladorUsuarios implements ActionListener{
                 frameRegistro.setTxtPais(usuarioBuscado.getPais());
                 frameRegistro.setCboxTipo(usuarioBuscado.getTipoUsuario());
                 break;
-                
+
             case "AgregarPanReg":
 
                 if (frameRegistro.getTxtApellido().equals("invalido") || frameRegistro.getTxtContrasena().equals("invalido") || frameRegistro.getTxtCorreo().equals("invalido") || frameRegistro.getTxtNombre().equals("invalido") || frameRegistro.getTxtNombreUsuario().equals("invalido") || frameRegistro.getTxtPais().equals("invalido")) {
                     JOptionPane.showMessageDialog(null, "Debe rellenar todos los espacios para poder registrar un usuario");
                 } else {
                     if (frameRegistro.getCboxTipo().equals("Administrador")) {
-                        
+
                         if (JOptionPane.showInputDialog("Digite la contraseña de acceso que lo acredite como el Administrador más sexy").equals("root")) {
                             UsuarioTb usuario = new UsuarioTb(frameRegistro.getTxtNombre(), frameRegistro.getTxtApellido(), frameRegistro.getTxtCorreo(), frameRegistro.getTxtPais(), frameRegistro.getTxtNombreUsuario(), frameRegistro.getCboxTipo(), frameRegistro.getTxtContrasena());
                             usuarioTbControlador.create(usuario);
                             escribirJson();
-                            JOptionPane.showMessageDialog(null, "Su ID es el: " + usuario.getId() + "No lo olvides.");
+                            JOptionPane.showMessageDialog(null, "Su ID es el: " + usuario.getId() + " No lo olvides.");
                             frameRegistro.limpiar();
-                            
+
                         } else {
                             JOptionPane.showMessageDialog(null, "No eres el administrador más sexy. Prueba otra vez o cambio de tipo de usuario");
 
                         }
+                    } else {
+
+                        UsuarioTb usuario = new UsuarioTb(frameRegistro.getTxtNombre(), frameRegistro.getTxtApellido(), frameRegistro.getTxtCorreo(), frameRegistro.getTxtPais(), frameRegistro.getTxtNombreUsuario(), frameRegistro.getCboxTipo(), frameRegistro.getTxtContrasena());
+                        usuarioTbControlador.create(usuario);
+                        escribirJson();
+                        JOptionPane.showMessageDialog(null, "Su ID es el: " + usuario.getId() + " No lo olvides.");
+                        frameRegistro.limpiar();
+
                     }
                 }
                 break;
 
             case "ModificarPanReg":
                 System.out.println("ModificarPanReg");
-                
-                UsuarioTb usuarioB=usuarioTbControlador.findUsuarioTb(Integer.parseInt(frameRegistro.getTxtID()));
-                
+
+                UsuarioTb usuarioB = usuarioTbControlador.findUsuarioTb(Integer.parseInt(frameRegistro.getTxtID()));
+
                 usuarioB.setNombre(frameRegistro.getTxtNombre());
                 usuarioB.setApellido(frameRegistro.getTxtApellido());
                 usuarioB.setCorreo(frameRegistro.getTxtCorreo());
@@ -189,55 +195,51 @@ public class ControladorUsuarios implements ActionListener{
                 usuarioB.setNombreUsuario(frameRegistro.getTxtNombreUsuario());
                 usuarioB.setTipoUsuario(frameRegistro.getCboxTipo());
                 usuarioB.setContrasena(frameRegistro.getTxtContrasena());
-                
+
                 //UsuarioTb usuarioModificar= new UsuarioTb(frameRegistro.getTxtNombre(), frameRegistro.getTxtApellido(), frameRegistro.getTxtCorreo(), frameRegistro.getTxtPais(), frameRegistro.getTxtNombreUsuario(), frameRegistro.getCboxTipo(), frameRegistro.getTxtContrasena());
-                
-            {
-                try {
-                    usuarioTbControlador.edit(usuarioB);
-                    escribirJson();
-                    frameRegistro.limpiar();
-                    frameRegistro.habilitarID();
-                } catch (Exception ex) {
-                    Logger.getLogger(ControladorUsuarios.class.getName()).log(Level.SEVERE, null, ex);
+                 {
+                    try {
+                        usuarioTbControlador.edit(usuarioB);
+                        escribirJson();
+                        frameRegistro.limpiar();
+                        frameRegistro.habilitarID();
+                    } catch (Exception ex) {
+                        Logger.getLogger(ControladorUsuarios.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                 }
-            }
                 JOptionPane.showMessageDialog(null, "El usuario ha sido modificado exitosamente");
                 break;
 
-                
             case "EliminarPanReg":
                 System.out.println("EliminarPanReg");
-            {
-                try {
-                    usuarioTbControlador.destroy(Integer.parseInt(frameRegistro.getTxtID()));
-                    escribirJson();
-                    frameRegistro.limpiar();
-                    frameRegistro.habilitarID();
-                } catch (NonexistentEntityException ex) {
-                    Logger.getLogger(ControladorUsuarios.class.getName()).log(Level.SEVERE, null, ex);
+                 {
+                    try {
+                        usuarioTbControlador.destroy(Integer.parseInt(frameRegistro.getTxtID()));
+                        escribirJson();
+                        frameRegistro.limpiar();
+                        frameRegistro.habilitarID();
+                    } catch (NonexistentEntityException ex) {
+                        Logger.getLogger(ControladorUsuarios.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                 }
-            }
                 JOptionPane.showMessageDialog(null, "El usuario ha sido eliminado exitosamente :)");
                 break;
 
-                
             case "SalirPanReg":
                 frameRegistro.dispose();
                 frameRegistro.limpiar();
-                
+
                 break;
-                
+
             case "Reporte":
                 System.out.println("entro");
                 frameReporte.setDatosTabla(getDatosTabla(), UsuarioTb.ETIQUETAS_USUARIO);
                 frameReporte.setVisible(true);
                 break;
-                
+
             case "Regresar":
                 frameReporte.dispose();
-        
-        
+
         }
     }
 
