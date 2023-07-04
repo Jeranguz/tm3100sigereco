@@ -154,13 +154,13 @@ public class RecetaTbJpaController implements Serializable {
         }
     }
     
-    public List<RecetaTb> buscarOcasion(String categoria) {
+    public List<RecetaTb> buscarOcasion(String ocasion) {
         EntityManager em = getEntityManager();
         try {
             CriteriaBuilder cb = em.getCriteriaBuilder();
             CriteriaQuery<RecetaTb> cq = cb.createQuery(RecetaTb.class);
             Root<RecetaTb> root = cq.from(RecetaTb.class);
-            cq.select(root).where(cb.equal(root.get("ocasion"), categoria));
+            cq.select(root).where(cb.equal(root.get("ocasion"), ocasion));
 
             TypedQuery<RecetaTb> query = em.createQuery(cq);
             List<RecetaTb> resultado = query.getResultList();
@@ -170,13 +170,102 @@ public class RecetaTbJpaController implements Serializable {
         }
     }
     
-    public List<RecetaTb> buscarComplejidad(String categoria) {
+    public List<RecetaTb> buscarComplejidad(String complejidad) {
         EntityManager em = getEntityManager();
         try {
             CriteriaBuilder cb = em.getCriteriaBuilder();
             CriteriaQuery<RecetaTb> cq = cb.createQuery(RecetaTb.class);
             Root<RecetaTb> root = cq.from(RecetaTb.class);
-            cq.select(root).where(cb.equal(root.get("dificultad"), categoria));
+            cq.select(root).where(cb.equal(root.get("dificultad"), complejidad));
+
+            TypedQuery<RecetaTb> query = em.createQuery(cq);
+            List<RecetaTb> resultado = query.getResultList();
+            return resultado;
+        } finally {
+            em.close();
+        }
+    }
+    
+    public List<RecetaTb> buscarComplejidadOcasion(String complejidad, String ocasion) {
+        EntityManager em = getEntityManager();
+        try {
+            CriteriaBuilder cb = em.getCriteriaBuilder();
+            CriteriaQuery<RecetaTb> cq = cb.createQuery(RecetaTb.class);
+            Root<RecetaTb> root = cq.from(RecetaTb.class);
+
+            cq.select(root).where(
+                    cb.and(
+                            cb.equal(root.get("dificultad"), complejidad),
+                            cb.equal(root.get("ocasion"), ocasion)
+                    )
+            );
+
+            TypedQuery<RecetaTb> query = em.createQuery(cq);
+            List<RecetaTb> resultado = query.getResultList();
+            return resultado;
+        } finally {
+            em.close();
+        }
+    }
+    
+    public List<RecetaTb> buscarComplejidadCategoria(String complejidad, String categoria) {
+        EntityManager em = getEntityManager();
+        try {
+            CriteriaBuilder cb = em.getCriteriaBuilder();
+            CriteriaQuery<RecetaTb> cq = cb.createQuery(RecetaTb.class);
+            Root<RecetaTb> root = cq.from(RecetaTb.class);
+
+            cq.select(root).where(
+                    cb.and(
+                            cb.equal(root.get("dificultad"), complejidad),
+                            cb.equal(root.get("categoria"), categoria)
+                    )
+            );
+
+            TypedQuery<RecetaTb> query = em.createQuery(cq);
+            List<RecetaTb> resultado = query.getResultList();
+            return resultado;
+        } finally {
+            em.close();
+        }
+    }
+    
+    public List<RecetaTb> buscarOcasionCategoria(String categoria, String ocasion) {
+        EntityManager em = getEntityManager();
+        try {
+            CriteriaBuilder cb = em.getCriteriaBuilder();
+            CriteriaQuery<RecetaTb> cq = cb.createQuery(RecetaTb.class);
+            Root<RecetaTb> root = cq.from(RecetaTb.class);
+
+            cq.select(root).where(
+                    cb.and(
+                            cb.equal(root.get("categoria"), categoria),
+                            cb.equal(root.get("ocasion"), ocasion)
+                    )
+            );
+
+            TypedQuery<RecetaTb> query = em.createQuery(cq);
+            List<RecetaTb> resultado = query.getResultList();
+            return resultado;
+        } finally {
+            em.close();
+        }
+    }
+    
+    public List<RecetaTb> buscarOcasionCategoriaComplejidad(String categoria, String ocasion, String complejidad) {
+        EntityManager em = getEntityManager();
+        try {
+            CriteriaBuilder cb = em.getCriteriaBuilder();
+            CriteriaQuery<RecetaTb> cq = cb.createQuery(RecetaTb.class);
+            Root<RecetaTb> root = cq.from(RecetaTb.class);
+
+            cq.select(root).where(
+                    cb.and(
+                            cb.equal(root.get("categoria"), categoria),
+                            cb.equal(root.get("ocasion"), ocasion),
+                            cb.equal(root.get("dificultad"), complejidad)
+                    )
+            );
 
             TypedQuery<RecetaTb> query = em.createQuery(cq);
             List<RecetaTb> resultado = query.getResultList();

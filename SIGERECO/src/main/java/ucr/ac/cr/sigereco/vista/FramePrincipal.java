@@ -27,6 +27,18 @@ public class FramePrincipal extends javax.swing.JFrame {
         return panelConsulta1.getCboxCategoria();
     
     }
+    
+    public String getTxtcBoxOcasion(){
+    
+        return panelConsulta1.getCboxOcasion();
+    
+    }
+    
+    public String getTxtcBoxDificultad(){
+    
+        return panelConsulta1.getCboxDificultad();
+    
+    }
 
     
     @SuppressWarnings("unchecked")
