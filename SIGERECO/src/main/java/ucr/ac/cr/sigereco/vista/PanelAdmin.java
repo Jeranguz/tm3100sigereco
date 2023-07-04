@@ -145,8 +145,8 @@ public class PanelAdmin extends javax.swing.JPanel {
         return jCBoxDificultad.getSelectedItem().toString();
     }
 
-    public void setjCBoxDificultad(String ocasion) {
-        this.jCBoxOcasion.setSelectedItem(ocasion);
+    public void setjCBoxDificultad(String dificultad) {
+        this.jCBoxDificultad.setSelectedItem(dificultad);
     }
     
     public String getAreaDescripcion(){
