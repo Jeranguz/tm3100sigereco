@@ -196,21 +196,31 @@ public class PanelRegistro extends javax.swing.JPanel {
         cBoxTipoUsuario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrador", "Consultor" }));
         add(cBoxTipoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(86, 211, -1, -1));
 
+        btnReporte.setBackground(new java.awt.Color(114, 192, 160));
+        btnReporte.setForeground(new java.awt.Color(255, 255, 255));
         btnReporte.setText("Reporte");
-        add(btnReporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 280, -1, -1));
+        add(btnReporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 280, 80, -1));
 
+        btnModificar.setBackground(new java.awt.Color(114, 192, 160));
+        btnModificar.setForeground(new java.awt.Color(255, 255, 255));
         btnModificar.setText("Modificar");
         btnModificar.setActionCommand("ModificarPanReg");
         add(btnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 310, 80, -1));
 
+        btnEliminar.setBackground(new java.awt.Color(114, 192, 160));
+        btnEliminar.setForeground(new java.awt.Color(255, 255, 255));
         btnEliminar.setText("Eliminar");
         btnEliminar.setActionCommand("EliminarPanReg");
         add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 310, 80, -1));
 
+        btnUsuarios.setBackground(new java.awt.Color(114, 192, 160));
+        btnUsuarios.setForeground(new java.awt.Color(255, 255, 255));
         btnUsuarios.setText("Buscar");
         btnUsuarios.setActionCommand("BuscarPanReg");
         add(btnUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, 81, -1));
 
+        btnSalir.setBackground(new java.awt.Color(114, 192, 160));
+        btnSalir.setForeground(new java.awt.Color(255, 255, 255));
         btnSalir.setText("Salir");
         btnSalir.setActionCommand("SalirPanReg");
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -224,6 +234,8 @@ public class PanelRegistro extends javax.swing.JPanel {
         lblCod.setText("ID:");
         add(lblCod, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 210, -1, -1));
 
+        btnAgregar.setBackground(new java.awt.Color(114, 192, 160));
+        btnAgregar.setForeground(new java.awt.Color(255, 255, 255));
         btnAgregar.setText("Agregar");
         btnAgregar.setActionCommand("AgregarPanReg");
         btnAgregar.addActionListener(new java.awt.event.ActionListener() {

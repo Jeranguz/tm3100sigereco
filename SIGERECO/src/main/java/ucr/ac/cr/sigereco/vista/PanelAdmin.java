@@ -268,6 +268,7 @@ public class PanelAdmin extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(1280, 800));
 
         jPanelAdmin.setName(""); // NOI18N
+        jPanelAdmin.setOpaque(false);
         jPanelAdmin.setPreferredSize(new java.awt.Dimension(1280, 800));
 
         rBtnRecetas.setText("Recetas");
@@ -281,6 +282,7 @@ public class PanelAdmin extends javax.swing.JPanel {
 
         jPnlRecetas.setBorder(javax.swing.BorderFactory.createTitledBorder("Recetas"));
         jPnlRecetas.setToolTipText("Recetas");
+        jPnlRecetas.setOpaque(false);
 
         lblNombreRecet.setText("Nombre:");
 
@@ -315,34 +317,47 @@ public class PanelAdmin extends javax.swing.JPanel {
 
         jTextAreaDescripcion.setColumns(20);
         jTextAreaDescripcion.setRows(5);
+        jTextAreaDescripcion.setOpaque(false);
         jScrollPane6.setViewportView(jTextAreaDescripcion);
 
         jLabel34.setText("Instrucciones:");
 
         jTextAreaInstrucciones.setColumns(20);
         jTextAreaInstrucciones.setRows(5);
+        jTextAreaInstrucciones.setOpaque(false);
         jScrollPane7.setViewportView(jTextAreaInstrucciones);
 
+        btnAgregarRecet.setBackground(new java.awt.Color(33, 123, 163));
+        btnAgregarRecet.setForeground(new java.awt.Color(255, 255, 255));
         btnAgregarRecet.setText("Agregar");
         btnAgregarRecet.setActionCommand("AgregarRece");
 
+        btnBuscarIdRecet.setBackground(new java.awt.Color(33, 123, 163));
+        btnBuscarIdRecet.setForeground(new java.awt.Color(255, 255, 255));
         btnBuscarIdRecet.setText("Buscar");
         btnBuscarIdRecet.setActionCommand("BuscarRece");
 
+        btnModifRecet.setBackground(new java.awt.Color(33, 123, 163));
+        btnModifRecet.setForeground(new java.awt.Color(255, 255, 255));
         btnModifRecet.setText("Modificar");
         btnModifRecet.setActionCommand("ModificarRece");
 
+        btnEliminRecet.setBackground(new java.awt.Color(33, 123, 163));
+        btnEliminRecet.setForeground(new java.awt.Color(255, 255, 255));
         btnEliminRecet.setText("Eliminar");
         btnEliminRecet.setActionCommand("EliminarRece");
 
         jTextAreaIngredientes.setColumns(20);
         jTextAreaIngredientes.setRows(5);
+        jTextAreaIngredientes.setOpaque(false);
         jScrollPane2.setViewportView(jTextAreaIngredientes);
 
         jLabel31.setText("Dificultad:");
 
         jCBoxDificultad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Fácil", "Intermedio", "Avanzado" }));
 
+        btnReporte.setBackground(new java.awt.Color(33, 123, 163));
+        btnReporte.setForeground(new java.awt.Color(255, 255, 255));
         btnReporte.setText("Reporte");
 
         javax.swing.GroupLayout jPnlRecetasLayout = new javax.swing.GroupLayout(jPnlRecetas);
@@ -500,25 +515,35 @@ public class PanelAdmin extends javax.swing.JPanel {
 
         jPanelIngredientes.setBorder(javax.swing.BorderFactory.createTitledBorder("Ingredientes"));
         jPanelIngredientes.setToolTipText("");
+        jPanelIngredientes.setOpaque(false);
 
         lblNombreIngr.setText("Nombre:");
 
         lblDescrIngr.setText("Descripcion:");
 
+        btnBusIngr.setBackground(new java.awt.Color(33, 123, 163));
+        btnBusIngr.setForeground(new java.awt.Color(255, 255, 255));
         btnBusIngr.setText("Buscar");
         btnBusIngr.setActionCommand("BuscarIngr");
 
+        btnAgregIngr.setBackground(new java.awt.Color(33, 123, 163));
+        btnAgregIngr.setForeground(new java.awt.Color(255, 255, 255));
         btnAgregIngr.setText("Agregar");
         btnAgregIngr.setActionCommand("AgregarIngr");
 
+        btnModifIngr.setBackground(new java.awt.Color(33, 123, 163));
+        btnModifIngr.setForeground(new java.awt.Color(255, 255, 255));
         btnModifIngr.setText("Modificar");
         btnModifIngr.setActionCommand("ModificarIngr");
 
+        btnElimiIngr.setBackground(new java.awt.Color(33, 123, 163));
+        btnElimiIngr.setForeground(new java.awt.Color(255, 255, 255));
         btnElimiIngr.setText("Eliminar");
         btnElimiIngr.setActionCommand("EliminarIngr");
 
         txtDescripIngre.setColumns(20);
         txtDescripIngre.setRows(5);
+        txtDescripIngre.setOpaque(false);
         jScrollPane1.setViewportView(txtDescripIngre);
 
         javax.swing.GroupLayout jPanelIngredientesLayout = new javax.swing.GroupLayout(jPanelIngredientes);
@@ -566,18 +591,27 @@ public class PanelAdmin extends javax.swing.JPanel {
         );
 
         jPanelUnidades.setBorder(javax.swing.BorderFactory.createTitledBorder("Unidades"));
+        jPanelUnidades.setOpaque(false);
 
         lblNombreUnid.setText("Nombre:");
 
+        btnBuscarUnid.setBackground(new java.awt.Color(33, 123, 163));
+        btnBuscarUnid.setForeground(new java.awt.Color(255, 255, 255));
         btnBuscarUnid.setText("Buscar");
         btnBuscarUnid.setActionCommand("BuscarUni");
 
+        btnAgregUnid.setBackground(new java.awt.Color(33, 123, 163));
+        btnAgregUnid.setForeground(new java.awt.Color(255, 255, 255));
         btnAgregUnid.setText("Agregar");
         btnAgregUnid.setActionCommand("AgregarUni");
 
+        btnModifUnid.setBackground(new java.awt.Color(33, 123, 163));
+        btnModifUnid.setForeground(new java.awt.Color(255, 255, 255));
         btnModifUnid.setText("Modificar");
         btnModifUnid.setActionCommand("ModificarUni");
 
+        btnElimiUnid.setBackground(new java.awt.Color(33, 123, 163));
+        btnElimiUnid.setForeground(new java.awt.Color(255, 255, 255));
         btnElimiUnid.setText("Eliminar");
         btnElimiUnid.setActionCommand("EliminarUni");
 
@@ -670,7 +704,7 @@ public class PanelAdmin extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanelAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 739, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 61, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

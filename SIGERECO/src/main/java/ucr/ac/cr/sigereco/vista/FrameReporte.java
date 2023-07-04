@@ -42,9 +42,13 @@ public class FrameReporte extends javax.swing.JFrame {
         jTableUsuarios = new javax.swing.JTable();
         Reporte = new javax.swing.JLabel();
         btnRegresar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jTableUsuarios.setBackground(new java.awt.Color(91, 131, 201));
+        jTableUsuarios.setForeground(new java.awt.Color(255, 255, 255));
         jTableUsuarios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -56,38 +60,22 @@ public class FrameReporte extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTableUsuarios.setOpaque(false);
         jScrollPane1.setViewportView(jTableUsuarios);
 
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 641, 312));
+
         Reporte.setText("Reporte");
+        getContentPane().add(Reporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 10, -1, -1));
 
+        btnRegresar.setBackground(new java.awt.Color(91, 131, 201));
+        btnRegresar.setForeground(new java.awt.Color(255, 255, 255));
         btnRegresar.setText("Regresar");
+        getContentPane().add(btnRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 641, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnRegresar)
-                        .addGap(225, 225, 225)
-                        .addComponent(Reporte)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(Reporte)
-                    .addComponent(btnRegresar))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(151, 151, 151))
-        );
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Tabla-03.jpg"))); // NOI18N
+        jLabel1.setText("jLabel1");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 660, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -100,6 +88,7 @@ public class FrameReporte extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Reporte;
     private javax.swing.JButton btnRegresar;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTableUsuarios;
     // End of variables declaration//GEN-END:variables

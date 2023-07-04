@@ -72,9 +72,9 @@ public class FramePrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panelConsulta1.setOpaque(false);
-        getContentPane().add(panelConsulta1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 455, -1));
+        getContentPane().add(panelConsulta1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 455, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/principal.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Principal-02.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         jMenuBar2.setBackground(new java.awt.Color(112, 164, 215));

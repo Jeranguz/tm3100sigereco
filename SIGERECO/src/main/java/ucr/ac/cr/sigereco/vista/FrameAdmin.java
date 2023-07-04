@@ -62,6 +62,7 @@ public class FrameAdmin extends javax.swing.JFrame {
         jMenuICerrarSesion = new javax.swing.JMenuItem();
         JMenuIConsulta = new javax.swing.JMenuItem();
         panelAdmin1 = new ucr.ac.cr.sigereco.vista.PanelAdmin();
+        jLabel1 = new javax.swing.JLabel();
         jMenuBar = new javax.swing.JMenuBar();
         jMenuExplorador = new javax.swing.JMenu();
         jMenuIRecetario = new javax.swing.JMenuItem();
@@ -75,9 +76,15 @@ public class FrameAdmin extends javax.swing.JFrame {
         jMenuICerrarSesion.setText("Cerrar sesion");
 
         JMenuIConsulta.setText("Consulta");
-        JMenuIConsulta.setActionCommand("Consulta");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        panelAdmin1.setOpaque(false);
+        getContentPane().add(panelAdmin1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 30, 1280, 717));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Recetario fondo.jpg"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, -1));
 
         jMenuExplorador.setText("Explorador");
 
@@ -88,22 +95,6 @@ public class FrameAdmin extends javax.swing.JFrame {
 
         setJMenuBar(jMenuBar);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(panelAdmin1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 12, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(panelAdmin1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -113,6 +104,7 @@ public class FrameAdmin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem JMenuIConsulta;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenuBar jMenuBar;
     private javax.swing.JMenu jMenuExplorador;
     private javax.swing.JMenuItem jMenuIAyuda;

@@ -69,10 +69,14 @@ public class PanelInicioSesion extends javax.swing.JPanel {
         lblContrasena.setText("Contraseña:");
         add(lblContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(46, 178, -1, -1));
 
+        btnInicioSesion.setBackground(new java.awt.Color(49, 89, 147));
+        btnInicioSesion.setForeground(new java.awt.Color(255, 255, 255));
         btnInicioSesion.setText("Iniciar Sesion");
         btnInicioSesion.setActionCommand("IniciarSesionPanIS");
         add(btnInicioSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 230, -1, -1));
 
+        btnAtras.setBackground(new java.awt.Color(49, 89, 147));
+        btnAtras.setForeground(new java.awt.Color(255, 255, 255));
         btnAtras.setText("Atras");
         btnAtras.setActionCommand("AtrasPanIS");
         add(btnAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, -1, -1));

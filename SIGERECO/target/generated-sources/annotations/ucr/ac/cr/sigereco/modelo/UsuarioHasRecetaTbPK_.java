@@ -4,7 +4,7 @@ import javax.annotation.processing.Generated;
 import javax.persistence.metamodel.SingularAttribute;
 import javax.persistence.metamodel.StaticMetamodel;
 
-@Generated(value="org.eclipse.persistence.internal.jpa.modelgen.CanonicalModelProcessor", date="2023-07-03T21:12:41", comments="EclipseLink-2.7.10.v20211216-rNA")
+@Generated(value="org.eclipse.persistence.internal.jpa.modelgen.CanonicalModelProcessor", date="2023-07-03T22:33:17", comments="EclipseLink-2.7.10.v20211216-rNA")
 @StaticMetamodel(UsuarioHasRecetaTbPK.class)
 public class UsuarioHasRecetaTbPK_ { 
 

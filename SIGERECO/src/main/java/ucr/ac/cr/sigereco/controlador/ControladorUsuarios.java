@@ -157,15 +157,15 @@ public class ControladorUsuarios implements ActionListener {
                 } else {
                     if (frameRegistro.getCboxTipo().equals("Administrador")) {
 
-                        if (JOptionPane.showInputDialog("Digite la contraseña de acceso que lo acredite como el Administrador más sexy").equals("root")) {
+                        if (JOptionPane.showInputDialog("Digite la contraseña de acceso que lo acredite como Administrador.").equals("root")) {
                             UsuarioTb usuario = new UsuarioTb(frameRegistro.getTxtNombre(), frameRegistro.getTxtApellido(), frameRegistro.getTxtCorreo(), frameRegistro.getTxtPais(), frameRegistro.getTxtNombreUsuario(), frameRegistro.getCboxTipo(), frameRegistro.getTxtContrasena());
                             usuarioTbControlador.create(usuario);
                             escribirJson();
-                            JOptionPane.showMessageDialog(null, "Su ID es el: " + usuario.getId() + " No lo olvides.");
+                            JOptionPane.showMessageDialog(null, "Su ID es el: " + usuario.getId());
                             frameRegistro.limpiar();
 
                         } else {
-                            JOptionPane.showMessageDialog(null, "No eres el administrador más sexy. Prueba otra vez o cambio de tipo de usuario");
+                            JOptionPane.showMessageDialog(null, "No eres el administrador. Prueba otra vez o cambio de tipo de usuario");
 
                         }
                     } else {
@@ -173,7 +173,7 @@ public class ControladorUsuarios implements ActionListener {
                         UsuarioTb usuario = new UsuarioTb(frameRegistro.getTxtNombre(), frameRegistro.getTxtApellido(), frameRegistro.getTxtCorreo(), frameRegistro.getTxtPais(), frameRegistro.getTxtNombreUsuario(), frameRegistro.getCboxTipo(), frameRegistro.getTxtContrasena());
                         usuarioTbControlador.create(usuario);
                         escribirJson();
-                        JOptionPane.showMessageDialog(null, "Su ID es el: " + usuario.getId() + " No lo olvides.");
+                        JOptionPane.showMessageDialog(null, "Su ID es el: " + usuario.getId());
                         frameRegistro.limpiar();
 
                     }

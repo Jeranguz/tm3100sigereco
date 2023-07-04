@@ -1,59 +1,59 @@
-C:\Users\50684\Documents\NetBeansProjects\Repositorios Git\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\modelo\IngredienteTb.java
-C:\Users\50684\Documents\NetBeansProjects\Repositorios Git\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\controlador\exceptions\NonexistentEntityException.java
-C:\Users\50684\Documents\NetBeansProjects\Repositorios Git\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\controlador\IngredienteTbJpaController.java
-C:\Users\50684\Documents\NetBeansProjects\Repositorios Git\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\vista\FrameInicioSesion.java
-C:\Users\50684\Documents\NetBeansProjects\Repositorios Git\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\controlador\PrivilegioTbJpaController.java
-C:\Users\50684\Documents\NetBeansProjects\Repositorios Git\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\modelo\Usuario.java
-C:\Users\50684\Documents\NetBeansProjects\Repositorios Git\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\modelo\UsuarioHasReceta1Tb.java
-C:\Users\50684\Documents\NetBeansProjects\Repositorios Git\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\controlador\PerfilTbJpaController.java
-C:\Users\50684\Documents\NetBeansProjects\Repositorios Git\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\controlador\ControladorRecetas.java
-C:\Users\50684\Documents\NetBeansProjects\Repositorios Git\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\modelo\UsuarioHasRecetaTb.java
-C:\Users\50684\Documents\NetBeansProjects\Repositorios Git\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\vista\FrameUsuario.java
-C:\Users\50684\Documents\NetBeansProjects\Repositorios Git\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\vista\PanelRegistro.java
-C:\Users\50684\Documents\NetBeansProjects\Repositorios Git\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\vista\FramePrincipal.java
-C:\Users\50684\Documents\NetBeansProjects\Repositorios Git\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\SIGERECO.java
-C:\Users\50684\Documents\NetBeansProjects\Repositorios Git\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\vista\PanelAdmin.java
-C:\Users\50684\Documents\NetBeansProjects\Repositorios Git\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\modelo\UsuarioTb.java
-C:\Users\50684\Documents\NetBeansProjects\Repositorios Git\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\vista\PanelInicioSesion.java
-C:\Users\50684\Documents\NetBeansProjects\Repositorios Git\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\controlador\ControladorPrincipal.java
-C:\Users\50684\Documents\NetBeansProjects\Repositorios Git\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\controlador\exceptions\IllegalOrphanException.java
-C:\Users\50684\Documents\NetBeansProjects\Repositorios Git\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\vista\PanelTop10.java
-C:\Users\50684\Documents\NetBeansProjects\Repositorios Git\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\modelo\Categoria.java
-C:\Users\50684\Documents\NetBeansProjects\Repositorios Git\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\modelo\UnidadMedidaTb.java
-C:\Users\50684\Documents\NetBeansProjects\Repositorios Git\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\modelo\Consultas.java
-C:\Users\50684\Documents\NetBeansProjects\Repositorios Git\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\controlador\UsuarioTbJpaController.java
-C:\Users\50684\Documents\NetBeansProjects\Repositorios Git\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\modelo\ConsultaTb.java
-C:\Users\50684\Documents\NetBeansProjects\Repositorios Git\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\controlador\UsuarioHasRecetaTbJpaController.java
-C:\Users\50684\Documents\NetBeansProjects\Repositorios Git\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\vista\FrameReporte.java
-C:\Users\50684\Documents\NetBeansProjects\Repositorios Git\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\modelo\Receta.java
-C:\Users\50684\Documents\NetBeansProjects\Repositorios Git\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\vista\PanelRecetario.java
-C:\Users\50684\Documents\NetBeansProjects\Repositorios Git\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\modelo\UsuarioHasReceta1TbPK.java
-C:\Users\50684\Documents\NetBeansProjects\Repositorios Git\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\controlador\ControladorUsuarios.java
-C:\Users\50684\Documents\NetBeansProjects\Repositorios Git\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\modelo\Perfil.java
-C:\Users\50684\Documents\NetBeansProjects\Repositorios Git\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\modelo\UsuarioHasRecetaTbPK.java
-C:\Users\50684\Documents\NetBeansProjects\Repositorios Git\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\modelo\ComplejidadTb.java
-C:\Users\50684\Documents\NetBeansProjects\Repositorios Git\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\modelo\OcasionTb.java
-C:\Users\50684\Documents\NetBeansProjects\Repositorios Git\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\modelo\Ingrediente.java
-C:\Users\50684\Documents\NetBeansProjects\Repositorios Git\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\vista\FrameRecetario.java
-C:\Users\50684\Documents\NetBeansProjects\Repositorios Git\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\controlador\exceptions\PreexistingEntityException.java
-C:\Users\50684\Documents\NetBeansProjects\Repositorios Git\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\controlador\OcasionTbJpaController.java
-C:\Users\50684\Documents\NetBeansProjects\Repositorios Git\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\vista\FrameRegistro.java
-C:\Users\50684\Documents\NetBeansProjects\Repositorios Git\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\modelo\RecetaHasIngredienteTb.java
-C:\Users\50684\Documents\NetBeansProjects\Repositorios Git\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\vista\PanelConsulta.java
-C:\Users\50684\Documents\NetBeansProjects\Repositorios Git\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\controlador\ComplejidadTbJpaController.java
-C:\Users\50684\Documents\NetBeansProjects\Repositorios Git\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\controlador\UsuarioHasReceta1TbJpaController.java
-C:\Users\50684\Documents\NetBeansProjects\Repositorios Git\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\controlador\CategoriaTbJpaController.java
-C:\Users\50684\Documents\NetBeansProjects\Repositorios Git\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\controlador\RecetaTbJpaController.java
-C:\Users\50684\Documents\NetBeansProjects\Repositorios Git\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\modelo\RecetaTb.java
-C:\Users\50684\Documents\NetBeansProjects\Repositorios Git\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\modelo\CategoriaTb.java
-C:\Users\50684\Documents\NetBeansProjects\Repositorios Git\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\vista\FrameAdmin.java
-C:\Users\50684\Documents\NetBeansProjects\Repositorios Git\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\modelo\Dificultad.java
-C:\Users\50684\Documents\NetBeansProjects\Repositorios Git\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\modelo\RecetaHasIngredienteTbPK.java
-C:\Users\50684\Documents\NetBeansProjects\Repositorios Git\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\controlador\RecetaHasIngredienteTbJpaController.java
-C:\Users\50684\Documents\NetBeansProjects\Repositorios Git\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\modelo\PrivilegioTb.java
-C:\Users\50684\Documents\NetBeansProjects\Repositorios Git\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\modelo\UnidadMedida.java
-C:\Users\50684\Documents\NetBeansProjects\Repositorios Git\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\controlador\ConsultaTbJpaController.java
-C:\Users\50684\Documents\NetBeansProjects\Repositorios Git\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\modelo\PerfilTb.java
-C:\Users\50684\Documents\NetBeansProjects\Repositorios Git\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\controlador\UnidadMedidaTbJpaController.java
-C:\Users\50684\Documents\NetBeansProjects\Repositorios Git\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\modelo\Caracteristicas.java
-C:\Users\50684\Documents\NetBeansProjects\Repositorios Git\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\modelo\Ocasion.java
+C:\Users\taylo\Documents\repositorio\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\modelo\PrivilegioTb.java
+C:\Users\taylo\Documents\repositorio\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\controlador\exceptions\PreexistingEntityException.java
+C:\Users\taylo\Documents\repositorio\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\vista\PanelAdmin.java
+C:\Users\taylo\Documents\repositorio\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\modelo\Ingrediente.java
+C:\Users\taylo\Documents\repositorio\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\vista\PanelConsulta.java
+C:\Users\taylo\Documents\repositorio\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\controlador\UnidadMedidaTbJpaController.java
+C:\Users\taylo\Documents\repositorio\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\SIGERECO.java
+C:\Users\taylo\Documents\repositorio\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\controlador\RecetaTbJpaController.java
+C:\Users\taylo\Documents\repositorio\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\modelo\UnidadMedida.java
+C:\Users\taylo\Documents\repositorio\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\modelo\RecetaTb.java
+C:\Users\taylo\Documents\repositorio\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\modelo\UsuarioTb.java
+C:\Users\taylo\Documents\repositorio\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\vista\FrameRecetario.java
+C:\Users\taylo\Documents\repositorio\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\vista\FrameAdmin.java
+C:\Users\taylo\Documents\repositorio\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\modelo\UsuarioHasRecetaTbPK.java
+C:\Users\taylo\Documents\repositorio\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\controlador\OcasionTbJpaController.java
+C:\Users\taylo\Documents\repositorio\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\vista\FramePrincipal.java
+C:\Users\taylo\Documents\repositorio\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\vista\FrameReporte.java
+C:\Users\taylo\Documents\repositorio\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\modelo\Usuario.java
+C:\Users\taylo\Documents\repositorio\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\controlador\ControladorPrincipal.java
+C:\Users\taylo\Documents\repositorio\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\vista\FrameRegistro.java
+C:\Users\taylo\Documents\repositorio\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\modelo\Dificultad.java
+C:\Users\taylo\Documents\repositorio\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\modelo\Receta.java
+C:\Users\taylo\Documents\repositorio\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\vista\PanelRecetario.java
+C:\Users\taylo\Documents\repositorio\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\modelo\PerfilTb.java
+C:\Users\taylo\Documents\repositorio\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\controlador\IngredienteTbJpaController.java
+C:\Users\taylo\Documents\repositorio\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\modelo\ComplejidadTb.java
+C:\Users\taylo\Documents\repositorio\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\modelo\UsuarioHasReceta1TbPK.java
+C:\Users\taylo\Documents\repositorio\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\modelo\Perfil.java
+C:\Users\taylo\Documents\repositorio\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\modelo\RecetaHasIngredienteTbPK.java
+C:\Users\taylo\Documents\repositorio\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\controlador\ConsultaTbJpaController.java
+C:\Users\taylo\Documents\repositorio\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\vista\FrameInicioSesion.java
+C:\Users\taylo\Documents\repositorio\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\modelo\IngredienteTb.java
+C:\Users\taylo\Documents\repositorio\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\controlador\PerfilTbJpaController.java
+C:\Users\taylo\Documents\repositorio\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\controlador\CategoriaTbJpaController.java
+C:\Users\taylo\Documents\repositorio\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\controlador\UsuarioHasReceta1TbJpaController.java
+C:\Users\taylo\Documents\repositorio\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\vista\FrameUsuario.java
+C:\Users\taylo\Documents\repositorio\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\controlador\exceptions\NonexistentEntityException.java
+C:\Users\taylo\Documents\repositorio\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\modelo\UsuarioHasReceta1Tb.java
+C:\Users\taylo\Documents\repositorio\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\modelo\CategoriaTb.java
+C:\Users\taylo\Documents\repositorio\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\controlador\ComplejidadTbJpaController.java
+C:\Users\taylo\Documents\repositorio\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\modelo\Caracteristicas.java
+C:\Users\taylo\Documents\repositorio\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\modelo\OcasionTb.java
+C:\Users\taylo\Documents\repositorio\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\modelo\UnidadMedidaTb.java
+C:\Users\taylo\Documents\repositorio\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\vista\PanelInicioSesion.java
+C:\Users\taylo\Documents\repositorio\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\controlador\ControladorRecetas.java
+C:\Users\taylo\Documents\repositorio\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\vista\PanelTop10.java
+C:\Users\taylo\Documents\repositorio\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\modelo\Categoria.java
+C:\Users\taylo\Documents\repositorio\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\modelo\Ocasion.java
+C:\Users\taylo\Documents\repositorio\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\controlador\ControladorUsuarios.java
+C:\Users\taylo\Documents\repositorio\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\controlador\exceptions\IllegalOrphanException.java
+C:\Users\taylo\Documents\repositorio\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\modelo\Consultas.java
+C:\Users\taylo\Documents\repositorio\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\controlador\UsuarioHasRecetaTbJpaController.java
+C:\Users\taylo\Documents\repositorio\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\controlador\PrivilegioTbJpaController.java
+C:\Users\taylo\Documents\repositorio\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\modelo\RecetaHasIngredienteTb.java
+C:\Users\taylo\Documents\repositorio\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\modelo\ConsultaTb.java
+C:\Users\taylo\Documents\repositorio\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\controlador\RecetaHasIngredienteTbJpaController.java
+C:\Users\taylo\Documents\repositorio\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\vista\PanelRegistro.java
+C:\Users\taylo\Documents\repositorio\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\controlador\UsuarioTbJpaController.java
+C:\Users\taylo\Documents\repositorio\tm3100sigereco\SIGERECO\src\main\java\ucr\ac\cr\sigereco\modelo\UsuarioHasRecetaTb.java

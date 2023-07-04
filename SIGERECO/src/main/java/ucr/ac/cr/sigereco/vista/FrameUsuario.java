@@ -35,7 +35,7 @@ public class FrameUsuario extends javax.swing.JFrame {
         jMenuICerrarSesion = new javax.swing.JMenuItem();
         jMenuIUsuario = new javax.swing.JMenuItem();
         panelConsulta1 = new ucr.ac.cr.sigereco.vista.PanelConsulta();
-        panelTop101 = new ucr.ac.cr.sigereco.vista.PanelTop10();
+        jLabel14 = new javax.swing.JLabel();
         jMenuBarUsuario = new javax.swing.JMenuBar();
         jMenuExplorador = new javax.swing.JMenu();
         jMenuIRecetario = new javax.swing.JMenuItem();
@@ -54,6 +54,13 @@ public class FrameUsuario extends javax.swing.JFrame {
         jMenuIUsuario.setText("jMenuItem1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        panelConsulta1.setOpaque(false);
+        getContentPane().add(panelConsulta1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 437, -1));
+
+        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Principal-02.jpg"))); // NOI18N
+        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -230, 1280, 1080));
 
         jMenuExplorador.setText("Explorador");
 
@@ -66,30 +73,6 @@ public class FrameUsuario extends javax.swing.JFrame {
         jMenuBarUsuario.add(jMenuExplorador);
 
         setJMenuBar(jMenuBarUsuario);
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addComponent(panelConsulta1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(panelTop101, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(48, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(panelTop101, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(71, 71, 71)
-                        .addComponent(panelConsulta1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -167,6 +150,7 @@ public class FrameUsuario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JMenuBar jMenuBarUsuario;
     private javax.swing.JMenu jMenuExplorador;
     private javax.swing.JMenuItem jMenuIAyuda;
@@ -175,6 +159,5 @@ public class FrameUsuario extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuIRecetario;
     private javax.swing.JMenuItem jMenuIUsuario;
     private ucr.ac.cr.sigereco.vista.PanelConsulta panelConsulta1;
-    private ucr.ac.cr.sigereco.vista.PanelTop10 panelTop101;
     // End of variables declaration//GEN-END:variables
 }
