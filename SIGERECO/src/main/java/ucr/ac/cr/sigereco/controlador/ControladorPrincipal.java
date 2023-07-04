@@ -33,6 +33,7 @@ import ucr.ac.cr.sigereco.vista.FrameInicioSesion;
 import ucr.ac.cr.sigereco.vista.FramePrincipal;
 import ucr.ac.cr.sigereco.vista.FrameRecetario;
 import ucr.ac.cr.sigereco.vista.FrameRegistro;
+import ucr.ac.cr.sigereco.vista.FrameReporte;
 import ucr.ac.cr.sigereco.vista.FrameUsuario;
 import ucr.ac.cr.sigereco.vista.PanelAdmin;
 import ucr.ac.cr.sigereco.vista.PanelConsulta;
@@ -65,6 +66,7 @@ public class ControladorPrincipal implements ActionListener {
     private JSONObject objetoBase;
     private PanelAdmin panelAdmin;
     private File archivo;
+    private FrameReporte frameReporte;
 
     public ControladorPrincipal() {
 
@@ -82,6 +84,8 @@ public class ControladorPrincipal implements ActionListener {
         panelAdmin = frameAdmin.getPanelAdmin();
         panelRecetario = frameRecetario.getPanelRecetario();
         archivo = new File("Recetas.json");
+        frameReporte = new FrameReporte();
+        frameReporte.escuchar(this);
 
 //        frameAdmin.escuchar(this);
         frameRecetario.escuchar(this);
@@ -93,6 +97,18 @@ public class ControladorPrincipal implements ActionListener {
         framePrincipal.escuchar(this);
         frameInicioSesion.escuchar(this);
         frameAdmin.escuchar(this);
+    }
+
+    public String[][] getDatosTabla() {
+        List lista = recetaTbControlador.findRecetaTbEntities();
+        String[][] matrizDatos = new String[lista.size()][RecetaTb.ETIQUETAS_RECETAS.length];
+        for (int fila = 0; fila < lista.size(); fila++) {
+            for (int columna = 0; columna < matrizDatos[0].length; columna++) {
+                RecetaTb obj = (RecetaTb) lista.get(fila);
+                matrizDatos[fila][columna] = obj.setDatos(columna);
+            }
+        }
+        return matrizDatos;
     }
 
     public void escribirJson() {
@@ -410,10 +426,12 @@ public class ControladorPrincipal implements ActionListener {
                                             AsignarRecetarioFiltrado(posicion, desicion);
 
                                         } else {
-
-                                            frameRecetario.setVisible(true);
-                                            frameRecetario.setLocationRelativeTo(null);
-                                            AsignarRecetario(posicion);
+                                            if (panelConsulta.getCboxCategoria().equals("Todas") && panelConsulta.getCboxDificultad().equals("Todas") && panelConsulta.getCboxOcasion().equals("Todas")) {
+                                                desicion = 0;
+                                                frameRecetario.setVisible(true);
+                                                frameRecetario.setLocationRelativeTo(null);
+                                                AsignarRecetario(posicion);
+                                            }
 
                                         }
 
@@ -703,6 +721,14 @@ public class ControladorPrincipal implements ActionListener {
                 }
                 System.out.println("Conexion Exitosa");
 
+                break;
+
+            case "Reporte":
+                frameReporte.setDatosTabla(getDatosTabla(), RecetaTb.ETIQUETAS_RECETAS);
+                frameReporte.setVisible(true);
+                break;
+            case "Regresar":
+                frameReporte.dispose();
                 break;
 
             ////////////////////////Cases para Usuario///////////////////

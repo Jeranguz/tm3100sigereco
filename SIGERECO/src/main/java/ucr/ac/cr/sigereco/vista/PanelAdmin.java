@@ -65,6 +65,7 @@ public class PanelAdmin extends javax.swing.JPanel {
         rBtnIngredientes.addActionListener(controladorPrincipal);
         rBtnRecetas.addActionListener(controladorPrincipal);
         rBtnUnidades.addActionListener(controladorPrincipal);
+        btnReporte.addActionListener(controladorPrincipal);
     }
     
     public String getTxtNombreRecet (){
@@ -244,6 +245,7 @@ public class PanelAdmin extends javax.swing.JPanel {
         jTextAreaIngredientes = new javax.swing.JTextArea();
         jLabel31 = new javax.swing.JLabel();
         jCBoxDificultad = new javax.swing.JComboBox<>();
+        btnReporte = new javax.swing.JButton();
         jPanelIngredientes = new javax.swing.JPanel();
         lblNombreIngr = new javax.swing.JLabel();
         lblDescrIngr = new javax.swing.JLabel();
@@ -341,6 +343,8 @@ public class PanelAdmin extends javax.swing.JPanel {
 
         jCBoxDificultad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Fácil", "Intermedio", "Avanzado" }));
 
+        btnReporte.setText("Reporte");
+
         javax.swing.GroupLayout jPnlRecetasLayout = new javax.swing.GroupLayout(jPnlRecetas);
         jPnlRecetas.setLayout(jPnlRecetasLayout);
         jPnlRecetasLayout.setHorizontalGroup(
@@ -423,6 +427,8 @@ public class PanelAdmin extends javax.swing.JPanel {
                         .addComponent(btnModifRecet)
                         .addGap(194, 194, 194)
                         .addComponent(btnEliminRecet)
+                        .addGap(222, 222, 222)
+                        .addComponent(btnReporte)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPnlRecetasLayout.setVerticalGroup(
@@ -474,16 +480,22 @@ public class PanelAdmin extends javax.swing.JPanel {
                 .addGroup(jPnlRecetasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel33)
                     .addComponent(jLabel34))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPnlRecetasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane6)
-                    .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(19, 19, 19)
-                .addGroup(jPnlRecetasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAgregarRecet)
-                    .addComponent(btnModifRecet)
-                    .addComponent(btnEliminRecet))
-                .addContainerGap(43, Short.MAX_VALUE))
+                .addGroup(jPnlRecetasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPnlRecetasLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPnlRecetasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane6)
+                            .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(19, 19, 19)
+                        .addGroup(jPnlRecetasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnAgregarRecet)
+                            .addComponent(btnModifRecet)
+                            .addComponent(btnEliminRecet))
+                        .addContainerGap(43, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPnlRecetasLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnReporte)
+                        .addGap(34, 34, 34))))
         );
 
         jPanelIngredientes.setBorder(javax.swing.BorderFactory.createTitledBorder("Ingredientes"));
@@ -677,6 +689,7 @@ public class PanelAdmin extends javax.swing.JPanel {
     private javax.swing.JButton btnModifIngr;
     private javax.swing.JButton btnModifRecet;
     private javax.swing.JButton btnModifUnid;
+    private javax.swing.JButton btnReporte;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JComboBox<String> jCBoxCategoria;
     private javax.swing.JComboBox<String> jCBoxDificultad;

@@ -78,6 +78,7 @@ public class RecetaTb implements Serializable {
     @Basic(optional = false)
     @Column(name = "categoria")
     private String categoria;
+    public static final String[] ETIQUETAS_RECETAS = {"Id","Nombre","Descripcion","Imagen","Instrucciones","Minutos de preparacion","Minutos de coccion", "Porciones","Ingredientes","Dificultad","Ocasion","Categoria"};
 
     public RecetaTb() {
     }
@@ -98,6 +99,38 @@ public class RecetaTb implements Serializable {
         this.dificultad = dificultad;
         this.ocasion = ocasion;
         this.categoria = categoria;
+    }
+    
+    public String setDatos(int indice){
+        switch(indice){
+            case 0:
+                return this.getId()+"";
+                
+            case 1:
+                return this.getNombre();
+            case 2:
+                return this.getDescripcion();
+            case 3: 
+                return this.getImagen();
+            case 4:
+                return this.getInstrucciones();
+            case 5:
+                return this.getMinutosPreparacion()+"";
+            case 6:
+                return this.getMinutosCoccion()+"";
+            case 7:
+                return this.getPorciones()+"";
+            case 8:
+                return this.getIngredientes();
+            case 9:
+                return this.getDificultad();
+            case 10:
+                return this.getOcasion();
+            case 11:
+                return this.getCategoria();
+            
+        }
+        return "";
     }
 
     public Integer getId() {
