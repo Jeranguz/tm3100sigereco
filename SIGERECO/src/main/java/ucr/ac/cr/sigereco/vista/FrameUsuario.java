@@ -60,7 +60,7 @@ public class FrameUsuario extends javax.swing.JFrame {
         getContentPane().add(panelConsulta1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 437, -1));
 
         jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Principal-02.jpg"))); // NOI18N
-        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -230, 1280, 1080));
+        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(-40, 0, 950, 610));
 
         jMenuExplorador.setText("Explorador");
 
